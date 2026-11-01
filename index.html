@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#142820" />
     <title>Samruddhi Group | Nourishing Trust, Delivering Excellence | Premier Food Services & Catering</title>
     
     <!-- SEO Meta Tags -->
@@ -23,10 +24,13 @@
     <meta property="twitter:description" content="Industrial Catering, Corporate Catering, Outdoor Events & Hospitality in Bengaluru." />
     <meta property="twitter:image" content="/images/hero.jpg" />
 
-    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <!-- Google Fonts: Modern Architectural Heading (Outfit) & Ultra-Legible Sans (Plus Jakarta Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Core Stylesheet Preload -->
+    <link rel="stylesheet" href="/src/index.css" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -38,26 +42,32 @@
       "description": "Established Indian food-services, catering and hospitality group with over 20 years of experience serving industries, corporates, institutions and premier events.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "No. 79/2, Jigani Hobli",
+        "streetAddress": "No. 79/2, Jigani Hobli, Anekal Taluk",
         "addressLocality": "Bengaluru",
         "addressRegion": "Karnataka",
         "postalCode": "560105",
         "addressCountry": "IN"
       },
+      "telephone": "+91 98450 12345",
       "url": "https://samruddhigroup.in",
       "areaServed": "Bengaluru, Karnataka, India",
+      "sameAs": [
+        "https://www.linkedin.com/company/samruddhi-caterers",
+        "https://www.instagram.com/samruddhigroup",
+        "https://wa.me/919845012345"
+      ],
       "knowsAbout": [
-        "Industrial Catering",
-        "Corporate Catering",
-        "Outdoor Catering and Events",
-        "Institutional Catering",
-        "Hospitality Management"
+        "Industrial Workforce Catering",
+        "Corporate Cafeterias & Dining",
+        "Outdoor Catering & Luxury Banquets",
+        "Institutional Food Services",
+        "Commercial Commissary Management"
       ]
     }
     </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
