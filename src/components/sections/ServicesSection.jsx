@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useApp } from '../../hooks/useApp';
 import { SERVICES_DATA } from '../../data/samruddhiData';
-import { SectionHeading } from '../common/SectionHeading';
-import { Check, Layers, Users, Building, ArrowRight, MessageSquare, Maximize2 } from 'lucide-react';
+import { Check, Layers, Users, Truck, Building, ArrowRight, MessageSquare, Maximize2 } from 'lucide-react';
 
 export const ServicesSection = ({
   onSelectService: propOnSelectService,
@@ -21,23 +21,41 @@ export const ServicesSection = ({
 
   return (
     <section id="services" style={{ backgroundColor: '#FAFAF8' }}>
-      <div className="container-wide">
-        <SectionHeading
-          badgeIcon={Layers}
-          badgeText="Core Capabilities"
-          title="End-to-End Culinary Solutions"
-          description="Scalable industrial kitchens, corporate cafeterias, grand outdoor events, and institutional dining."
-          compact={true}
-        />
+      {/* Header Band */}
+      <div className="page-hero-band">
+        <div className="container-wide" style={{ textAlign: 'center', maxWidth: '800px' }}>
+          <span className="badge-pill" style={{ marginBottom: '0.85rem' }}>
+            <Layers size={13} color="var(--color-terracotta)" />
+            <span>Core Enterprise Capabilities</span>
+          </span>
 
-        {/* Filter Navigation Tabs */}
+          <h1
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(1.95rem, 3.6vw, 2.9rem)',
+              color: 'var(--color-text-main)',
+              marginBottom: '0.85rem',
+            }}
+          >
+            End-to-End Culinary Solutions Across Scale & Setting
+          </h1>
+
+          <p style={{ fontSize: '1rem', color: 'var(--color-text-body)', lineHeight: 1.68, margin: 0 }}>
+            High-volume industrial workforce nutrition, daily tech-park cafeterias, residential institutional dining, and
+            grand celebratory catering delivered from a single dependable commissary.
+          </p>
+        </div>
+      </div>
+
+      <div className="container-wide">
+        {/* Category Filter Tabs */}
         <div
           style={{
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            gap: '0.45rem',
-            marginBottom: '1.75rem',
+            gap: '0.5rem',
+            marginBottom: '2.5rem',
           }}
           role="tablist"
           aria-label="Filter Services"
@@ -45,7 +63,7 @@ export const ServicesSection = ({
           <button
             onClick={() => setActiveTab('all')}
             style={{
-              padding: '0.5rem 1.05rem',
+              padding: '0.6rem 1.3rem',
               borderRadius: 'var(--radius-pill)',
               border: activeTab === 'all'
                 ? '1px solid var(--color-pine-primary)'
@@ -53,7 +71,7 @@ export const ServicesSection = ({
               backgroundColor: activeTab === 'all' ? 'var(--color-pine-primary)' : 'var(--color-surface)',
               color: activeTab === 'all' ? '#FFFFFF' : 'var(--color-text-body)',
               fontFamily: 'var(--font-body)',
-              fontSize: '0.82rem',
+              fontSize: '0.86rem',
               fontWeight: 600,
               cursor: 'pointer',
               transition: 'all 0.18s ease',
@@ -69,7 +87,7 @@ export const ServicesSection = ({
               key={srv.id}
               onClick={() => setActiveTab(srv.id)}
               style={{
-                padding: '0.5rem 1.05rem',
+                padding: '0.6rem 1.3rem',
                 borderRadius: 'var(--radius-pill)',
                 border: activeTab === srv.id
                   ? '1px solid var(--color-pine-primary)'
@@ -77,7 +95,7 @@ export const ServicesSection = ({
                 backgroundColor: activeTab === srv.id ? 'var(--color-pine-primary)' : 'var(--color-surface)',
                 color: activeTab === srv.id ? '#FFFFFF' : 'var(--color-text-body)',
                 fontFamily: 'var(--font-body)',
-                fontSize: '0.82rem',
+                fontSize: '0.86rem',
                 fontWeight: 600,
                 cursor: 'pointer',
                 transition: 'all 0.18s ease',
@@ -90,18 +108,10 @@ export const ServicesSection = ({
           ))}
         </div>
 
-        {/* Crisp Services Cards Grid */}
+        {/* Balanced 2x2 Architectural Grid on Desktop */}
         <div
-          className="services-cards-grid"
-          style={{
-            display: 'grid',
-            gridTemplateColumns:
-              filteredServices.length === 1
-                ? 'minmax(300px, 640px)'
-                : 'repeat(auto-fit, minmax(265px, 1fr))',
-            gap: '1.25rem',
-            justifyContent: 'center',
-          }}
+          className={filteredServices.length === 1 ? 'services-grid-single' : 'services-grid-two-col'}
+          style={{ marginBottom: '3.25rem' }}
         >
           {filteredServices.map((service, index) => {
             const indexNumber = `0${index + 1}`;
@@ -118,32 +128,36 @@ export const ServicesSection = ({
                   height: '100%',
                 }}
               >
-                {/* Visual Image Header with Zoom & Light Sheen Sweep */}
-                <div className="card-img-wrap" style={{ height: '165px' }}>
-                  <img src={service.image} alt={service.title} />
+                {/* Media Showcase */}
+                <div className="card-img-wrap" style={{ height: '225px', overflow: 'hidden' }}>
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
 
                   <div
                     style={{
                       position: 'absolute',
                       inset: 0,
                       background:
-                        'linear-gradient(180deg, rgba(15, 25, 20, 0.35) 0%, rgba(15, 25, 20, 0.05) 50%, rgba(15, 25, 20, 0.85) 100%)',
+                        'linear-gradient(180deg, rgba(15, 25, 20, 0.38) 0%, rgba(15, 25, 20, 0.06) 50%, rgba(15, 25, 20, 0.85) 100%)',
                     }}
                   />
 
                   <div
                     style={{
                       position: 'absolute',
-                      top: '0.75rem',
-                      left: '0.75rem',
+                      top: '1rem',
+                      left: '1rem',
                       backgroundColor: 'rgba(21, 43, 34, 0.92)',
                       backdropFilter: 'blur(8px)',
                       color: '#FFFFFF',
-                      fontSize: '0.68rem',
+                      fontSize: '0.72rem',
                       fontWeight: 700,
                       textTransform: 'uppercase',
-                      letterSpacing: '0.07em',
-                      padding: '0.28rem 0.65rem',
+                      letterSpacing: '0.08em',
+                      padding: '0.32rem 0.75rem',
                       borderRadius: 'var(--radius-pill)',
                       border: '1px solid rgba(255, 255, 255, 0.16)',
                     }}
@@ -154,11 +168,11 @@ export const ServicesSection = ({
                   <div
                     style={{
                       position: 'absolute',
-                      top: '0.75rem',
-                      right: '0.75rem',
+                      top: '1rem',
+                      right: '1rem',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '0.35rem',
+                      gap: '0.4rem',
                     }}
                   >
                     <span
@@ -166,10 +180,10 @@ export const ServicesSection = ({
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                         backdropFilter: 'blur(6px)',
                         color: '#FFFFFF',
-                        fontSize: '0.7rem',
+                        fontSize: '0.74rem',
                         fontWeight: 800,
                         fontFamily: 'var(--font-heading)',
-                        padding: '0.22rem 0.5rem',
+                        padding: '0.28rem 0.58rem',
                         borderRadius: 'var(--radius-xs)',
                       }}
                     >
@@ -185,8 +199,8 @@ export const ServicesSection = ({
                         color: '#FFFFFF',
                         border: '1px solid rgba(255, 255, 255, 0.22)',
                         borderRadius: 'var(--radius-xs)',
-                        width: '26px',
-                        height: '26px',
+                        width: '28px',
+                        height: '28px',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -196,25 +210,18 @@ export const ServicesSection = ({
                       title="Expand Service Specifications"
                       aria-label={`View ${service.title} Specifications`}
                     >
-                      <Maximize2 size={12} />
+                      <Maximize2 size={13} />
                     </button>
                   </div>
 
-                  <div
-                    style={{
-                      position: 'absolute',
-                      bottom: '0.65rem',
-                      left: '0.75rem',
-                      right: '0.75rem',
-                    }}
-                  >
+                  <div style={{ position: 'absolute', bottom: '0.85rem', left: '1.1rem', right: '1.1rem' }}>
                     <span
                       style={{
-                        fontSize: '0.72rem',
-                        color: '#E5EDE9',
+                        fontSize: '0.76rem',
+                        color: '#E8EFEA',
                         fontWeight: 600,
                         backgroundColor: 'rgba(21, 43, 34, 0.78)',
-                        padding: '0.18rem 0.55rem',
+                        padding: '0.24rem 0.65rem',
                         borderRadius: 'var(--radius-xs)',
                       }}
                     >
@@ -223,123 +230,84 @@ export const ServicesSection = ({
                   </div>
                 </div>
 
-                {/* Card Body */}
+                {/* Spacious Card Body */}
                 <div
                   style={{
-                    padding: '1.15rem 1.25rem',
+                    padding: 'clamp(1.4rem, 2.5vw, 1.85rem)',
                     display: 'flex',
                     flexDirection: 'column',
                     flexGrow: 1,
                   }}
                 >
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.2rem',
-                      fontWeight: 800,
-                      color: 'var(--color-text-main)',
-                      marginBottom: '0.15rem',
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {service.title}
-                  </h3>
+                  <h2 style={{ fontSize: '1.42rem', marginBottom: '0.25rem' }}>{service.title}</h2>
 
-                  <div
-                    style={{
-                      fontSize: '0.82rem',
-                      fontWeight: 700,
-                      color: 'var(--color-terracotta)',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--color-terracotta)', marginBottom: '0.65rem' }}>
                     {service.headline}
                   </div>
 
-                  <p
-                    style={{
-                      fontSize: '0.84rem',
-                      color: 'var(--color-text-body)',
-                      lineHeight: 1.5,
-                      marginBottom: '0.85rem',
-                    }}
-                  >
+                  <p style={{ fontSize: '0.92rem', color: 'var(--color-text-body)', lineHeight: 1.62, marginBottom: '1.25rem' }}>
                     {service.shortDesc}
                   </p>
 
-                  {/* Compact Meta Pills */}
+                  {/* Structured Operational Specs */}
                   <div
                     style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '0.4rem',
-                      marginBottom: '0.85rem',
+                      backgroundColor: 'var(--color-surface-subtle)',
+                      borderRadius: 'var(--radius-sm)',
+                      padding: '0.9rem 1.05rem',
+                      marginBottom: '1.25rem',
+                      border: '1px solid var(--color-border)',
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fit, minmax(175px, 1fr))',
+                      gap: '0.65rem',
                     }}
                   >
                     {service.idealFor && (
-                      <span
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '0.3rem',
-                          fontSize: '0.72rem',
-                          fontWeight: 600,
-                          backgroundColor: 'var(--color-surface-subtle)',
-                          border: '1px solid var(--color-border)',
-                          borderRadius: 'var(--radius-xs)',
-                          padding: '0.22rem 0.5rem',
-                          color: 'var(--color-text-main)',
-                        }}
-                      >
-                        <Building size={11} color="var(--color-pine-primary)" />
-                        {service.idealFor}
-                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem' }}>
+                        <Building size={14} color="var(--color-pine-primary)" style={{ flexShrink: 0 }} />
+                        <span style={{ color: 'var(--color-text-main)', fontWeight: 600 }}>{service.idealFor}</span>
+                      </div>
                     )}
+
+                    {service.deliveryFormat && (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem' }}>
+                        <Truck size={14} color="var(--color-pine-primary)" style={{ flexShrink: 0 }} />
+                        <span style={{ color: 'var(--color-text-main)' }}>{service.deliveryFormat}</span>
+                      </div>
+                    )}
+
                     {service.shiftReady && (
-                      <span
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '0.3rem',
-                          fontSize: '0.72rem',
-                          fontWeight: 600,
-                          backgroundColor: 'var(--color-surface-subtle)',
-                          border: '1px solid var(--color-border)',
-                          borderRadius: 'var(--radius-xs)',
-                          padding: '0.22rem 0.5rem',
-                          color: 'var(--color-text-main)',
-                        }}
-                      >
-                        <Users size={11} color="var(--color-terracotta)" />
-                        {service.shiftReady}
-                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem' }}>
+                        <Users size={14} color="var(--color-terracotta)" style={{ flexShrink: 0 }} />
+                        <span style={{ color: 'var(--color-text-main)' }}>{service.shiftReady}</span>
+                      </div>
                     )}
                   </div>
 
-                  {/* Minimal Highlights */}
+                  {/* Key Deliverables */}
                   <ul
                     style={{
                       listStyle: 'none',
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: '0.35rem',
+                      gap: '0.45rem',
                       marginTop: 'auto',
-                      marginBottom: '1rem',
+                      marginBottom: '1.4rem',
                     }}
                   >
-                    {service.highlights.slice(0, 2).map((item, idx) => (
+                    {service.highlights.slice(0, 3).map((item, idx) => (
                       <li
                         key={idx}
                         style={{
                           display: 'flex',
                           alignItems: 'flex-start',
-                          gap: '0.45rem',
-                          fontSize: '0.8rem',
+                          gap: '0.55rem',
+                          fontSize: '0.86rem',
                           color: 'var(--color-text-body)',
-                          lineHeight: 1.4,
+                          lineHeight: 1.45,
                         }}
                       >
-                        <Check size={13} color="var(--color-terracotta)" style={{ flexShrink: 0, marginTop: '0.18rem' }} />
+                        <Check size={14} color="var(--color-terracotta)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -349,9 +317,9 @@ export const ServicesSection = ({
                   <div
                     style={{
                       display: 'grid',
-                      gridTemplateColumns: '1fr 1.25fr auto',
-                      gap: '0.5rem',
-                      paddingTop: '0.85rem',
+                      gridTemplateColumns: '1fr 1.3fr auto',
+                      gap: '0.6rem',
+                      paddingTop: '1.05rem',
                       borderTop: '1px solid var(--color-border-card)',
                       alignItems: 'center',
                     }}
@@ -360,19 +328,19 @@ export const ServicesSection = ({
                       type="button"
                       onClick={() => handleSelect(service)}
                       className="btn btn-secondary btn-sm"
-                      style={{ width: '100%', padding: '0.5rem 0.65rem', fontSize: '0.78rem' }}
+                      style={{ width: '100%' }}
                     >
-                      <span>Specs</span>
+                      <span>Full Specs</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => handleRequest(service.title)}
                       className="btn btn-primary btn-sm"
-                      style={{ width: '100%', padding: '0.5rem 0.65rem', fontSize: '0.78rem' }}
+                      style={{ width: '100%' }}
                     >
                       <span>Request RFP</span>
-                      <ArrowRight size={12} className="hover-arrow" />
+                      <ArrowRight size={13} className="hover-arrow" />
                     </button>
 
                     <a
@@ -380,7 +348,7 @@ export const ServicesSection = ({
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-whatsapp btn-sm"
-                      style={{ padding: '0.5rem 0.6rem' }}
+                      style={{ padding: '0.55rem 0.7rem' }}
                       title={`WhatsApp regarding ${service.title}`}
                       aria-label={`Chat on WhatsApp regarding ${service.title}`}
                     >
@@ -392,7 +360,42 @@ export const ServicesSection = ({
             );
           })}
         </div>
+
+        {/* Bottom Consultation Strip */}
+        <div className="cta-band">
+          <div>
+            <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
+              Need a Custom Shift Schedule or Tasting Session?
+            </h3>
+            <p style={{ color: '#C5D2CC', fontSize: '0.9rem', margin: 0 }}>
+              Our procurement desk configures multi-shift menus, pricing models, and SLA terms in under 2 hours.
+            </p>
+          </div>
+
+          <Link to="/contact" className="btn btn-terracotta">
+            <span>Go to Enquiry Desk</span>
+            <ArrowRight size={15} className="hover-arrow" />
+          </Link>
+        </div>
       </div>
+
+      <style>{`
+        .services-grid-two-col {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.85rem;
+        }
+        .services-grid-single {
+          display: grid;
+          grid-template-columns: minmax(320px, 760px);
+          justify-content: center;
+        }
+        @media (max-width: 860px) {
+          .services-grid-two-col {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 };

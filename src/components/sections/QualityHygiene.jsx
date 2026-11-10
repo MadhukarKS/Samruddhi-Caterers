@@ -1,195 +1,259 @@
 import React from 'react';
-import { SectionHeading } from '../common/SectionHeading';
-import { ShieldCheck, Truck, Utensils, CheckCircle2, Award, ClipboardCheck, FileCheck, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import {
+  ShieldCheck,
+  Truck,
+  Utensils,
+  CheckCircle2,
+  Award,
+  ClipboardCheck,
+  FileCheck,
+  Check,
+  ArrowRight,
+} from 'lucide-react';
 
 export const QualityHygiene = () => {
   const foundations = [
     {
-      icon: <Utensils size={20} color="var(--color-terracotta)" />,
+      icon: <Utensils size={21} color="var(--color-terracotta)" />,
       title: 'Central Kitchen Infrastructure',
-      desc: 'Segregated Jigani prep bays with industrial steam kettles, cold rooms, and steel finishing lines.',
+      desc: 'Engineered in Jigani Hobli with segregated raw-to-cooked prep bays, industrial steam kettles, cold storage, and stainless finishing lines.',
     },
     {
-      icon: <Award size={20} color="var(--color-terracotta)" />,
-      title: 'Trained Chefs & Stewards',
-      desc: 'Certified culinary staff practicing standardized recipes, clean grooming, and shift sanitation.',
+      icon: <Award size={21} color="var(--color-terracotta)" />,
+      title: 'Certified Culinary & Support Staff',
+      desc: 'Master chefs and stewards trained in standardized batch cooking, uniform grooming, thermal safety, and sanitation hygiene.',
     },
     {
-      icon: <Truck size={20} color="var(--color-terracotta)" />,
-      title: 'GPS Fleet Logistics',
-      desc: 'Route-tracked hot-box vehicles guaranteeing punctual temperature-retained delivery.',
+      icon: <Truck size={21} color="var(--color-terracotta)" />,
+      title: 'GPS-Synchronized Fleet Dispatch',
+      desc: 'Disciplined route scheduling and temperature-retaining insulated vans delivering meals reliably before every campus shift.',
     },
     {
-      icon: <ShieldCheck size={20} color="var(--color-terracotta)" />,
-      title: 'Farm-Traceable Sourcing',
-      desc: 'Quality-screened produce and spices packed in tamper-evident food-grade containers.',
+      icon: <ShieldCheck size={21} color="var(--color-terracotta)" />,
+      title: 'Farm-Traceable Sourcing & Packaging',
+      desc: 'Fresh produce and whole spices sourced directly from accredited partners and sealed inside tamper-evident food-grade containers.',
     },
     {
-      icon: <ClipboardCheck size={20} color="var(--color-terracotta)" />,
-      title: 'Standardized Audits & SOPs',
-      desc: 'Strict thermal monitoring, sample tasting audits, and batch traceability before dispatch.',
+      icon: <ClipboardCheck size={21} color="var(--color-terracotta)" />,
+      title: 'Standardized Preparation Audits',
+      desc: 'Rigorous SOPs governing core cooking temperatures, seasoning balance, chef sample tasting, and time-stamped sealing.',
     },
     {
-      icon: <CheckCircle2 size={20} color="var(--color-terracotta)" />,
-      title: 'Daily Lab Verification',
-      desc: 'Continuous microbiological swabbing, purified RO water checks, and SLA reporting.',
+      icon: <CheckCircle2 size={21} color="var(--color-terracotta)" />,
+      title: 'Continuous Microbiological Testing',
+      desc: 'Daily surface swabbing, purified RO water checks, and food sample retention banks guaranteeing end-to-end client safety.',
     },
+  ];
+
+  const workflow = [
+    { step: '01', label: 'Daily Raw Screening', detail: 'Farm produce, grain purity & moisture checks at intake.' },
+    { step: '02', label: 'RO & Steam Processing', detail: 'Calibrated high-temperature cooking in segregated bays.' },
+    { step: '03', label: 'Chef & Lab Sign-off', detail: 'Organoleptic tasting + 48-hour sample retention lock.' },
+    { step: '04', label: 'Hot-Box GPS Dispatch', detail: 'Tamper-sealed vessels tracked directly to your campus.' },
   ];
 
   return (
     <section id="hygiene" style={{ backgroundColor: '#FAFAF8' }}>
-      <div className="container-wide">
-        <div
-          style={{
-            backgroundColor: '#152B22',
-            color: '#FFFFFF',
-            padding: 'clamp(1.6rem, 3vw, 2.35rem)',
-            borderRadius: 'var(--radius-lg)',
-            boxShadow: 'var(--shadow-lg)',
-          }}
-        >
-          <SectionHeading
-            badgeIcon={ShieldCheck}
-            badgeText="Verified Food Safety & Audits"
-            title="Excellence Built Into Every Process."
-            description="FSSAI Level 5 and ISO 22000:2018 hygiene disciplines across procurement, cooking, and dispatch."
-            isDark={true}
-            compact={true}
-          />
-
-      {/* 6 Compact Dark Showcase Cards */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '1.15rem',
-          marginBottom: '1.75rem',
-        }}
-      >
-        {foundations.map((item, idx) => (
-          <div
-            key={idx}
-            className="card-dark-showcase"
-            style={{
-              '--stagger': idx,
-              padding: '1.35rem',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.6rem',
-            }}
-          >
-            <div
-              className="card-icon-box"
-              style={{
-                width: '38px',
-                height: '38px',
-                borderRadius: 'var(--radius-sm)',
-                backgroundColor: 'rgba(200, 94, 52, 0.14)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              {item.icon}
-            </div>
-
-            <h3
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.08rem',
-                color: '#FFFFFF',
-                lineHeight: 1.25,
-                margin: 0,
-              }}
-            >
-              {item.title}
-            </h3>
-
-            <p
-              style={{
-                fontSize: '0.84rem',
-                color: '#B8C5BE',
-                lineHeight: 1.5,
-                margin: 0,
-              }}
-            >
-              {item.desc}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* Compact Facility Credentials Banner */}
-      <div
-        style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.06)',
-          border: '1px solid rgba(255, 255, 255, 0.14)',
-          borderRadius: 'var(--radius-md)',
-          padding: '1.15rem 1.5rem',
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '1rem',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-          <div
-            style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--color-terracotta)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#FFFFFF',
-              flexShrink: 0,
-            }}
-          >
-            <FileCheck size={20} />
-          </div>
-
-          <div>
-            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: 700, color: '#FFFFFF' }}>
-              FSSAI Central Commissary Lic. #11221334000542
-            </div>
-            <div style={{ fontSize: '0.8rem', color: '#B8C5BE' }}>
-              No. 79/2, Jigani Hobli, Anekal Taluk, Bengaluru – 560105
-            </div>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
-          <span
-            style={{
-              fontSize: '0.8rem',
-              color: '#D8E2DC',
-              fontWeight: 600,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-            }}
-          >
-            <Check size={15} color="var(--color-whatsapp)" />
-            Daily Swab & Water Tests
+      {/* Band 1: Crisp Architectural Header */}
+      <div className="page-hero-band" style={{ marginBottom: 0 }}>
+        <div className="container-wide" style={{ textAlign: 'center', maxWidth: '800px' }}>
+          <span className="badge-pill" style={{ marginBottom: '0.85rem' }}>
+            <ShieldCheck size={13} color="var(--color-terracotta)" />
+            <span>Verified Food Safety & Audits</span>
           </span>
 
-          <span
+          <h1
             style={{
-              fontSize: '0.8rem',
-              color: '#D8E2DC',
-              fontWeight: 600,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(2rem, 3.6vw, 2.9rem)',
+              color: 'var(--color-text-main)',
+              marginBottom: '0.85rem',
             }}
           >
-            <Check size={15} color="var(--color-whatsapp)" />
-            ISO 22000:2018 Certified
-          </span>
+            Excellence Built Into Every Process.
+          </h1>
+
+          <p style={{ fontSize: '1rem', color: 'var(--color-text-body)', lineHeight: 1.68, margin: 0 }}>
+            In institutional food services, safety is non-negotiable. Every kitchen line operates under FSSAI Level 5
+            protocols and ISO 22000:2018 quality governance.
+          </p>
         </div>
       </div>
+
+      {/* Band 2: Deep Forest Pine Core Safety Pillars */}
+      <div
+        style={{
+          backgroundColor: '#152B22',
+          color: '#FFFFFF',
+          padding: 'clamp(3rem, 5.5vw, 4.5rem) 0',
+        }}
+      >
+        <div className="container-wide">
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '1.5rem',
+            }}
+          >
+            {foundations.map((item, idx) => (
+              <div
+                key={idx}
+                className="card-dark-showcase"
+                style={{
+                  '--stagger': idx,
+                  padding: '1.85rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.8rem',
+                }}
+              >
+                <div
+                  className="card-icon-box"
+                  style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: 'var(--radius-sm)',
+                    backgroundColor: 'rgba(200, 94, 52, 0.16)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {item.icon}
+                </div>
+
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '1.22rem',
+                    color: '#FFFFFF',
+                    lineHeight: 1.3,
+                    margin: 0,
+                  }}
+                >
+                  {item.title}
+                </h2>
+
+                <p style={{ fontSize: '0.9rem', color: '#B8C5BE', lineHeight: 1.62, margin: 0 }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Band 3: Light Alabaster QA Workflow & Certification Strip (cleanly separates from Footer) */}
+      <div
+        style={{
+          backgroundColor: '#FAFAF8',
+          padding: 'clamp(3rem, 5vw, 4.25rem) 0 0 0',
+        }}
+      >
+        <div className="container-wide">
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <span className="badge-pill" style={{ marginBottom: '0.7rem' }}>
+              <span>4-Stage Daily Dispatch Control</span>
+            </span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.6rem, 2.8vw, 2.1rem)', margin: 0 }}>
+              From Raw Intake to On-Time Shift Delivery
+            </h2>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+              gap: '1.25rem',
+              marginBottom: '2.75rem',
+            }}
+          >
+            {workflow.map((w, idx) => (
+              <div
+                key={w.step}
+                className="card-showcase"
+                style={{
+                  '--stagger': idx,
+                  padding: '1.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.55rem',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '1.65rem',
+                    fontWeight: 800,
+                    color: 'var(--color-terracotta)',
+                    lineHeight: 1,
+                  }}
+                >
+                  {w.step}
+                </span>
+                <h3 style={{ fontSize: '1.08rem', color: 'var(--color-text-main)', margin: 0 }}>{w.label}</h3>
+                <p style={{ fontSize: '0.86rem', color: 'var(--color-text-muted)', lineHeight: 1.55, margin: 0 }}>
+                  {w.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Elevated Light Certification & Audit Card */}
+          <div
+            className="card-showcase"
+            style={{
+              '--stagger': 4,
+              padding: 'clamp(1.5rem, 3vw, 2.25rem)',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '1.5rem',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.1rem' }}>
+              <div
+                className="card-icon-box"
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: 'var(--radius-sm)',
+                  backgroundColor: 'var(--color-terracotta-light)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--color-terracotta)',
+                  flexShrink: 0,
+                }}
+              >
+                <FileCheck size={24} />
+              </div>
+
+              <div>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.22rem', color: 'var(--color-text-main)', marginBottom: '0.25rem' }}>
+                  ISO 22000:2018 & FSSAI Level 5 Accredited Commissary
+                </h3>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', fontSize: '0.84rem', color: 'var(--color-text-body)', fontWeight: 500 }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                    <Check size={15} color="#1E7E55" />
+                    License #11221334000542
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                    <Check size={15} color="#1E7E55" />
+                    Daily Microbiological & RO Lab Reports
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <Link to="/contact" className="btn btn-primary">
+              <span>Request Compliance Dossier</span>
+              <ArrowRight size={15} className="hover-arrow" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

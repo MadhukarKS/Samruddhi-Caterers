@@ -23,7 +23,6 @@ import { MobileActionBar } from './components/common/MobileActionBar';
 
 export const AppRoutes = () => {
   const location = useLocation();
-  const isFixedContactPage = location.pathname === '/contact' || location.pathname === '/enquiry';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -47,7 +46,7 @@ export const AppRoutes = () => {
         </Routes>
       </main>
 
-      {!isFixedContactPage && <Footer />}
+      <Footer />
 
       <ProposalModal />
       <ServiceModal />
@@ -55,7 +54,7 @@ export const AppRoutes = () => {
       <PrivacyModal />
 
       <ToastContainer />
-      {!isFixedContactPage && <BackToTop />}
+      <BackToTop />
       <MobileActionBar />
     </div>
   );

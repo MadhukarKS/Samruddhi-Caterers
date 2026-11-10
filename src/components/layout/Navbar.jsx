@@ -18,6 +18,7 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { name: 'Home', to: '/' },
     { name: 'About Us', to: '/about' },
     { name: 'Our Services', to: '/services' },
     { name: 'Our Brands', to: '/brands' },
@@ -121,7 +122,7 @@ export const Navbar = () => {
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: 'none', flexShrink: 0 }}
           >
             <SamruddhiLogo variant="dark" size="sm" showTagline={true} />
           </Link>
@@ -131,7 +132,7 @@ export const Navbar = () => {
             style={{
               display: 'none',
               alignItems: 'center',
-              gap: '1.75rem',
+              gap: 'clamp(1rem, 1.55vw, 1.65rem)',
             }}
             className="desktop-nav-items"
           >
@@ -139,6 +140,7 @@ export const Navbar = () => {
               <NavLink
                 key={link.name}
                 to={link.to}
+                end={link.to === '/'}
                 className={({ isActive }) => `nav-route-link${isActive ? ' active' : ''}`}
                 style={({ isActive }) => ({
                   fontWeight: isActive ? 700 : 500,
@@ -254,29 +256,11 @@ export const Navbar = () => {
             </div>
 
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-              <Link
-                to="/"
-                onClick={() => setMobileMenuOpen(false)}
-                style={{
-                  textDecoration: 'none',
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  color: 'var(--color-text-main)',
-                  padding: '0.6rem 0',
-                  borderBottom: '1px solid var(--color-border-card)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <span>Home</span>
-                <ArrowRight size={14} color="var(--color-text-muted)" />
-              </Link>
-
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
                   to={link.to}
+                  end={link.to === '/'}
                   onClick={() => setMobileMenuOpen(false)}
                   style={({ isActive }) => ({
                     textDecoration: 'none',
@@ -352,6 +336,10 @@ export const Navbar = () => {
           .desktop-nav-items { display: flex !important; }
           .desktop-only { display: inline-flex !important; }
           .mobile-menu-btn { display: none !important; }
+        }
+        @media (min-width: 992px) and (max-width: 1140px) {
+          .desktop-nav-items { gap: 0.9rem !important; }
+          .nav-route-link { font-size: 0.82rem; }
         }
         @media (max-width: 991px) {
           .desktop-top-bar { display: none !important; }

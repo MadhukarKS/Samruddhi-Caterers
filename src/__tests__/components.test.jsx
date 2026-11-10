@@ -22,6 +22,7 @@ describe('Component Integration & Multi-Page Routing Tests', () => {
     renderWithRouter(<Navbar />);
 
     expect(screen.getAllByText(/Samruddhi/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByRole('link', { name: /^Home$/i, hidden: true }).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByRole('link', { name: /About Us/i, hidden: true }).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByRole('link', { name: /Our Services/i, hidden: true }).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByRole('link', { name: /Our Brands/i, hidden: true }).length).toBeGreaterThanOrEqual(1);
@@ -93,7 +94,7 @@ describe('Component Integration & Multi-Page Routing Tests', () => {
     const contactView = renderWithRouter(<AppRoutes />, { route: '/contact' });
     expect(screen.getByText(/Connect With Our Food Services Desk/i)).toBeDefined();
     expect(screen.getByText(/Corporate Headquarters/i)).toBeDefined();
-    expect(screen.queryByText(/Privacy Policy & Terms/i)).toBeNull();
+    expect(screen.getByText(/Privacy Policy & Terms/i)).toBeDefined();
     contactView.unmount();
   });
 

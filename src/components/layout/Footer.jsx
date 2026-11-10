@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../../hooks/useApp';
 import { SamruddhiLogo } from '../common/SamruddhiLogo';
-import { ShieldCheck, MapPin, ArrowRight, Phone, Mail, MessageSquare } from 'lucide-react';
+import { ShieldCheck, MapPin, ArrowRight, Phone, Mail } from 'lucide-react';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -10,6 +10,7 @@ export const Footer = () => {
   const { openProposalModal, openPrivacyModal } = useApp();
 
   const quickLinks = [
+    { name: 'Home', to: '/' },
     { name: 'About Us', to: '/about' },
     { name: 'Our Services', to: '/services' },
     { name: 'Our Brands', to: '/brands' },
@@ -55,17 +56,17 @@ export const Footer = () => {
             </p>
 
             <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.9rem' }}>
-              <a href="https://www.linkedin.com/company/samruddhi-caterers" target="_blank" rel="noopener noreferrer" className="social-pill social-pill-dark" aria-label="LinkedIn">
-                <span style={{ fontSize: '0.8rem', fontWeight: 800 }}>in</span>
+              <a href="https://www.linkedin.com/company/samruddhi-caterers" target="_blank" rel="noopener noreferrer" className="social-pill social-pill-dark" title="LinkedIn" aria-label="LinkedIn">
+                <span style={{ fontSize: '0.78rem', fontWeight: 800 }}>in</span>
               </a>
-              <a href="https://www.instagram.com/samruddhigroup" target="_blank" rel="noopener noreferrer" className="social-pill social-pill-dark" aria-label="Instagram">
-                <span style={{ fontSize: '0.8rem', fontWeight: 800 }}>ig</span>
+              <a href="https://www.instagram.com/samruddhigroup" target="_blank" rel="noopener noreferrer" className="social-pill social-pill-dark" title="Instagram" aria-label="Instagram">
+                <span style={{ fontSize: '0.78rem', fontWeight: 800 }}>ig</span>
               </a>
-              <a href="https://wa.me/919845012345" target="_blank" rel="noopener noreferrer" className="social-pill social-pill-dark" aria-label="WhatsApp">
-                <MessageSquare size={15} />
+              <a href="https://wa.me/919845012345" target="_blank" rel="noopener noreferrer" className="social-pill social-pill-dark" title="WhatsApp" aria-label="WhatsApp">
+                <span style={{ fontSize: '0.78rem', fontWeight: 800 }}>wa</span>
               </a>
-              <a href="https://www.youtube.com/@samruddhigroup" target="_blank" rel="noopener noreferrer" className="social-pill social-pill-dark" aria-label="YouTube">
-                <span style={{ fontSize: '0.8rem', fontWeight: 800 }}>yt</span>
+              <a href="https://www.youtube.com/@samruddhigroup" target="_blank" rel="noopener noreferrer" className="social-pill social-pill-dark" title="YouTube" aria-label="YouTube">
+                <span style={{ fontSize: '0.78rem', fontWeight: 800 }}>yt</span>
               </a>
             </div>
 

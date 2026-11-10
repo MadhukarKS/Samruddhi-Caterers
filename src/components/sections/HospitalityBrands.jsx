@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useApp } from '../../hooks/useApp';
 import { BRANDS_DATA } from '../../data/samruddhiData';
-import { SectionHeading } from '../common/SectionHeading';
 import { Building2, Check, ArrowRight } from 'lucide-react';
 
 export const HospitalityBrands = ({
@@ -15,21 +15,39 @@ export const HospitalityBrands = ({
 
   return (
     <section id="brands" style={{ backgroundColor: '#FAFAF8' }}>
-      <div className="container-wide">
-        <SectionHeading
-          badgeIcon={Building2}
-          badgeText="Hospitality Portfolio"
-          title="One Group. Distinct Experiences."
-          description="Five specialized hospitality brands spanning luxury banquets, fine dining, celebration lawns, food courts, and corporate kitchens."
-          compact={true}
-        />
+      {/* Header Band */}
+      <div className="page-hero-band">
+        <div className="container-wide" style={{ textAlign: 'center', maxWidth: '800px' }}>
+          <span className="badge-pill" style={{ marginBottom: '0.85rem' }}>
+            <Building2 size={13} color="var(--color-terracotta)" />
+            <span>Hospitality & Venue Portfolio</span>
+          </span>
 
-        {/* Compact Brand Cards Grid */}
+          <h1
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(2rem, 3.6vw, 2.9rem)',
+              color: 'var(--color-text-main)',
+              marginBottom: '0.85rem',
+            }}
+          >
+            One Group. Distinct Experiences.
+          </h1>
+
+          <p style={{ fontSize: '1rem', color: 'var(--color-text-body)', lineHeight: 1.68, margin: 0 }}>
+            Five specialized hospitality divisions uniting fine dining, royal celebrations, landscaped lawns, modern food
+            courts, and large-scale corporate kitchens.
+          </p>
+        </div>
+      </div>
+
+      <div className="container-wide">
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '1.25rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '1.85rem',
+            marginBottom: '3.25rem',
           }}
         >
           {BRANDS_DATA.map((brand, idx) => (
@@ -43,28 +61,32 @@ export const HospitalityBrands = ({
                 justifyContent: 'space-between',
               }}
             >
-              <div className="card-img-wrap" style={{ height: '160px' }}>
-                <img src={brand.image} alt={brand.name} />
+              <div className="card-img-wrap" style={{ height: '215px', overflow: 'hidden' }}>
+                <img
+                  src={brand.image}
+                  alt={brand.name}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
                 <div
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(180deg, rgba(15, 25, 20, 0.25) 0%, rgba(15, 25, 20, 0.65) 100%)',
+                    background: 'linear-gradient(180deg, rgba(15, 25, 20, 0.2) 0%, rgba(15, 25, 20, 0.65) 100%)',
                   }}
                 />
                 <div
                   style={{
                     position: 'absolute',
-                    top: '0.75rem',
-                    left: '0.75rem',
+                    top: '1rem',
+                    left: '1rem',
                     backgroundColor: 'rgba(21, 43, 34, 0.92)',
                     backdropFilter: 'blur(8px)',
                     color: '#FFFFFF',
-                    fontSize: '0.68rem',
+                    fontSize: '0.72rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
-                    letterSpacing: '0.07em',
-                    padding: '0.28rem 0.65rem',
+                    letterSpacing: '0.08em',
+                    padding: '0.32rem 0.75rem',
                     borderRadius: 'var(--radius-pill)',
                   }}
                 >
@@ -74,42 +96,19 @@ export const HospitalityBrands = ({
 
               <div
                 style={{
-                  padding: '1.15rem 1.25rem',
+                  padding: 'clamp(1.4rem, 2.5vw, 1.75rem)',
                   display: 'flex',
                   flexDirection: 'column',
                   flexGrow: 1,
                 }}
               >
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '1.18rem',
-                    color: 'var(--color-text-main)',
-                    marginBottom: '0.15rem',
-                  }}
-                >
-                  {brand.name}
-                </h3>
+                <h2 style={{ fontSize: '1.4rem', marginBottom: '0.25rem' }}>{brand.name}</h2>
 
-                <div
-                  style={{
-                    fontSize: '0.8rem',
-                    fontWeight: 600,
-                    color: 'var(--color-terracotta)',
-                    marginBottom: '0.5rem',
-                  }}
-                >
+                <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-terracotta)', marginBottom: '0.7rem' }}>
                   {brand.tagline}
                 </div>
 
-                <p
-                  style={{
-                    fontSize: '0.83rem',
-                    color: 'var(--color-text-muted)',
-                    lineHeight: 1.5,
-                    marginBottom: '0.85rem',
-                  }}
-                >
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.62, marginBottom: '1.25rem' }}>
                   {brand.description}
                 </p>
 
@@ -118,23 +117,23 @@ export const HospitalityBrands = ({
                     listStyle: 'none',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '0.35rem',
-                    marginBottom: '1rem',
+                    gap: '0.5rem',
+                    marginBottom: '1.5rem',
                     marginTop: 'auto',
                   }}
                 >
-                  {brand.highlights.slice(0, 2).map((h, i) => (
+                  {brand.highlights.map((h, i) => (
                     <li
                       key={i}
                       style={{
                         display: 'flex',
                         alignItems: 'flex-start',
-                        gap: '0.45rem',
-                        fontSize: '0.8rem',
+                        gap: '0.55rem',
+                        fontSize: '0.85rem',
                         color: 'var(--color-text-body)',
                       }}
                     >
-                      <Check size={13} color="var(--color-terracotta)" style={{ flexShrink: 0, marginTop: '0.18rem' }} />
+                      <Check size={14} color="var(--color-terracotta)" style={{ flexShrink: 0, marginTop: '0.22rem' }} />
                       <span>{h}</span>
                     </li>
                   ))}
@@ -144,8 +143,8 @@ export const HospitalityBrands = ({
                   style={{
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr',
-                    gap: '0.55rem',
-                    paddingTop: '0.85rem',
+                    gap: '0.7rem',
+                    paddingTop: '1.1rem',
                     borderTop: '1px solid var(--color-border-card)',
                   }}
                 >
@@ -153,24 +152,40 @@ export const HospitalityBrands = ({
                     type="button"
                     onClick={() => handleSelect(brand)}
                     className="btn btn-secondary btn-sm"
-                    style={{ width: '100%', padding: '0.5rem 0.6rem', fontSize: '0.78rem' }}
+                    style={{ width: '100%' }}
                   >
-                    <span>Details</span>
+                    <span>Brand Details</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => handleRequest(brand.name)}
                     className="btn btn-primary btn-sm"
-                    style={{ width: '100%', padding: '0.5rem 0.6rem', fontSize: '0.78rem' }}
+                    style={{ width: '100%' }}
                   >
                     <span>Enquire</span>
-                    <ArrowRight size={12} className="hover-arrow" />
+                    <ArrowRight size={13} className="hover-arrow" />
                   </button>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Venue Consultation Banner */}
+        <div className="cta-band">
+          <div>
+            <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
+              Planning a Wedding, Corporate Gala, or Food-Court Setup?
+            </h3>
+            <p style={{ color: '#C5D2CC', fontSize: '0.9rem', margin: 0 }}>
+              Book a private tasting or open-air garden walkthrough at our Bengaluru venues.
+            </p>
+          </div>
+          <Link to="/contact" className="btn btn-terracotta">
+            <span>Schedule Venue Tour</span>
+            <ArrowRight size={15} className="hover-arrow" />
+          </Link>
         </div>
       </div>
     </section>

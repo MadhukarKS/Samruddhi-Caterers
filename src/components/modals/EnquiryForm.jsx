@@ -330,13 +330,7 @@ export const EnquiryForm = ({
             />
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(195px, 1fr))',
-              gap: compact ? '0.6rem 0.85rem' : '0.85rem 1.05rem',
-            }}
-          >
+          <div className="enquiry-fields-grid">
             <div className="form-group">
               <label htmlFor="fullName" className="form-label">
                 Full Name *
@@ -505,7 +499,7 @@ export const EnquiryForm = ({
             </div>
           </div>
 
-          <div className="form-group" style={{ marginTop: compact ? '0.6rem' : '0.85rem' }}>
+          <div className="form-group" style={{ marginTop: compact ? '0.5rem' : '0.85rem' }}>
             <label htmlFor="additionalRequirements" className="form-label">
               Additional Requirements or Menu Specifications
             </label>
@@ -527,8 +521,8 @@ export const EnquiryForm = ({
               alignItems: 'center',
               justifyContent: 'space-between',
               gap: '0.75rem',
-              marginTop: compact ? '0.75rem' : '1.1rem',
-              paddingTop: compact ? '0.75rem' : '1rem',
+              marginTop: compact ? '0.6rem' : '1.1rem',
+              paddingTop: compact ? '0.6rem' : '1rem',
               borderTop: '1px solid var(--color-border)',
             }}
           >
