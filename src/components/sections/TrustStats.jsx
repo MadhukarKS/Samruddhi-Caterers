@@ -37,8 +37,8 @@ export const TrustStats = () => {
 
   const stats = [
     {
-      icon: <Award size={21} color="var(--color-terracotta)" />,
-      iconBg: 'rgba(200, 94, 52, 0.09)',
+      icon: <Award size={21} color="#E09132" />,
+      iconBg: 'rgba(224, 145, 50, 0.14)',
       display: `${years}+`,
       title: 'Years of Experience',
       badge: 'EST. 2004',
@@ -46,8 +46,8 @@ export const TrustStats = () => {
       proof: 'Over 2 Decades in Bengaluru',
     },
     {
-      icon: <Users size={21} color="var(--color-pine-primary)" />,
-      iconBg: 'rgba(21, 43, 34, 0.08)',
+      icon: <Users size={21} color="#60A5FA" />,
+      iconBg: 'rgba(96, 165, 250, 0.14)',
       display: `${customers.toLocaleString()}+`,
       title: 'Happy Customers',
       badge: 'B2B & EVENTS',
@@ -55,8 +55,8 @@ export const TrustStats = () => {
       proof: 'Corporate, Tech & Manufacturing',
     },
     {
-      icon: <UtensilsCrossed size={21} color="var(--color-terracotta)" />,
-      iconBg: 'rgba(200, 94, 52, 0.09)',
+      icon: <UtensilsCrossed size={21} color="#E09132" />,
+      iconBg: 'rgba(224, 145, 50, 0.14)',
       display: `${meals.toLocaleString()}+`,
       title: 'Large-Scale Catering Operations',
       badge: 'DAILY COMMISSARY',
@@ -64,8 +64,8 @@ export const TrustStats = () => {
       proof: '24/7 Jigani Hub Coverage',
     },
     {
-      icon: <ShieldCheck size={21} color="#1E7E55" />,
-      iconBg: 'rgba(30, 126, 85, 0.1)',
+      icon: <ShieldCheck size={21} color="#4ADE80" />,
+      iconBg: 'rgba(74, 222, 128, 0.13)',
       display: `${compliance}%`,
       title: 'Quality, Hygiene & Safety',
       badge: 'FSSAI LEVEL 5',
@@ -77,7 +77,7 @@ export const TrustStats = () => {
   return (
     <section
       style={{
-        backgroundColor: '#F4F3EE',
+        backgroundColor: '#0F1622',
         borderBottom: '1px solid var(--color-border)',
         padding: 'clamp(3rem, 5vw, 4.25rem) 0',
         position: 'relative',
@@ -92,7 +92,7 @@ export const TrustStats = () => {
               textTransform: 'uppercase',
               letterSpacing: '0.12em',
               color: 'var(--color-text-muted)',
-              backgroundColor: '#FFFFFF',
+              backgroundColor: 'var(--color-surface)',
               border: '1px solid var(--color-border)',
               padding: '0.32rem 0.9rem',
               borderRadius: 'var(--radius-pill)',
@@ -167,7 +167,7 @@ export const TrustStats = () => {
                   fontFamily: 'var(--font-heading)',
                   fontSize: 'clamp(2.15rem, 3.4vw, 2.8rem)',
                   fontWeight: 800,
-                  color: 'var(--color-pine-primary)',
+                  color: '#E09132',
                   letterSpacing: '-0.03em',
                   lineHeight: 1.08,
                   marginBottom: '0.35rem',
@@ -213,14 +213,14 @@ export const TrustStats = () => {
                   gap: '0.4rem',
                   fontSize: '0.76rem',
                   fontWeight: 600,
-                  color: 'var(--color-pine-primary)',
+                  color: '#CBD5E1',
                   backgroundColor: 'var(--color-surface-subtle)',
                   padding: '0.4rem 0.7rem',
                   borderRadius: 'var(--radius-xs)',
                   border: '1px solid var(--color-border)',
                 }}
               >
-                <Check size={13} color="var(--color-terracotta)" strokeWidth={2.5} />
+                <Check size={13} color="#E09132" strokeWidth={2.5} />
                 <span>{item.proof}</span>
               </div>
             </div>

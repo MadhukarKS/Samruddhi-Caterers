@@ -20,7 +20,7 @@ export const ServicesSection = ({
       : SERVICES_DATA.filter((s) => s.id === activeTab);
 
   return (
-    <section id="services" style={{ backgroundColor: '#FAFAF8' }}>
+    <section id="services" style={{ backgroundColor: 'var(--color-canvas)' }}>
       {/* Header Band */}
       <div className="page-hero-band">
         <div className="container-wide" style={{ textAlign: 'center', maxWidth: '800px' }}>
@@ -66,13 +66,13 @@ export const ServicesSection = ({
               padding: '0.6rem 1.3rem',
               borderRadius: 'var(--radius-pill)',
               border: activeTab === 'all'
-                ? '1px solid var(--color-pine-primary)'
+                ? '1px solid #E09132'
                 : '1px solid var(--color-border)',
-              backgroundColor: activeTab === 'all' ? 'var(--color-pine-primary)' : 'var(--color-surface)',
-              color: activeTab === 'all' ? '#FFFFFF' : 'var(--color-text-body)',
+              backgroundColor: activeTab === 'all' ? '#E09132' : 'var(--color-surface)',
+              color: activeTab === 'all' ? '#0B111A' : 'var(--color-text-body)',
               fontFamily: 'var(--font-body)',
               fontSize: '0.86rem',
-              fontWeight: 600,
+              fontWeight: activeTab === 'all' ? 700 : 600,
               cursor: 'pointer',
               transition: 'all 0.18s ease',
             }}
@@ -90,13 +90,13 @@ export const ServicesSection = ({
                 padding: '0.6rem 1.3rem',
                 borderRadius: 'var(--radius-pill)',
                 border: activeTab === srv.id
-                  ? '1px solid var(--color-pine-primary)'
+                  ? '1px solid #E09132'
                   : '1px solid var(--color-border)',
-                backgroundColor: activeTab === srv.id ? 'var(--color-pine-primary)' : 'var(--color-surface)',
-                color: activeTab === srv.id ? '#FFFFFF' : 'var(--color-text-body)',
+                backgroundColor: activeTab === srv.id ? '#E09132' : 'var(--color-surface)',
+                color: activeTab === srv.id ? '#0B111A' : 'var(--color-text-body)',
                 fontFamily: 'var(--font-body)',
                 fontSize: '0.86rem',
-                fontWeight: 600,
+                fontWeight: activeTab === srv.id ? 700 : 600,
                 cursor: 'pointer',
                 transition: 'all 0.18s ease',
               }}
@@ -141,7 +141,7 @@ export const ServicesSection = ({
                       position: 'absolute',
                       inset: 0,
                       background:
-                        'linear-gradient(180deg, rgba(15, 25, 20, 0.38) 0%, rgba(15, 25, 20, 0.06) 50%, rgba(15, 25, 20, 0.85) 100%)',
+                        'linear-gradient(180deg, rgba(7, 12, 20, 0.36) 0%, rgba(7, 12, 20, 0.08) 50%, rgba(7, 12, 20, 0.88) 100%)',
                     }}
                   />
 
@@ -150,16 +150,16 @@ export const ServicesSection = ({
                       position: 'absolute',
                       top: '1rem',
                       left: '1rem',
-                      backgroundColor: 'rgba(21, 43, 34, 0.92)',
+                      backgroundColor: 'rgba(11, 17, 26, 0.88)',
                       backdropFilter: 'blur(8px)',
-                      color: '#FFFFFF',
+                      color: '#F1F5F9',
                       fontSize: '0.72rem',
                       fontWeight: 700,
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
                       padding: '0.32rem 0.75rem',
                       borderRadius: 'var(--radius-pill)',
-                      border: '1px solid rgba(255, 255, 255, 0.16)',
+                      border: '1px solid rgba(224, 145, 50, 0.35)',
                     }}
                   >
                     {service.badge}
@@ -218,9 +218,10 @@ export const ServicesSection = ({
                     <span
                       style={{
                         fontSize: '0.76rem',
-                        color: '#E8EFEA',
+                        color: '#E2E8F0',
                         fontWeight: 600,
-                        backgroundColor: 'rgba(21, 43, 34, 0.78)',
+                        backgroundColor: 'rgba(11, 17, 26, 0.85)',
+                        border: '1px solid rgba(255, 255, 255, 0.14)',
                         padding: '0.24rem 0.65rem',
                         borderRadius: 'var(--radius-xs)',
                       }}
@@ -364,10 +365,10 @@ export const ServicesSection = ({
         {/* Bottom Consultation Strip */}
         <div className="cta-band">
           <div>
-            <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
+            <h3 style={{ color: '#F1F5F9', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
               Need a Custom Shift Schedule or Tasting Session?
             </h3>
-            <p style={{ color: '#C5D2CC', fontSize: '0.9rem', margin: 0 }}>
+            <p style={{ color: '#94A3B8', fontSize: '0.9rem', margin: 0 }}>
               Our procurement desk configures multi-shift menus, pricing models, and SLA terms in under 2 hours.
             </p>
           </div>

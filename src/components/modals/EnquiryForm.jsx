@@ -137,10 +137,10 @@ export const EnquiryForm = ({
     <div
       className={compact ? 'form-compact' : ''}
       style={{
-        backgroundColor: '#FFFFFF',
+        backgroundColor: isModal ? 'var(--color-surface)' : 'transparent',
         borderRadius: 'var(--radius-md)',
         border: isModal ? '1px solid var(--color-border)' : 'none',
-        boxShadow: isModal ? '0 20px 50px rgba(15, 19, 24, 0.25)' : 'none',
+        boxShadow: isModal ? '0 24px 60px rgba(0, 0, 0, 0.55)' : 'none',
         padding: isModal ? 'clamp(1.5rem, 3.5vw, 2.25rem)' : '0',
         position: 'relative',
       }}
@@ -201,7 +201,7 @@ export const EnquiryForm = ({
               <strong
                 style={{
                   fontSize: '1.05rem',
-                  color: 'var(--color-pine-primary)',
+                  color: '#E09132',
                   letterSpacing: '0.04em',
                 }}
               >
@@ -212,7 +212,7 @@ export const EnquiryForm = ({
             <button
               onClick={handleCopyReference}
               style={{
-                backgroundColor: '#FFFFFF',
+                backgroundColor: 'var(--color-surface)',
                 border: '1px solid var(--color-border)',
                 borderRadius: 'var(--radius-xs)',
                 padding: '0.3rem 0.55rem',
@@ -226,7 +226,7 @@ export const EnquiryForm = ({
               }}
               title="Copy Reference ID"
             >
-              {copied ? <Check size={12} color="var(--color-whatsapp)" /> : <Copy size={12} />}
+              {copied ? <Check size={12} color="#4ADE80" /> : <Copy size={12} />}
               <span>{copied ? 'Copied' : 'Copy'}</span>
             </button>
           </div>

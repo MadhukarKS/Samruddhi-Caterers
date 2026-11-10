@@ -30,9 +30,9 @@ export const BackToTop = () => {
           width: '42px',
           height: '42px',
           borderRadius: '50%',
-          backgroundColor: 'var(--color-pine-primary)',
-          color: '#FFFFFF',
-          border: '1px solid var(--color-pine-medium)',
+          backgroundColor: '#172336',
+          color: '#F1F5F9',
+          border: '1px solid #2D405E',
           boxShadow: 'var(--shadow-md)',
           cursor: 'pointer',
           display: 'flex',
@@ -43,11 +43,15 @@ export const BackToTop = () => {
         aria-label="Back to top"
         title="Back to top"
         onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = 'var(--color-terracotta)';
+          e.currentTarget.style.backgroundColor = '#E09132';
+          e.currentTarget.style.color = '#0B111A';
+          e.currentTarget.style.borderColor = '#E09132';
           e.currentTarget.style.transform = 'translateY(-2px)';
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = 'var(--color-pine-primary)';
+          e.currentTarget.style.backgroundColor = '#172336';
+          e.currentTarget.style.color = '#F1F5F9';
+          e.currentTarget.style.borderColor = '#2D405E';
           e.currentTarget.style.transform = 'translateY(0)';
         }}
       >

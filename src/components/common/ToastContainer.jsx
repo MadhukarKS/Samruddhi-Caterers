@@ -33,9 +33,9 @@ export const ToastContainer = () => {
             key={toast.id}
             style={{
               pointerEvents: 'auto',
-              backgroundColor: '#152B22',
-              color: '#FFFFFF',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
+              backgroundColor: '#162235',
+              color: '#F1F5F9',
+              border: '1px solid #2D405E',
               borderRadius: 'var(--radius-sm)',
               padding: '0.85rem 1.15rem',
               boxShadow: 'var(--shadow-lg)',
@@ -47,9 +47,9 @@ export const ToastContainer = () => {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-              {isSuccess && <CheckCircle2 size={17} color="var(--color-whatsapp)" style={{ flexShrink: 0 }} />}
+              {isSuccess && <CheckCircle2 size={17} color="#4ADE80" style={{ flexShrink: 0 }} />}
               {isWarning && <AlertTriangle size={17} color="#FBBF24" style={{ flexShrink: 0 }} />}
-              {!isSuccess && !isWarning && <Info size={17} color="#C85E34" style={{ flexShrink: 0 }} />}
+              {!isSuccess && !isWarning && <Info size={17} color="#E09132" style={{ flexShrink: 0 }} />}
 
               <span style={{ fontSize: '0.86rem', fontWeight: 500, lineHeight: 1.4 }}>
                 {toast.message}

@@ -31,7 +31,7 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
   const handleRequest = propOnRequestProposal || (() => openProposalModal('Corporate Catering'));
 
   return (
-    <section id="about" style={{ backgroundColor: '#FAFAF8' }}>
+    <section id="about" style={{ backgroundColor: 'var(--color-canvas)' }}>
       {/* Architectural Header Band */}
       <div className="page-hero-band">
         <div className="container-wide" style={{ textAlign: 'center', maxWidth: '780px' }}>
@@ -139,9 +139,9 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
               className="card-showcase"
               style={{
                 '--stagger': 1,
-                backgroundColor: 'var(--color-pine-primary)',
-                borderColor: 'var(--color-pine-medium)',
-                color: '#FFFFFF',
+                background: 'linear-gradient(145deg, #172336 0%, #101927 100%)',
+                borderColor: '#2B3E59',
+                color: '#F1F5F9',
                 padding: '2rem',
                 flex: 1,
                 display: 'flex',
@@ -150,15 +150,15 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.85rem' }}>
-                <Compass size={20} color="#C85E34" />
-                <span style={{ fontSize: '0.76rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#C85E34' }}>
+                <Compass size={20} color="#E09132" />
+                <span style={{ fontSize: '0.76rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#E09132' }}>
                   Our Vision
                 </span>
               </div>
-              <h3 style={{ fontSize: '1.35rem', color: '#FFFFFF', marginBottom: '0.65rem' }}>
+              <h3 style={{ fontSize: '1.35rem', color: '#F1F5F9', marginBottom: '0.65rem' }}>
                 South India's Benchmark for Institutional Hospitality
               </h3>
-              <p style={{ color: '#D5DFDA', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>
+              <p style={{ color: '#CBD5E1', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>
                 Setting the gold standard across industrial catering, modern campus food courts, and celebration venues by
                 uniting precision operations with warm culinary care.
               </p>
@@ -262,10 +262,10 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
         {/* Bottom Architectural CTA */}
         <div className="cta-band">
           <div>
-            <h3 style={{ color: '#FFFFFF', fontSize: '1.45rem', marginBottom: '0.35rem' }}>
+            <h3 style={{ color: '#F1F5F9', fontSize: '1.45rem', marginBottom: '0.35rem' }}>
               Want to Audit Our Jigani Central Kitchen?
             </h3>
-            <p style={{ color: '#C5D2CC', fontSize: '0.9rem', margin: 0 }}>
+            <p style={{ color: '#94A3B8', fontSize: '0.9rem', margin: 0 }}>
               Review our FSSAI hygiene workflows or schedule a facility walkthrough with our QA director.
             </p>
           </div>

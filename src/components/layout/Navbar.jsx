@@ -36,17 +36,17 @@ export const Navbar = () => {
           right: 0,
           zIndex: 990,
           transition: 'all 0.25s ease',
-          backgroundColor: isScrolled ? 'rgba(250, 250, 248, 0.96)' : '#FAFAF8',
+          backgroundColor: isScrolled ? 'rgba(11, 17, 26, 0.92)' : '#0B111A',
           backdropFilter: 'blur(12px)',
           borderBottom: '1px solid var(--color-border)',
-          boxShadow: isScrolled ? '0 2px 12px rgba(15, 19, 24, 0.05)' : 'none',
+          boxShadow: isScrolled ? '0 8px 24px rgba(0, 0, 0, 0.4)' : 'none',
         }}
       >
         {/* Top Information Strip (Desktop) */}
         <div
           style={{
-            backgroundColor: '#152B22',
-            color: '#D8E2DC',
+            backgroundColor: '#070C14',
+            color: '#CBD5E1',
             fontSize: '0.74rem',
             padding: '0.26rem 0',
             borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
@@ -63,10 +63,10 @@ export const Navbar = () => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                <ShieldCheck size={12} color="#C85E34" />
+                <ShieldCheck size={12} color="#E09132" />
                 <span>FSSAI Lic. 11221334000542 • ISO 22000:2018 Central Kitchen</span>
               </span>
-              <span style={{ color: 'rgba(255, 255, 255, 0.25)' }}>|</span>
+              <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>|</span>
               <span>Jigani Hobli, Bengaluru</span>
             </div>
 
@@ -74,7 +74,7 @@ export const Navbar = () => {
               <a
                 href="tel:+919845012345"
                 style={{
-                  color: '#FFFFFF',
+                  color: '#F1F5F9',
                   textDecoration: 'none',
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -82,16 +82,16 @@ export const Navbar = () => {
                   fontWeight: 600,
                 }}
               >
-                <Phone size={11} color="#C85E34" />
+                <Phone size={11} color="#E09132" />
                 <span>+91 98450 12345</span>
               </a>
-              <span style={{ color: 'rgba(255, 255, 255, 0.25)' }}>|</span>
+              <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>|</span>
               <a
                 href="https://wa.me/919845012345"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  color: '#25D366',
+                  color: '#4ADE80',
                   textDecoration: 'none',
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -124,7 +124,7 @@ export const Navbar = () => {
             onClick={() => setMobileMenuOpen(false)}
             style={{ textDecoration: 'none', flexShrink: 0 }}
           >
-            <SamruddhiLogo variant="dark" size="sm" showTagline={true} />
+            <SamruddhiLogo variant="light" size="sm" showTagline={true} />
           </Link>
 
           {/* Desktop Route Links */}
@@ -144,7 +144,7 @@ export const Navbar = () => {
                 className={({ isActive }) => `nav-route-link${isActive ? ' active' : ''}`}
                 style={({ isActive }) => ({
                   fontWeight: isActive ? 700 : 500,
-                  color: isActive ? 'var(--color-pine-primary)' : 'var(--color-text-body)',
+                  color: isActive ? '#E09132' : '#CBD5E1',
                 })}
               >
                 {link.name}
@@ -218,8 +218,9 @@ export const Navbar = () => {
               bottom: 0,
               width: '84%',
               maxWidth: '340px',
-              backgroundColor: '#FFFFFF',
-              boxShadow: '-8px 0 32px rgba(15, 19, 24, 0.15)',
+              backgroundColor: '#131C2A',
+              borderLeft: '1px solid var(--color-border)',
+              boxShadow: '-12px 0 36px rgba(0, 0, 0, 0.5)',
               display: 'flex',
               flexDirection: 'column',
               padding: '1.5rem',
@@ -238,7 +239,7 @@ export const Navbar = () => {
                 paddingBottom: '0.85rem',
               }}
             >
-              <SamruddhiLogo variant="dark" size="sm" showTagline={false} />
+              <SamruddhiLogo variant="light" size="sm" showTagline={false} />
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
@@ -266,7 +267,7 @@ export const Navbar = () => {
                     textDecoration: 'none',
                     fontSize: '1rem',
                     fontWeight: isActive ? 700 : 600,
-                    color: isActive ? 'var(--color-terracotta)' : 'var(--color-text-main)',
+                    color: isActive ? '#E09132' : 'var(--color-text-main)',
                     padding: '0.6rem 0',
                     borderBottom: '1px solid var(--color-border-card)',
                     display: 'flex',

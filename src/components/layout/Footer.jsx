@@ -28,9 +28,9 @@ export const Footer = () => {
   return (
     <footer
       style={{
-        backgroundColor: '#0F2019',
-        color: '#D8E2DC',
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        backgroundColor: '#070C14',
+        color: '#CBD5E1',
+        borderTop: '1px solid #1E2C42',
         paddingTop: '2.25rem',
         paddingBottom: '1.5rem',
         marginTop: 'auto',
@@ -51,7 +51,7 @@ export const Footer = () => {
               <SamruddhiLogo variant="light" size="sm" showTagline={true} />
             </div>
 
-            <p style={{ fontSize: '0.84rem', lineHeight: 1.55, color: '#A8B7AF', marginBottom: '1rem' }}>
+            <p style={{ fontSize: '0.84rem', lineHeight: 1.55, color: '#94A3B8', marginBottom: '1rem' }}>
               Large-scale commercial kitchens and catering hospitality in Bengaluru since 2004.
             </p>
 
@@ -76,21 +76,21 @@ export const Footer = () => {
                 alignItems: 'center',
                 gap: '0.4rem',
                 fontSize: '0.74rem',
-                color: '#D8E2DC',
+                color: '#CBD5E1',
                 padding: '0.32rem 0.65rem',
                 borderRadius: 'var(--radius-xs)',
-                backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                backgroundColor: '#131C2A',
+                border: '1px solid #24344C',
               }}
             >
-              <ShieldCheck size={13} color="#C85E34" />
+              <ShieldCheck size={13} color="#E09132" />
               <span>FSSAI Lic. 11221334000542</span>
             </div>
           </div>
 
           {/* Navigation Pages */}
           <div>
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#FFFFFF', marginBottom: '0.85rem' }}>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F1F5F9', marginBottom: '0.85rem' }}>
               Pages
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -99,7 +99,7 @@ export const Footer = () => {
                   <Link
                     to={link.to}
                     style={{
-                      color: '#A8B7AF',
+                      color: '#94A3B8',
                       fontSize: '0.84rem',
                       textDecoration: 'none',
                       display: 'inline-flex',
@@ -107,7 +107,7 @@ export const Footer = () => {
                       gap: '0.35rem',
                     }}
                   >
-                    <ArrowRight size={11} color="#C85E34" />
+                    <ArrowRight size={11} color="#E09132" />
                     <span>{link.name}</span>
                   </Link>
                 </li>
@@ -117,7 +117,7 @@ export const Footer = () => {
 
           {/* Quick RFP Services */}
           <div>
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#FFFFFF', marginBottom: '0.85rem' }}>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F1F5F9', marginBottom: '0.85rem' }}>
               Catering Verticals
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -129,7 +129,7 @@ export const Footer = () => {
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: '#A8B7AF',
+                      color: '#94A3B8',
                       fontSize: '0.84rem',
                       cursor: 'pointer',
                       padding: 0,
@@ -138,7 +138,7 @@ export const Footer = () => {
                       gap: '0.35rem',
                     }}
                   >
-                    <ArrowRight size={11} color="#C85E34" />
+                    <ArrowRight size={11} color="#E09132" />
                     <span>{name}</span>
                   </button>
                 </li>
@@ -148,22 +148,22 @@ export const Footer = () => {
 
           {/* Facility & Desk */}
           <div>
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#FFFFFF', marginBottom: '0.85rem' }}>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F1F5F9', marginBottom: '0.85rem' }}>
               Central Commissary
             </h4>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.65rem' }}>
-              <MapPin size={15} color="#C85E34" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-              <address style={{ fontStyle: 'normal', fontSize: '0.82rem', lineHeight: 1.5, color: '#A8B7AF' }}>
+              <MapPin size={15} color="#E09132" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+              <address style={{ fontStyle: 'normal', fontSize: '0.82rem', lineHeight: 1.5, color: '#94A3B8' }}>
                 No. 79/2, Jigani Hobli, Anekal Taluk, Bengaluru – 560105
               </address>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontSize: '0.82rem' }}>
-              <a href="tel:+919845012345" style={{ color: '#D8E2DC', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Phone size={13} color="#C85E34" />
+              <a href="tel:+919845012345" style={{ color: '#CBD5E1', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+                <Phone size={13} color="#E09132" />
                 <span>+91 98450 12345</span>
               </a>
-              <a href="mailto:rfp@samruddhigroup.in" style={{ color: '#D8E2DC', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Mail size={13} color="#C85E34" />
+              <a href="mailto:rfp@samruddhigroup.in" style={{ color: '#CBD5E1', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+                <Mail size={13} color="#E09132" />
                 <span>rfp@samruddhigroup.in</span>
               </a>
             </div>
@@ -181,7 +181,7 @@ export const Footer = () => {
             alignItems: 'center',
             gap: '0.75rem',
             fontSize: '0.76rem',
-            color: '#84938B',
+            color: '#7D8DA3',
           }}
         >
           <div>© {CURRENT_YEAR} Samruddhi Group. Commercial Kitchens & Catering Services, Bengaluru.</div>
@@ -192,7 +192,7 @@ export const Footer = () => {
               style={{
                 background: 'none',
                 border: 'none',
-                color: '#84938B',
+                color: '#7D8DA3',
                 cursor: 'pointer',
                 fontSize: '0.76rem',
                 textDecoration: 'underline',

@@ -30,7 +30,7 @@ export const BrandModal = ({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(15, 19, 24, 0.75)',
+        backgroundColor: 'rgba(4, 8, 14, 0.84)',
         backdropFilter: 'blur(10px)',
         zIndex: 1000,
         display: 'flex',
@@ -45,13 +45,13 @@ export const BrandModal = ({
     >
       <div
         style={{
-          backgroundColor: '#FFFFFF',
+          backgroundColor: 'var(--color-surface)',
           borderRadius: 'var(--radius-md)',
           maxWidth: '780px',
           width: '100%',
           maxHeight: '90vh',
           overflowY: 'auto',
-          boxShadow: '0 25px 60px rgba(15, 19, 24, 0.25)',
+          boxShadow: '0 28px 64px rgba(0, 0, 0, 0.6)',
           border: '1px solid var(--color-border)',
           position: 'relative',
         }}
@@ -72,7 +72,7 @@ export const BrandModal = ({
               left: 0,
               right: 0,
               bottom: 0,
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(15, 32, 25, 0.88) 100%)',
+              background: 'linear-gradient(180deg, rgba(7, 12, 20, 0.15) 0%, rgba(11, 17, 26, 0.92) 100%)',
             }}
           />
 
@@ -101,15 +101,15 @@ export const BrandModal = ({
           <div style={{ position: 'absolute', bottom: '1.5rem', left: '2rem', right: '2rem' }}>
             <span
               style={{
-                backgroundColor: 'rgba(200, 94, 52, 0.25)',
-                color: '#FFFFFF',
+                backgroundColor: 'rgba(224, 145, 50, 0.22)',
+                color: '#F4B668',
                 padding: '0.25rem 0.75rem',
                 borderRadius: 'var(--radius-pill)',
                 fontSize: '0.72rem',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
-                border: '1px solid rgba(200, 94, 52, 0.4)',
+                border: '1px solid rgba(224, 145, 50, 0.45)',
                 display: 'inline-block',
                 marginBottom: '0.5rem',
               }}

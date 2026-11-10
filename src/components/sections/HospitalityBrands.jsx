@@ -14,7 +14,7 @@ export const HospitalityBrands = ({
   const handleRequest = propOnRequestProposal || ((name) => openProposalModal(`Enquiry for ${name}`));
 
   return (
-    <section id="brands" style={{ backgroundColor: '#FAFAF8' }}>
+    <section id="brands" style={{ backgroundColor: 'var(--color-canvas)' }}>
       {/* Header Band */}
       <div className="page-hero-band">
         <div className="container-wide" style={{ textAlign: 'center', maxWidth: '800px' }}>
@@ -71,7 +71,7 @@ export const HospitalityBrands = ({
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(180deg, rgba(15, 25, 20, 0.2) 0%, rgba(15, 25, 20, 0.65) 100%)',
+                    background: 'linear-gradient(180deg, rgba(7, 12, 20, 0.2) 0%, rgba(7, 12, 20, 0.75) 100%)',
                   }}
                 />
                 <div
@@ -79,9 +79,10 @@ export const HospitalityBrands = ({
                     position: 'absolute',
                     top: '1rem',
                     left: '1rem',
-                    backgroundColor: 'rgba(21, 43, 34, 0.92)',
+                    backgroundColor: 'rgba(11, 17, 26, 0.88)',
                     backdropFilter: 'blur(8px)',
-                    color: '#FFFFFF',
+                    color: '#F1F5F9',
+                    border: '1px solid rgba(224, 145, 50, 0.35)',
                     fontSize: '0.72rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
@@ -175,10 +176,10 @@ export const HospitalityBrands = ({
         {/* Venue Consultation Banner */}
         <div className="cta-band">
           <div>
-            <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
+            <h3 style={{ color: '#F1F5F9', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
               Planning a Wedding, Corporate Gala, or Food-Court Setup?
             </h3>
-            <p style={{ color: '#C5D2CC', fontSize: '0.9rem', margin: 0 }}>
+            <p style={{ color: '#94A3B8', fontSize: '0.9rem', margin: 0 }}>
               Book a private tasting or open-air garden walkthrough at our Bengaluru venues.
             </p>
           </div>

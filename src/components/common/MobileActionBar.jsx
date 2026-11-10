@@ -18,7 +18,7 @@ export const MobileActionBar = () => {
           gap: '0.35rem',
         }}
       >
-        <Phone size={14} color="var(--color-pine-primary)" />
+        <Phone size={14} color="var(--color-amber)" />
         <span>Call</span>
       </a>
 

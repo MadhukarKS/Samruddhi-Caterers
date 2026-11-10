@@ -11,7 +11,7 @@ export const HomeShowcase = () => {
   return (
     <>
       {/* Band 3: Enterprise Services Preview */}
-      <section className="section" style={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid var(--color-border)' }}>
+      <section className="section" style={{ backgroundColor: '#0B111A', borderBottom: '1px solid var(--color-border)' }}>
         <div className="container-wide">
           <div
             style={{
@@ -66,7 +66,7 @@ export const HomeShowcase = () => {
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      background: 'linear-gradient(180deg, transparent 40%, rgba(15, 25, 20, 0.78) 100%)',
+                      background: 'linear-gradient(180deg, transparent 40%, rgba(7, 12, 20, 0.85) 100%)',
                     }}
                   />
                   <span
@@ -74,10 +74,11 @@ export const HomeShowcase = () => {
                       position: 'absolute',
                       bottom: '0.75rem',
                       left: '0.85rem',
-                      color: '#FFFFFF',
+                      color: '#F1F5F9',
                       fontSize: '0.74rem',
                       fontWeight: 600,
-                      backgroundColor: 'rgba(21, 43, 34, 0.85)',
+                      backgroundColor: 'rgba(11, 17, 26, 0.86)',
+                      border: '1px solid rgba(255, 255, 255, 0.14)',
                       padding: '0.22rem 0.6rem',
                       borderRadius: 'var(--radius-xs)',
                     }}
@@ -125,7 +126,7 @@ export const HomeShowcase = () => {
       </section>
 
       {/* Band 4: Hospitality Venues & Architectural Call-to-Action */}
-      <section className="section" style={{ backgroundColor: '#FAFAF8' }}>
+      <section className="section" style={{ backgroundColor: '#0F1622' }}>
         <div className="container-wide">
           <SectionHeading
             badgeIcon={Building2}
@@ -195,14 +196,14 @@ export const HomeShowcase = () => {
           {/* Closing Consultation CTA */}
           <div className="cta-band">
             <div style={{ maxWidth: '640px' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#E89572', marginBottom: '0.55rem' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#E09132', marginBottom: '0.55rem' }}>
                 <ShieldCheck size={14} />
                 <span>Jigani Central Kitchen • FSSAI Level 5 Certified</span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-heading)', color: '#FFFFFF', fontSize: 'clamp(1.5rem, 2.6vw, 2.05rem)', marginBottom: '0.45rem' }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', color: '#F1F5F9', fontSize: 'clamp(1.5rem, 2.6vw, 2.05rem)', marginBottom: '0.45rem' }}>
                 Commission Daily Catering or Plan Your Celebration
               </h2>
-              <p style={{ color: '#C5D2CC', fontSize: '0.94rem', margin: 0 }}>
+              <p style={{ color: '#94A3B8', fontSize: '0.94rem', margin: 0 }}>
                 Connect directly with our corporate RFP & event planning desk for customized menu engineering and SLAs.
               </p>
             </div>

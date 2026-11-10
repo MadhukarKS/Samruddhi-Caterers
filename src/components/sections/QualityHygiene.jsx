@@ -54,7 +54,7 @@ export const QualityHygiene = () => {
   ];
 
   return (
-    <section id="hygiene" style={{ backgroundColor: '#FAFAF8' }}>
+    <section id="hygiene" style={{ backgroundColor: 'var(--color-canvas)' }}>
       {/* Band 1: Crisp Architectural Header */}
       <div className="page-hero-band" style={{ marginBottom: 0 }}>
         <div className="container-wide" style={{ textAlign: 'center', maxWidth: '800px' }}>
@@ -81,11 +81,12 @@ export const QualityHygiene = () => {
         </div>
       </div>
 
-      {/* Band 2: Deep Forest Pine Core Safety Pillars */}
+      {/* Band 2: Elevated Midnight Navy Core Safety Pillars */}
       <div
         style={{
-          backgroundColor: '#152B22',
-          color: '#FFFFFF',
+          backgroundColor: '#0F1622',
+          color: '#F1F5F9',
+          borderBottom: '1px solid var(--color-border)',
           padding: 'clamp(3rem, 5.5vw, 4.5rem) 0',
         }}
       >
@@ -115,7 +116,7 @@ export const QualityHygiene = () => {
                     width: '44px',
                     height: '44px',
                     borderRadius: 'var(--radius-sm)',
-                    backgroundColor: 'rgba(200, 94, 52, 0.16)',
+                    backgroundColor: 'rgba(224, 145, 50, 0.14)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -128,7 +129,7 @@ export const QualityHygiene = () => {
                   style={{
                     fontFamily: 'var(--font-heading)',
                     fontSize: '1.22rem',
-                    color: '#FFFFFF',
+                    color: '#F1F5F9',
                     lineHeight: 1.3,
                     margin: 0,
                   }}
@@ -136,7 +137,7 @@ export const QualityHygiene = () => {
                   {item.title}
                 </h2>
 
-                <p style={{ fontSize: '0.9rem', color: '#B8C5BE', lineHeight: 1.62, margin: 0 }}>
+                <p style={{ fontSize: '0.9rem', color: '#94A3B8', lineHeight: 1.62, margin: 0 }}>
                   {item.desc}
                 </p>
               </div>
@@ -145,10 +146,10 @@ export const QualityHygiene = () => {
         </div>
       </div>
 
-      {/* Band 3: Light Alabaster QA Workflow & Certification Strip (cleanly separates from Footer) */}
+      {/* Band 3: Midnight Canvas QA Workflow & Certification Strip */}
       <div
         style={{
-          backgroundColor: '#FAFAF8',
+          backgroundColor: '#0B111A',
           padding: 'clamp(3rem, 5vw, 4.25rem) 0 0 0',
         }}
       >
@@ -238,11 +239,11 @@ export const QualityHygiene = () => {
                 </h3>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', fontSize: '0.84rem', color: 'var(--color-text-body)', fontWeight: 500 }}>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                    <Check size={15} color="#1E7E55" />
+                    <Check size={15} color="#4ADE80" />
                     License #11221334000542
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                    <Check size={15} color="#1E7E55" />
+                    <Check size={15} color="#4ADE80" />
                     Daily Microbiological & RO Lab Reports
                   </span>
                 </div>

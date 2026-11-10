@@ -20,7 +20,7 @@ export const Hero = ({
         position: 'relative',
         paddingTop: 'clamp(7.2rem, 10vw, 8.75rem)',
         paddingBottom: 'clamp(3.25rem, 5.5vw, 4.75rem)',
-        background: 'radial-gradient(circle at 86% 18%, rgba(200, 94, 52, 0.06) 0%, transparent 45%), #FAFAF8',
+        background: 'radial-gradient(circle at 84% 18%, rgba(224, 145, 50, 0.11) 0%, transparent 46%), #0B111A',
         borderBottom: '1px solid var(--color-border)',
         overflow: 'hidden',
       }}
@@ -55,7 +55,7 @@ export const Hero = ({
               }}
             >
               Nourishing Trust,{' '}
-              <span style={{ color: 'var(--color-pine-primary)' }}>
+              <span style={{ color: '#E09132' }}>
                 Delivering Culinary Excellence.
               </span>
             </h1>
@@ -213,7 +213,7 @@ export const Hero = ({
               <div
                 style={{
                   padding: '1.15rem 1.45rem',
-                  backgroundColor: '#FFFFFF',
+                  backgroundColor: 'var(--color-surface)',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
@@ -237,8 +237,9 @@ export const Hero = ({
                     fontSize: '0.74rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
-                    color: 'var(--color-terracotta)',
-                    backgroundColor: 'var(--color-terracotta-light)',
+                    color: '#F4B668',
+                    backgroundColor: 'rgba(224, 145, 50, 0.14)',
+                    border: '1px solid rgba(224, 145, 50, 0.3)',
                     padding: '0.35rem 0.8rem',
                     borderRadius: 'var(--radius-pill)',
                   }}
@@ -249,7 +250,7 @@ export const Hero = ({
                       width: '6px',
                       height: '6px',
                       borderRadius: '50%',
-                      backgroundColor: 'var(--color-terracotta)',
+                      backgroundColor: '#E09132',
                     }}
                   />
                   <span>Active 24/7 Shifts</span>
@@ -262,24 +263,25 @@ export const Hero = ({
                 position: 'absolute',
                 top: '1.25rem',
                 left: '1.25rem',
-                backgroundColor: 'rgba(21, 43, 34, 0.92)',
+                backgroundColor: 'rgba(11, 17, 26, 0.88)',
                 backdropFilter: 'blur(8px)',
-                color: '#FFFFFF',
+                color: '#F1F5F9',
+                border: '1px solid rgba(255, 255, 255, 0.14)',
                 padding: '0.6rem 0.95rem',
                 borderRadius: 'var(--radius-sm)',
-                boxShadow: '0 6px 20px rgba(0, 0, 0, 0.16)',
+                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.36)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.6rem',
                 zIndex: 6,
               }}
             >
-              <ShieldCheck size={17} color="#C85E34" />
+              <ShieldCheck size={17} color="#E09132" />
               <div>
                 <div style={{ fontSize: '0.8rem', fontWeight: 700 }}>
                   FSSAI Level 5 Hygiene
                 </div>
-                <div style={{ fontSize: '0.68rem', color: '#B8C5BE' }}>
+                <div style={{ fontSize: '0.68rem', color: '#94A3B8' }}>
                   Microbiological Lab Verified
                 </div>
               </div>
