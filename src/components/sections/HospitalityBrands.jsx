@@ -2,7 +2,7 @@ import React from 'react';
 import { useApp } from '../../hooks/useApp';
 import { BRANDS_DATA } from '../../data/samruddhiData';
 import { SectionHeading } from '../common/SectionHeading';
-import { Building2, Check } from 'lucide-react';
+import { Building2, Check, ArrowRight } from 'lucide-react';
 
 export const HospitalityBrands = ({
   onSelectBrand: propOnSelectBrand,
@@ -14,72 +14,57 @@ export const HospitalityBrands = ({
   const handleRequest = propOnRequestProposal || ((name) => openProposalModal(`Enquiry for ${name}`));
 
   return (
-    <section id="brands" className="section" style={{ backgroundColor: '#FAFAF8', borderBottom: '1px solid var(--color-border)' }}>
+    <section id="brands" style={{ backgroundColor: '#FAFAF8' }}>
       <div className="container-wide">
-        {/* Section Header */}
         <SectionHeading
           badgeIcon={Building2}
-          badgeText="Hospitality & Venue Portfolio"
+          badgeText="Hospitality Portfolio"
           title="One Group. Distinct Experiences."
-          description="Under the umbrella of Samruddhi Group, each hospitality brand represents a specialized commitment to culinary distinction—spanning fine dining, grand banquets, open-air venues, versatile food courts, and specialized corporate kitchens."
+          description="Five specialized hospitality brands spanning luxury banquets, fine dining, celebration lawns, food courts, and corporate kitchens."
+          compact={true}
         />
 
-        {/* 5 Distinct Brand Cards Grid */}
+        {/* Compact Brand Cards Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.25rem',
           }}
         >
-          {BRANDS_DATA.map((brand) => (
+          {BRANDS_DATA.map((brand, idx) => (
             <div
               key={brand.id}
-              className="card-minimal"
+              className="card-showcase"
               style={{
+                '--stagger': idx,
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                padding: '0',
-                overflow: 'hidden',
-                backgroundColor: '#FFFFFF',
               }}
             >
-              {/* Brand Visual Header */}
-              <div
-                style={{
-                  position: 'relative',
-                  height: '230px',
-                  overflow: 'hidden',
-                  backgroundColor: 'var(--color-surface-subtle)',
-                }}
-              >
-                <img
-                  src={brand.image}
-                  alt={brand.name}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                    transition: 'transform 0.4s ease',
-                  }}
-                />
-
-                {/* Category Badge */}
+              <div className="card-img-wrap" style={{ height: '160px' }}>
+                <img src={brand.image} alt={brand.name} />
                 <div
                   style={{
                     position: 'absolute',
-                    top: '1rem',
-                    left: '1rem',
+                    inset: 0,
+                    background: 'linear-gradient(180deg, rgba(15, 25, 20, 0.25) 0%, rgba(15, 25, 20, 0.65) 100%)',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '0.75rem',
+                    left: '0.75rem',
                     backgroundColor: 'rgba(21, 43, 34, 0.92)',
                     backdropFilter: 'blur(8px)',
                     color: '#FFFFFF',
-                    fontSize: '0.72rem',
+                    fontSize: '0.68rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    padding: '0.35rem 0.75rem',
+                    letterSpacing: '0.07em',
+                    padding: '0.28rem 0.65rem',
                     borderRadius: 'var(--radius-pill)',
                   }}
                 >
@@ -87,10 +72,9 @@ export const HospitalityBrands = ({
                 </div>
               </div>
 
-              {/* Card Body */}
               <div
                 style={{
-                  padding: '1.75rem',
+                  padding: '1.15rem 1.25rem',
                   display: 'flex',
                   flexDirection: 'column',
                   flexGrow: 1,
@@ -99,9 +83,9 @@ export const HospitalityBrands = ({
                 <h3
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: '1.45rem',
+                    fontSize: '1.18rem',
                     color: 'var(--color-text-main)',
-                    marginBottom: '0.35rem',
+                    marginBottom: '0.15rem',
                   }}
                 >
                   {brand.name}
@@ -109,10 +93,10 @@ export const HospitalityBrands = ({
 
                 <div
                   style={{
-                    fontSize: '0.88rem',
+                    fontSize: '0.8rem',
                     fontWeight: 600,
                     color: 'var(--color-terracotta)',
-                    marginBottom: '0.85rem',
+                    marginBottom: '0.5rem',
                   }}
                 >
                   {brand.tagline}
@@ -120,54 +104,48 @@ export const HospitalityBrands = ({
 
                 <p
                   style={{
-                    fontSize: '0.9rem',
+                    fontSize: '0.83rem',
                     color: 'var(--color-text-muted)',
-                    lineHeight: 1.6,
-                    marginBottom: '1.5rem',
+                    lineHeight: 1.5,
+                    marginBottom: '0.85rem',
                   }}
                 >
                   {brand.description}
                 </p>
 
-                {/* Highlights */}
                 <ul
                   style={{
                     listStyle: 'none',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '0.5rem',
-                    marginBottom: '1.75rem',
+                    gap: '0.35rem',
+                    marginBottom: '1rem',
                     marginTop: 'auto',
                   }}
                 >
-                  {brand.highlights.map((h, i) => (
+                  {brand.highlights.slice(0, 2).map((h, i) => (
                     <li
                       key={i}
                       style={{
                         display: 'flex',
                         alignItems: 'flex-start',
-                        gap: '0.55rem',
-                        fontSize: '0.85rem',
+                        gap: '0.45rem',
+                        fontSize: '0.8rem',
                         color: 'var(--color-text-body)',
                       }}
                     >
-                      <Check
-                        size={15}
-                        color="var(--color-terracotta)"
-                        style={{ flexShrink: 0, marginTop: '0.2rem' }}
-                      />
+                      <Check size={13} color="var(--color-terracotta)" style={{ flexShrink: 0, marginTop: '0.18rem' }} />
                       <span>{h}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Actions */}
                 <div
                   style={{
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr',
-                    gap: '0.75rem',
-                    paddingTop: '1.25rem',
+                    gap: '0.55rem',
+                    paddingTop: '0.85rem',
                     borderTop: '1px solid var(--color-border-card)',
                   }}
                 >
@@ -175,18 +153,19 @@ export const HospitalityBrands = ({
                     type="button"
                     onClick={() => handleSelect(brand)}
                     className="btn btn-secondary btn-sm"
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', padding: '0.5rem 0.6rem', fontSize: '0.78rem' }}
                   >
-                    <span>Brand Details</span>
+                    <span>Details</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => handleRequest(brand.name)}
                     className="btn btn-primary btn-sm"
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', padding: '0.5rem 0.6rem', fontSize: '0.78rem' }}
                   >
                     <span>Enquire</span>
+                    <ArrowRight size={12} className="hover-arrow" />
                   </button>
                 </div>
               </div>

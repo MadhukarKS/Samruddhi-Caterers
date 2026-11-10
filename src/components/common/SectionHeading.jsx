@@ -7,7 +7,8 @@ export const SectionHeading = ({
   description,
   isDark = false,
   align = 'center',
-  maxWidth = '780px',
+  maxWidth = '720px',
+  compact = false,
 }) => {
   const isCentered = align === 'center';
 
@@ -16,15 +17,21 @@ export const SectionHeading = ({
       style={{
         textAlign: isCentered ? 'center' : 'left',
         maxWidth,
-        margin: isCentered ? '0 auto 3.25rem auto' : '0 0 3.25rem 0',
+        margin: isCentered
+          ? compact
+            ? '0 auto 1.75rem auto'
+            : '0 auto 2.25rem auto'
+          : compact
+            ? '0 0 1.5rem 0'
+            : '0 0 2rem 0',
       }}
     >
       {badgeText && (
-        <div style={{ marginBottom: '1rem' }}>
+        <div style={{ marginBottom: '0.65rem' }}>
           <span className={isDark ? 'badge-pill badge-dark' : 'badge-pill'}>
             {BadgeIcon && (
               <BadgeIcon
-                size={13}
+                size={12}
                 color={isDark ? '#FFFFFF' : 'var(--color-terracotta)'}
               />
             )}
@@ -36,12 +43,12 @@ export const SectionHeading = ({
       <h2
         style={{
           fontFamily: 'var(--font-heading)',
-          fontSize: 'clamp(1.9rem, 3.8vw, 2.75rem)',
+          fontSize: 'clamp(1.65rem, 3.2vw, 2.3rem)',
           color: isDark ? '#FFFFFF' : 'var(--color-text-main)',
           fontWeight: 700,
-          lineHeight: 1.15,
-          letterSpacing: '-0.03em',
-          marginBottom: '1rem',
+          lineHeight: 1.14,
+          letterSpacing: '-0.028em',
+          marginBottom: description ? '0.6rem' : 0,
         }}
       >
         {title}
@@ -50,10 +57,10 @@ export const SectionHeading = ({
       {description && (
         <p
           style={{
-            fontSize: '1.05rem',
+            fontSize: '0.95rem',
             color: isDark ? 'var(--color-text-inverse-muted)' : 'var(--color-text-muted)',
-            lineHeight: 1.72,
-            maxWidth: '680px',
+            lineHeight: 1.6,
+            maxWidth: '620px',
             margin: isCentered ? '0 auto' : '0',
           }}
         >

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useApp } from '../../hooks/useApp';
 import { ArrowRight, ShieldCheck, CheckCircle2, MessageSquare, UtensilsCrossed, Clock } from 'lucide-react';
 
@@ -7,22 +8,18 @@ export const Hero = ({
   onExploreServices: propOnExploreServices,
 }) => {
   const { openProposalModal } = useApp();
+  const navigate = useNavigate();
 
   const handleRequest = propOnRequestProposal || (() => openProposalModal('Corporate Catering'));
-  const handleExplore =
-    propOnExploreServices ||
-    (() => {
-      const el = document.getElementById('services');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    });
+  const handleExplore = propOnExploreServices || (() => navigate('/services'));
 
   return (
     <section
       id="home"
       style={{
         position: 'relative',
-        paddingTop: 'clamp(7.5rem, 11vw, 9.5rem)',
-        paddingBottom: 'clamp(4rem, 7vw, 6.5rem)',
+        paddingTop: 'clamp(6.2rem, 8.5vw, 7.2rem)',
+        paddingBottom: 'clamp(2rem, 3.5vw, 3rem)',
         backgroundColor: '#FAFAF8',
         borderBottom: '1px solid var(--color-border)',
         overflow: 'hidden',
@@ -32,51 +29,47 @@ export const Hero = ({
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: 'clamp(2.5rem, 5vw, 4.5rem)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
+            gap: 'clamp(1.75rem, 4vw, 3.5rem)',
             alignItems: 'center',
           }}
         >
-          {/* Left Column: Brand Statement & Conversion Actions */}
-          <div style={{ maxWidth: '640px' }}>
-            {/* Accreditation Badge */}
-            <div style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
+          {/* Left Column: Crisp Value Proposition */}
+          <div style={{ maxWidth: '610px' }}>
+            <div style={{ display: 'inline-flex', marginBottom: '0.9rem' }}>
               <span className="badge-pill badge-accent">
-                <ShieldCheck size={14} />
-                <span>Over 20 Years of Food-Service Leadership</span>
+                <ShieldCheck size={13} />
+                <span>20+ Years of Food-Service Leadership</span>
               </span>
             </div>
 
-            {/* Level 1 Headline (Modern Architectural Typography) */}
             <h1
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(2.25rem, 4.5vw, 3.6rem)',
+                fontSize: 'clamp(2.05rem, 4vw, 3.2rem)',
                 fontWeight: 800,
                 color: 'var(--color-text-main)',
-                lineHeight: 1.12,
+                lineHeight: 1.1,
                 letterSpacing: '-0.035em',
-                marginBottom: '1.35rem',
+                marginBottom: '0.95rem',
               }}
             >
-              Nourishing Trust, Delivering Excellence:{' '}
+              Nourishing Trust,{' '}
               <span style={{ color: 'var(--color-pine-primary)' }}>
-                Institutional Scale & Culinary Distinction
+                Delivering Culinary Excellence.
               </span>
             </h1>
 
-            {/* Value Proposition Narrative */}
             <p
               style={{
-                fontSize: 'clamp(1rem, 1.4vw, 1.12rem)',
+                fontSize: 'clamp(0.95rem, 1.25vw, 1.04rem)',
                 color: 'var(--color-text-body)',
-                lineHeight: 1.72,
-                marginBottom: '2.25rem',
+                lineHeight: 1.62,
+                marginBottom: '1.5rem',
               }}
             >
-              From continuous 24/7 industrial shift dining to refined executive cafeterias and signature celebratory
-              banquets, Samruddhi Group engineers commercial kitchen operations in Bengaluru backed by uncompromising
-              hygiene, verified nutritional balance, and ISO-grade logistics.
+              Large-scale industrial kitchens, tech-park corporate cafeterias, and bespoke banquet catering in
+              Bengaluru—powered by FSSAI Level 5 hygiene and 24/7 dispatch.
             </p>
 
             {/* Primary Action Buttons */}
@@ -84,52 +77,24 @@ export const Hero = ({
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: '0.85rem',
+                gap: '0.75rem',
                 alignItems: 'center',
-                marginBottom: '2.5rem',
+                marginBottom: '1.75rem',
               }}
             >
               <button
                 type="button"
                 onClick={handleRequest}
-                className="btn btn-primary btn-lg"
-                style={{
-                  backgroundColor: '#152B22',
-                  color: '#FFFFFF',
-                  border: '1px solid #152B22',
-                  padding: '0.95rem 1.95rem',
-                  borderRadius: '8px',
-                  fontWeight: 600,
-                  fontSize: '0.98rem',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.6rem',
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(21, 43, 34, 0.15)',
-                  transition: 'all 0.2s ease',
-                }}
+                className="btn btn-primary"
               >
                 <span>Request a Proposal</span>
-                <ArrowRight size={17} />
+                <ArrowRight size={16} className="hover-arrow" />
               </button>
 
               <button
                 type="button"
                 onClick={handleExplore}
-                className="btn btn-secondary btn-lg"
-                style={{
-                  backgroundColor: 'transparent',
-                  color: '#152B22',
-                  border: '1px solid #D5D3CA',
-                  padding: '0.95rem 1.85rem',
-                  borderRadius: '8px',
-                  fontWeight: 600,
-                  fontSize: '0.98rem',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                }}
+                className="btn btn-secondary"
               >
                 <span>Explore Our Services</span>
               </button>
@@ -138,44 +103,29 @@ export const Hero = ({
                 href="https://wa.me/919845012345"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-whatsapp btn-lg"
+                className="btn btn-whatsapp"
                 title="Instant Chat on WhatsApp"
-                style={{
-                  backgroundColor: '#25D366',
-                  color: '#FFFFFF',
-                  border: '1px solid #25D366',
-                  padding: '0.95rem 1.85rem',
-                  borderRadius: '8px',
-                  fontWeight: 600,
-                  fontSize: '0.98rem',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.6rem',
-                  textDecoration: 'none',
-                  boxShadow: '0 4px 14px rgba(37, 211, 102, 0.25)',
-                  transition: 'all 0.2s ease',
-                }}
               >
-                <MessageSquare size={17} />
+                <MessageSquare size={16} />
                 <span>WhatsApp Desk</span>
               </a>
             </div>
 
-            {/* Live Operational Proof Pills */}
+            {/* Compact Live Operational Proof Pills */}
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
-                gap: '1rem',
-                paddingTop: '1.5rem',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+                gap: '0.85rem',
+                paddingTop: '1.15rem',
                 borderTop: '1px solid var(--color-border)',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <div
                   style={{
-                    width: '36px',
-                    height: '36px',
+                    width: '34px',
+                    height: '34px',
                     borderRadius: 'var(--radius-sm)',
                     backgroundColor: 'var(--color-surface-subtle)',
                     display: 'flex',
@@ -185,21 +135,21 @@ export const Hero = ({
                     flexShrink: 0,
                   }}
                 >
-                  <UtensilsCrossed size={18} />
+                  <UtensilsCrossed size={16} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.98rem', color: 'var(--color-text-main)', lineHeight: 1.2 }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.94rem', color: 'var(--color-text-main)', lineHeight: 1.2 }}>
                     50,000+
                   </div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)' }}>Daily Meals Served</div>
+                  <div style={{ fontSize: '0.74rem', color: 'var(--color-text-muted)' }}>Daily Meals Served</div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <div
                   style={{
-                    width: '36px',
-                    height: '36px',
+                    width: '34px',
+                    height: '34px',
                     borderRadius: 'var(--radius-sm)',
                     backgroundColor: 'var(--color-surface-subtle)',
                     display: 'flex',
@@ -209,21 +159,21 @@ export const Hero = ({
                     flexShrink: 0,
                   }}
                 >
-                  <Clock size={18} />
+                  <Clock size={16} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.98rem', color: 'var(--color-text-main)', lineHeight: 1.2 }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.94rem', color: 'var(--color-text-main)', lineHeight: 1.2 }}>
                     99.8%
                   </div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)' }}>On-Time Dispatch</div>
+                  <div style={{ fontSize: '0.74rem', color: 'var(--color-text-muted)' }}>On-Time Dispatch</div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <div
                   style={{
-                    width: '36px',
-                    height: '36px',
+                    width: '34px',
+                    height: '34px',
                     borderRadius: 'var(--radius-sm)',
                     backgroundColor: 'var(--color-surface-subtle)',
                     display: 'flex',
@@ -233,44 +183,31 @@ export const Hero = ({
                     flexShrink: 0,
                   }}
                 >
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={16} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.98rem', color: 'var(--color-text-main)', lineHeight: 1.2 }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.94rem', color: 'var(--color-text-main)', lineHeight: 1.2 }}>
                     ISO 22000
                   </div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)' }}>HACCP & FSSAI Compliant</div>
+                  <div style={{ fontSize: '0.74rem', color: 'var(--color-text-muted)' }}>HACCP & FSSAI Audited</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Editorial Visual Showcase with Floating Status Badges */}
+          {/* Right Column: Visual Showcase Card with Image Zoom & Sheen */}
           <div style={{ position: 'relative' }}>
-            <div
-              style={{
-                borderRadius: 'var(--radius-md)',
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-lg)',
-                border: '1px solid var(--color-border)',
-                backgroundColor: '#FFFFFF',
-              }}
-            >
-              <img
-                src="/images/hero.jpg"
-                alt="Samruddhi Group Commercial Catering Kitchen & Food Operations"
-                style={{
-                  width: '100%',
-                  height: 'clamp(320px, 42vw, 460px)',
-                  objectFit: 'cover',
-                  display: 'block',
-                }}
-              />
+            <div className="card-showcase" style={{ '--stagger': 1 }}>
+              <div className="card-img-wrap" style={{ height: 'clamp(260px, 32vw, 355px)' }}>
+                <img
+                  src="/images/hero.jpg"
+                  alt="Samruddhi Group Commercial Catering Kitchen & Food Operations"
+                />
+              </div>
 
-              {/* Bottom Caption Bar */}
               <div
                 style={{
-                  padding: '1.25rem 1.5rem',
+                  padding: '0.95rem 1.25rem',
                   backgroundColor: '#FFFFFF',
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -279,11 +216,11 @@ export const Hero = ({
                 }}
               >
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--color-text-main)' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--color-text-main)' }}>
                     Central Commissary Hub
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
-                    No. 79/2 Jigani Industrial Hobli, Bengaluru
+                  <div style={{ fontSize: '0.76rem', color: 'var(--color-text-muted)' }}>
+                    Jigani Industrial Hobli, Bengaluru
                   </div>
                 </div>
 
@@ -292,16 +229,17 @@ export const Hero = ({
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.4rem',
-                    fontSize: '0.75rem',
+                    fontSize: '0.72rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     color: 'var(--color-terracotta)',
                     backgroundColor: 'var(--color-terracotta-light)',
-                    padding: '0.35rem 0.75rem',
+                    padding: '0.3rem 0.7rem',
                     borderRadius: 'var(--radius-pill)',
                   }}
                 >
                   <span
+                    className="pulse-dot"
                     style={{
                       width: '6px',
                       height: '6px',
@@ -314,30 +252,31 @@ export const Hero = ({
               </div>
             </div>
 
-            {/* Floating Trust Pill Badge */}
+            {/* Floating FSSAI Tag */}
             <div
               style={{
                 position: 'absolute',
-                top: '1.5rem',
-                left: '1.5rem',
+                top: '1rem',
+                left: '1rem',
                 backgroundColor: 'rgba(21, 43, 34, 0.92)',
                 backdropFilter: 'blur(8px)',
                 color: '#FFFFFF',
-                padding: '0.65rem 1rem',
+                padding: '0.5rem 0.85rem',
                 borderRadius: 'var(--radius-sm)',
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.65rem',
+                gap: '0.55rem',
+                zIndex: 6,
               }}
             >
-              <ShieldCheck size={18} color="#C85E34" />
+              <ShieldCheck size={16} color="#C85E34" />
               <div>
-                <div style={{ fontSize: '0.82rem', fontWeight: 700, letterSpacing: '-0.01em' }}>
+                <div style={{ fontSize: '0.78rem', fontWeight: 700 }}>
                   FSSAI Level 5 Hygiene
                 </div>
-                <div style={{ fontSize: '0.68rem', color: '#B8C5BE' }}>
-                  Microbiological Lab Audited
+                <div style={{ fontSize: '0.65rem', color: '#B8C5BE' }}>
+                  Lab Verified Commissary
                 </div>
               </div>
             </div>

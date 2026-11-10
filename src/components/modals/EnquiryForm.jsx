@@ -14,6 +14,7 @@ import { useApp } from '../../hooks/useApp';
 export const EnquiryForm = ({
   initialService = '',
   isModal = false,
+  compact = false,
   onCloseModal,
 }) => {
   const { showToast, saveRfp } = useApp();
@@ -28,7 +29,7 @@ export const EnquiryForm = ({
     estimatedGuests: '',
     frequencyOrDate: '',
     additionalRequirements: '',
-    honeypot: '', // Spam protection
+    honeypot: '',
   });
 
   const [touched, setTouched] = useState({});
@@ -55,9 +56,7 @@ export const EnquiryForm = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check honeypot spam protection
     if (formData.honeypot) {
-      console.warn('Automated bot submission detected and blocked.');
       return;
     }
 
@@ -91,7 +90,6 @@ export const EnquiryForm = ({
 
     saveRfp(record);
 
-    // Simulated authentic processing latency
     await new Promise((resolve) => setTimeout(resolve, 600));
 
     setIsSubmitting(false);
@@ -137,39 +135,39 @@ export const EnquiryForm = ({
 
   return (
     <div
+      className={compact ? 'form-compact' : ''}
       style={{
         backgroundColor: '#FFFFFF',
         borderRadius: 'var(--radius-md)',
-        border: '1px solid var(--color-border)',
+        border: isModal ? '1px solid var(--color-border)' : 'none',
         boxShadow: isModal ? '0 20px 50px rgba(15, 19, 24, 0.25)' : 'none',
-        padding: isModal ? 'clamp(1.75rem, 4vw, 2.75rem)' : '0',
+        padding: isModal ? 'clamp(1.5rem, 3.5vw, 2.25rem)' : '0',
         position: 'relative',
       }}
     >
       {submissionResult ? (
-        /* Confirmed Verification State */
-        <div style={{ textAlign: 'center', padding: '1.5rem 0' }} className="animate-fade-in">
+        <div style={{ textAlign: 'center', padding: compact ? '0.75rem 0' : '1.25rem 0' }} className="animate-fade-in">
           <div
             style={{
-              width: '58px',
-              height: '58px',
+              width: '48px',
+              height: '48px',
               borderRadius: '50%',
               backgroundColor: 'var(--color-terracotta-light)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              margin: '0 auto 1.25rem auto',
+              margin: '0 auto 0.85rem auto',
             }}
           >
-            <CheckCircle2 size={32} color="var(--color-terracotta)" />
+            <CheckCircle2 size={26} color="var(--color-terracotta)" />
           </div>
 
           <h3
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.65rem, 3vw, 2.1rem)',
+              fontSize: compact ? '1.35rem' : 'clamp(1.5rem, 2.5vw, 1.9rem)',
               color: 'var(--color-text-main)',
-              marginBottom: '0.75rem',
+              marginBottom: '0.5rem',
             }}
           >
             Catering Proposal Dossier Generated
@@ -179,18 +177,18 @@ export const EnquiryForm = ({
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.75rem',
+              gap: '0.65rem',
               backgroundColor: 'var(--color-surface-subtle)',
-              padding: '0.55rem 1.25rem',
+              padding: '0.45rem 1rem',
               borderRadius: 'var(--radius-sm)',
               border: '1px solid var(--color-border)',
-              marginBottom: '1.5rem',
+              marginBottom: '0.9rem',
             }}
           >
             <div>
               <span
                 style={{
-                  fontSize: '0.76rem',
+                  fontSize: '0.7rem',
                   color: 'var(--color-text-muted)',
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
@@ -202,7 +200,7 @@ export const EnquiryForm = ({
               </span>
               <strong
                 style={{
-                  fontSize: '1.15rem',
+                  fontSize: '1.05rem',
                   color: 'var(--color-pine-primary)',
                   letterSpacing: '0.04em',
                 }}
@@ -217,34 +215,33 @@ export const EnquiryForm = ({
                 backgroundColor: '#FFFFFF',
                 border: '1px solid var(--color-border)',
                 borderRadius: 'var(--radius-xs)',
-                padding: '0.35rem 0.6rem',
+                padding: '0.3rem 0.55rem',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.3rem',
-                fontSize: '0.74rem',
+                fontSize: '0.72rem',
                 color: 'var(--color-text-main)',
                 fontWeight: 600,
               }}
               title="Copy Reference ID"
             >
-              {copied ? <Check size={13} color="var(--color-whatsapp)" /> : <Copy size={13} />}
+              {copied ? <Check size={12} color="var(--color-whatsapp)" /> : <Copy size={12} />}
               <span>{copied ? 'Copied' : 'Copy'}</span>
             </button>
           </div>
 
           <p
             style={{
-              fontSize: '0.96rem',
-              lineHeight: 1.68,
+              fontSize: '0.88rem',
+              lineHeight: 1.55,
               color: 'var(--color-text-body)',
-              maxWidth: '560px',
-              margin: '0 auto 2rem auto',
+              maxWidth: '520px',
+              margin: '0 auto 1.25rem auto',
             }}
           >
             Thank you, <strong>{formData.fullName}</strong>. Your catering requirements for{' '}
-            <strong>{formData.organisation}</strong> ({formData.serviceType}) have been formally prepared. You can
-            download the procurement dossier or transmit it directly via your corporate email.
+            <strong>{formData.organisation}</strong> ({formData.serviceType}) are ready. Download or email your dossier below.
           </p>
 
           <div
@@ -252,50 +249,44 @@ export const EnquiryForm = ({
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '0.75rem',
-              marginBottom: '2rem',
+              gap: '0.65rem',
+              marginBottom: '1rem',
             }}
           >
-            <button
-              onClick={downloadRfpSummary}
-              className="btn btn-primary"
-            >
-              <Download size={16} />
+            <button onClick={downloadRfpSummary} className="btn btn-primary btn-sm">
+              <Download size={14} />
               <span>Download Official RFP Dossier (.txt)</span>
             </button>
 
-            <button
-              onClick={sendByMailClient}
-              className="btn btn-secondary"
-            >
-              <Mail size={16} />
+            <button onClick={sendByMailClient} className="btn btn-secondary btn-sm">
+              <Mail size={14} />
               <span>Dispatch via Corporate Email</span>
             </button>
           </div>
 
           <div
             style={{
-              fontSize: '0.8rem',
+              fontSize: '0.75rem',
               color: 'var(--color-text-muted)',
               borderTop: '1px solid var(--color-border)',
-              paddingTop: '1.25rem',
+              paddingTop: '0.85rem',
             }}
           >
-            Location: No. 79/2, Jigani Hobli, Bengaluru – 560105 • FSSAI Compliant Central Commissary
+            Jigani Hobli, Bengaluru – 560105 • FSSAI Central Commissary
           </div>
 
           {isModal && onCloseModal && (
             <button
               onClick={onCloseModal}
               style={{
-                marginTop: '1.25rem',
+                marginTop: '0.85rem',
                 background: 'none',
                 border: 'none',
                 color: 'var(--color-pine-primary)',
                 fontWeight: 600,
                 textDecoration: 'underline',
                 cursor: 'pointer',
-                fontSize: '0.88rem',
+                fontSize: '0.84rem',
               }}
             >
               Close Window
@@ -303,34 +294,31 @@ export const EnquiryForm = ({
           )}
         </div>
       ) : (
-        /* Real Multi-Field RFP Form */
         <form onSubmit={handleSubmit} noValidate>
           {isModal && (
-            <div style={{ marginBottom: '1.75rem' }}>
-              <div style={{ display: 'inline-flex', marginBottom: '0.65rem' }}>
+            <div style={{ marginBottom: '1.15rem' }}>
+              <div style={{ display: 'inline-flex', marginBottom: '0.45rem' }}>
                 <span className="badge-pill">
                   <Sparkles size={12} color="var(--color-terracotta)" />
-                  <span>Corporate & Institutional Procurement</span>
+                  <span>Corporate RFP Desk</span>
                 </span>
               </div>
               <h3
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(1.6rem, 2.8vw, 2.1rem)',
+                  fontSize: '1.45rem',
                   color: 'var(--color-text-main)',
-                  marginBottom: '0.35rem',
+                  marginBottom: '0.2rem',
                 }}
               >
                 Request a Catering Proposal
               </h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
-                Provide your operational requirements below. Our executive culinary team will review meal counts, timing
-                schedules, and menu preferences to structure a detailed commercial proposal.
+              <p style={{ fontSize: '0.84rem', color: 'var(--color-text-muted)', lineHeight: 1.45 }}>
+                Share meal counts and location to generate an official proposal dossier.
               </p>
             </div>
           )}
 
-          {/* Honeypot Spam Protection Field */}
           <div style={{ display: 'none' }} aria-hidden="true">
             <input
               type="text"
@@ -342,15 +330,13 @@ export const EnquiryForm = ({
             />
           </div>
 
-          {/* Form Grid */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: '1.15rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(195px, 1fr))',
+              gap: compact ? '0.6rem 0.85rem' : '0.85rem 1.05rem',
             }}
           >
-            {/* Full Name */}
             <div className="form-group">
               <label htmlFor="fullName" className="form-label">
                 Full Name *
@@ -373,7 +359,6 @@ export const EnquiryForm = ({
               )}
             </div>
 
-            {/* Organisation */}
             <div className="form-group">
               <label htmlFor="organisation" className="form-label">
                 Organisation / Company *
@@ -382,7 +367,7 @@ export const EnquiryForm = ({
                 type="text"
                 id="organisation"
                 name="organisation"
-                placeholder="e.g. Precision Engineering Ltd / Campus"
+                placeholder="e.g. Precision Engineering Ltd"
                 className="form-control"
                 value={formData.organisation}
                 onChange={handleChange}
@@ -396,7 +381,6 @@ export const EnquiryForm = ({
               )}
             </div>
 
-            {/* Work Email */}
             <div className="form-group">
               <label htmlFor="workEmail" className="form-label">
                 Work Email *
@@ -419,7 +403,6 @@ export const EnquiryForm = ({
               )}
             </div>
 
-            {/* Phone Number */}
             <div className="form-group">
               <label htmlFor="phoneNumber" className="form-label">
                 Phone Number *
@@ -442,7 +425,6 @@ export const EnquiryForm = ({
               )}
             </div>
 
-            {/* Type of Service Required */}
             <div className="form-group">
               <label htmlFor="serviceType" className="form-label">
                 Type of Service Required *
@@ -463,7 +445,6 @@ export const EnquiryForm = ({
               </select>
             </div>
 
-            {/* City or Service Location */}
             <div className="form-group">
               <label htmlFor="location" className="form-label">
                 City / Facility Location *
@@ -472,7 +453,7 @@ export const EnquiryForm = ({
                 type="text"
                 id="location"
                 name="location"
-                placeholder="e.g. Jigani Industrial Area, Bengaluru"
+                placeholder="e.g. Jigani, Bengaluru"
                 className="form-control"
                 value={formData.location}
                 onChange={handleChange}
@@ -486,7 +467,6 @@ export const EnquiryForm = ({
               )}
             </div>
 
-            {/* Approximate Meals or Guests */}
             <div className="form-group">
               <label htmlFor="estimatedGuests" className="form-label">
                 Approximate Meals or Guests *
@@ -495,7 +475,7 @@ export const EnquiryForm = ({
                 type="text"
                 id="estimatedGuests"
                 name="estimatedGuests"
-                placeholder="e.g. 450 meals/day or 1,200 guests"
+                placeholder="e.g. 450 meals/day"
                 className="form-control"
                 value={formData.estimatedGuests}
                 onChange={handleChange}
@@ -509,7 +489,6 @@ export const EnquiryForm = ({
               )}
             </div>
 
-            {/* Expected Frequency or Event Date */}
             <div className="form-group">
               <label htmlFor="frequencyOrDate" className="form-label">
                 Expected Frequency or Event Date
@@ -518,7 +497,7 @@ export const EnquiryForm = ({
                 type="text"
                 id="frequencyOrDate"
                 name="frequencyOrDate"
-                placeholder="e.g. Daily shift meals / 24th Nov 2026"
+                placeholder="e.g. Daily shifts / 24 Nov 2026"
                 className="form-control"
                 value={formData.frequencyOrDate}
                 onChange={handleChange}
@@ -526,32 +505,30 @@ export const EnquiryForm = ({
             </div>
           </div>
 
-          {/* Additional Requirements */}
-          <div className="form-group" style={{ marginTop: '0.25rem' }}>
+          <div className="form-group" style={{ marginTop: compact ? '0.6rem' : '0.85rem' }}>
             <label htmlFor="additionalRequirements" className="form-label">
               Additional Requirements or Menu Specifications
             </label>
             <textarea
               id="additionalRequirements"
               name="additionalRequirements"
-              rows={3}
-              placeholder="Mention dietary preferences (e.g. pure vegetarian, South/North Indian combinations, delivery shifts, packaging specs)..."
+              rows={compact ? 2 : 3}
+              placeholder="Dietary preferences, delivery shifts, or service notes..."
               className="form-control"
               value={formData.additionalRequirements}
               onChange={handleChange}
             />
           </div>
 
-          {/* Submission and Status */}
           <div
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'center',
               justifyContent: 'space-between',
-              gap: '1.25rem',
-              marginTop: '1.5rem',
-              paddingTop: '1.25rem',
+              gap: '0.75rem',
+              marginTop: compact ? '0.75rem' : '1.1rem',
+              paddingTop: compact ? '0.75rem' : '1rem',
               borderTop: '1px solid var(--color-border)',
             }}
           >
@@ -559,22 +536,20 @@ export const EnquiryForm = ({
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.45rem',
-                fontSize: '0.78rem',
+                gap: '0.4rem',
+                fontSize: '0.74rem',
                 color: 'var(--color-text-muted)',
               }}
             >
-              <ShieldCheck size={15} color="var(--color-pine-primary)" />
-              <span>Enterprise Confidentiality & Instant Formal Dossier</span>
+              <ShieldCheck size={14} color="var(--color-pine-primary)" />
+              <span>Instant Formal Proposal Dossier</span>
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-primary"
-              style={{
-                opacity: isSubmitting ? 0.75 : 1,
-              }}
+              className="btn btn-primary btn-sm"
+              style={{ opacity: isSubmitting ? 0.75 : 1, padding: '0.6rem 1.25rem' }}
               id="submit-enquiry-btn"
             >
               {isSubmitting ? (
@@ -582,7 +557,7 @@ export const EnquiryForm = ({
               ) : (
                 <>
                   <span>Submit Enquiry</span>
-                  <Send size={15} />
+                  <Send size={14} />
                 </>
               )}
             </button>

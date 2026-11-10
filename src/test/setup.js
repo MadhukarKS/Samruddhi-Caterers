@@ -12,8 +12,8 @@ if (typeof window !== 'undefined') {
       };
     };
 
-  // Mock scrollIntoView
-  window.HTMLElement.prototype.scrollIntoView =
-    window.HTMLElement.prototype.scrollIntoView || function () {};
+  // Mock scrollIntoView and scrollTo cleanly for JSDOM
+  window.HTMLElement.prototype.scrollIntoView = function () {};
+  window.scrollTo = function () {};
 }
 

@@ -8,8 +8,8 @@ export const TrustStats = () => {
   const [compliance, setCompliance] = useState(0);
 
   useEffect(() => {
-    const duration = 1600;
-    const steps = 50;
+    const duration = 1200;
+    const steps = 40;
     const intervalTime = duration / steps;
     let stepCount = 0;
 
@@ -37,114 +37,84 @@ export const TrustStats = () => {
 
   const stats = [
     {
-      icon: <Award size={22} color="var(--color-terracotta)" />,
-      iconBg: 'rgba(200, 94, 52, 0.08)',
+      icon: <Award size={20} color="var(--color-terracotta)" />,
+      iconBg: 'rgba(200, 94, 52, 0.09)',
       display: `${years}+`,
       title: 'Years of Experience',
       badge: 'EST. 2004',
-      desc: 'Established operational legacy providing dependable food-service and hospitality solutions across Karnataka.',
-      proof: 'Over 2 Decades in Bengaluru',
+      desc: 'Trusted hospitality & catering across Karnataka.',
+      proof: '2 Decades in Bengaluru',
     },
     {
-      icon: <Users size={22} color="var(--color-pine-primary)" />,
+      icon: <Users size={20} color="var(--color-pine-primary)" />,
       iconBg: 'rgba(21, 43, 34, 0.08)',
       display: `${customers.toLocaleString()}+`,
       title: 'Happy Customers',
-      badge: 'B2B & BANQUETS',
-      desc: 'Serving industry leaders, corporate teams, institutional campuses, and festive wedding patrons.',
-      proof: 'Corporate, Tech & Manufacturing',
+      badge: 'B2B & EVENTS',
+      desc: 'Factories, corporate offices, campuses & banquets.',
+      proof: 'Enterprise & Celebrations',
     },
     {
-      icon: <UtensilsCrossed size={22} color="var(--color-terracotta)" />,
-      iconBg: 'rgba(200, 94, 52, 0.08)',
+      icon: <UtensilsCrossed size={20} color="var(--color-terracotta)" />,
+      iconBg: 'rgba(200, 94, 52, 0.09)',
       display: `${meals.toLocaleString()}+`,
       title: 'Large-Scale Catering Operations',
-      badge: 'DAILY COMMISSARY',
-      desc: 'High-volume central kitchen capability designed for continuous, timely food dispatch across shift rotations.',
-      proof: '24/7 Tri-Shift Coverage in Jigani',
+      badge: 'DAILY DISPATCH',
+      desc: 'Central kitchen engineered for nonstop shift supply.',
+      proof: '24/7 Jigani Commissary',
     },
     {
-      icon: <ShieldCheck size={22} color="#1E7E55" />,
+      icon: <ShieldCheck size={20} color="#1E7E55" />,
       iconBg: 'rgba(30, 126, 85, 0.1)',
       display: `${compliance}%`,
       title: 'Quality, Hygiene & Safety',
       badge: 'FSSAI LEVEL 5',
-      desc: 'Rigorous ingredient screening, disciplined sanitation protocols, and verified microbiological lab testing.',
-      proof: 'ISO 22000 & HACCP Compliant',
+      desc: 'Verified produce screening and daily lab batch audits.',
+      proof: 'ISO 22000:2018 Certified',
     },
   ];
 
   return (
     <section
       style={{
-        backgroundColor: '#F8F7F4',
-        borderTop: '1px solid var(--color-border)',
-        borderBottom: '1px solid var(--color-border)',
-        padding: 'clamp(3rem, 5vw, 4.5rem) 0',
+        backgroundColor: '#F4F3EE',
+        padding: 'clamp(1.75rem, 3vw, 2.5rem) 0',
         position: 'relative',
-        zIndex: 20,
       }}
     >
       <div className="container-wide">
-        {/* Section Eyebrow Label */}
-        <div style={{ textAlign: 'center', marginBottom: '2.25rem' }}>
-          <span
-            style={{
-              fontSize: '0.74rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.12em',
-              color: 'var(--color-text-muted)',
-              backgroundColor: '#FFFFFF',
-              border: '1px solid var(--color-border)',
-              padding: '0.3rem 0.85rem',
-              borderRadius: 'var(--radius-pill)',
-              display: 'inline-block',
-            }}
-          >
-            Verifiable Scale & Operational Excellence
-          </span>
-        </div>
-
-        {/* 4 Distinct Elevated Stats Cards */}
         <div
+          className="trust-stats-cards-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1.5rem',
+            gap: '1.15rem',
           }}
-          className="trust-stats-cards-grid"
         >
-          {stats.map((item) => (
+          {stats.map((item, idx) => (
             <div
               key={item.title}
-              className="stat-card"
+              className="card-showcase"
               style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--color-border)',
-                boxShadow: '0 4px 18px rgba(15, 19, 24, 0.04)',
-                padding: 'clamp(1.75rem, 2.5vw, 2.25rem)',
+                '--stagger': idx,
+                padding: '1.35rem',
                 display: 'flex',
                 flexDirection: 'column',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
-                position: 'relative',
-                overflow: 'hidden',
               }}
             >
-              {/* Top Row: Icon Container & Status Badge */}
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  marginBottom: '1.25rem',
+                  marginBottom: '0.9rem',
                 }}
               >
                 <div
+                  className="card-icon-box"
                   style={{
-                    width: '44px',
-                    height: '44px',
+                    width: '38px',
+                    height: '38px',
                     borderRadius: 'var(--radius-sm)',
                     backgroundColor: item.iconBg,
                     display: 'flex',
@@ -157,13 +127,13 @@ export const TrustStats = () => {
 
                 <span
                   style={{
-                    fontSize: '0.7rem',
+                    fontSize: '0.66rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.08em',
                     color: 'var(--color-text-muted)',
                     backgroundColor: 'var(--color-surface-subtle)',
-                    padding: '0.25rem 0.6rem',
+                    padding: '0.2rem 0.55rem',
                     borderRadius: 'var(--radius-pill)',
                     border: '1px solid var(--color-border)',
                   }}
@@ -172,77 +142,60 @@ export const TrustStats = () => {
                 </span>
               </div>
 
-              {/* Huge Numerical Stat */}
               <div
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(2.35rem, 3.8vw, 3.1rem)',
+                  fontSize: 'clamp(1.9rem, 2.8vw, 2.4rem)',
                   fontWeight: 800,
                   color: 'var(--color-pine-primary)',
-                  letterSpacing: '-0.035em',
-                  lineHeight: 1.08,
-                  marginBottom: '0.4rem',
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1.05,
+                  marginBottom: '0.25rem',
                 }}
               >
                 {item.display}
               </div>
 
-              {/* Title / Metric Name */}
               <div
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '1.1rem',
+                  fontSize: '0.98rem',
                   fontWeight: 700,
                   color: 'var(--color-text-main)',
-                  lineHeight: 1.3,
-                  marginBottom: '0.75rem',
-                  minHeight: '44px',
-                  display: 'flex',
-                  alignItems: 'center',
+                  lineHeight: 1.25,
+                  marginBottom: '0.5rem',
                 }}
               >
                 {item.title}
               </div>
 
-              {/* Divider Line */}
-              <div
-                style={{
-                  height: '1px',
-                  backgroundColor: 'var(--color-border-card)',
-                  marginBottom: '0.85rem',
-                }}
-              />
-
-              {/* Narrative Description */}
               <p
                 style={{
-                  fontSize: '0.88rem',
-                  color: 'var(--color-text-body)',
-                  lineHeight: 1.6,
-                  margin: 0,
-                  marginBottom: '1.25rem',
+                  fontSize: '0.82rem',
+                  color: 'var(--color-text-muted)',
+                  lineHeight: 1.48,
+                  marginBottom: '0.85rem',
                 }}
               >
                 {item.desc}
               </p>
 
-              {/* Bottom Proof Tag */}
               <div
                 style={{
                   marginTop: 'auto',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
-                  fontSize: '0.78rem',
+                  gap: '0.35rem',
+                  fontSize: '0.74rem',
                   fontWeight: 600,
                   color: 'var(--color-pine-primary)',
                   backgroundColor: 'var(--color-surface-subtle)',
-                  padding: '0.4rem 0.75rem',
+                  padding: '0.35rem 0.6rem',
                   borderRadius: 'var(--radius-xs)',
                   border: '1px solid var(--color-border)',
                 }}
               >
-                <Check size={13} color="var(--color-terracotta)" strokeWidth={2.5} />
+                <Check size={12} color="var(--color-terracotta)" strokeWidth={2.5} />
                 <span>{item.proof}</span>
               </div>
             </div>
@@ -251,17 +204,12 @@ export const TrustStats = () => {
       </div>
 
       <style>{`
-        .stat-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 14px 34px rgba(15, 19, 24, 0.08) !important;
-          border-color: var(--color-border-strong) !important;
-        }
         @media (max-width: 1024px) {
           .trust-stats-cards-grid {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }
-        @media (max-width: 640px) {
+        @media (max-width: 600px) {
           .trust-stats-cards-grid {
             grid-template-columns: 1fr !important;
           }

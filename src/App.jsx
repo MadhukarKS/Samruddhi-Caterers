@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
-import { useApp } from './hooks/useApp';
-import { useScrollSpy } from './hooks/useScrollSpy';
 
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
-import { Hero } from './components/sections/Hero';
-import { TrustStats } from './components/sections/TrustStats';
-import { AboutSection } from './components/sections/AboutSection';
-import { ServicesSection } from './components/sections/ServicesSection';
-import { MealEstimator } from './components/sections/MealEstimator';
-import { QualityHygiene } from './components/sections/QualityHygiene';
-import { HospitalityBrands } from './components/sections/HospitalityBrands';
-import { ContactSection } from './components/sections/ContactSection';
+import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { BrandsPage } from './pages/BrandsPage';
+import { QualityPage } from './pages/QualityPage';
+import { ContactPage } from './pages/ContactPage';
 
 import { ProposalModal } from './components/modals/ProposalModal';
 import { ServiceModal } from './components/modals/ServiceModal';
@@ -24,57 +21,41 @@ import { ToastContainer } from './components/common/ToastContainer';
 import { BackToTop } from './components/common/BackToTop';
 import { MobileActionBar } from './components/common/MobileActionBar';
 
-const AppContent = () => {
-  const { setActiveSection } = useApp();
+export const AppRoutes = () => {
+  const location = useLocation();
+  const isFixedContactPage = location.pathname === '/contact' || location.pathname === '/enquiry';
 
-  // ScrollSpy tracks active section on scroll
-  const sectionIds = ['home', 'about', 'services', 'estimator', 'brands', 'hygiene', 'contact'];
-  useScrollSpy(sectionIds, setActiveSection);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
-    <div style={{ position: 'relative', width: '100%', overflowX: 'hidden' }}>
-      {/* Sticky Modern Header */}
+    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
 
-      {/* Main Content Flow */}
-      <main id="main-content">
-        {/* 1. Full-Width Architectural Hero Section */}
-        <Hero />
-
-        {/* 2. Operational Scale & Key Metrics Bar */}
-        <TrustStats />
-
-        {/* 3. Heritage & Central Commissary Infrastructure */}
-        <AboutSection />
-
-        {/* 4. The Four Core Catering Pillars */}
-        <ServicesSection />
-
-        {/* 5. Interactive Procurement & Meal Estimator */}
-        <MealEstimator />
-
-        {/* 6. Food Safety, Hygiene & FSSAI Standards */}
-        <QualityHygiene />
-
-        {/* 7. Hospitality Brands & Venues */}
-        <HospitalityBrands />
-
-        {/* 8. Corporate RFP Submission & Social Presence */}
-        <ContactSection />
+      <main id="main-content" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <Routes key={location.pathname}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/brands" element={<BrandsPage />} />
+          <Route path="/quality" element={<QualityPage />} />
+          <Route path="/hygiene" element={<QualityPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/enquiry" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
 
-      {/* 9. Minimalist Architectural Footer */}
-      <Footer />
+      {!isFixedContactPage && <Footer />}
 
-      {/* Pop-up Modals (Global State Managed) */}
       <ProposalModal />
       <ServiceModal />
       <BrandModal />
       <PrivacyModal />
 
-      {/* Floating UX Widgets & Sticky Mobile Bar */}
       <ToastContainer />
-      <BackToTop />
+      {!isFixedContactPage && <BackToTop />}
       <MobileActionBar />
     </div>
   );
@@ -82,9 +63,11 @@ const AppContent = () => {
 
 export function App() {
   return (
-    <AppProvider>
-      <AppContent />
-    </AppProvider>
+    <BrowserRouter>
+      <AppProvider>
+        <AppRoutes />
+      </AppProvider>
+    </BrowserRouter>
   );
 }
 

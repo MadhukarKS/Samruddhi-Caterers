@@ -1,21 +1,25 @@
 import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { AppProvider } from '../context/AppContext';
+import { AppRoutes } from '../App';
 import { Navbar } from '../components/layout/Navbar';
 import { Hero } from '../components/sections/Hero';
 import { TrustStats } from '../components/sections/TrustStats';
 import { ServicesSection } from '../components/sections/ServicesSection';
-import { MealEstimator } from '../components/sections/MealEstimator';
 import { EnquiryForm } from '../components/modals/EnquiryForm';
 
-describe('Component Integration Tests', () => {
-  it('renders Navbar brand logo, accreditation bar, and navigation links', () => {
-    render(
-      <AppProvider>
-        <Navbar />
-      </AppProvider>
-    );
+const renderWithRouter = (ui, { route = '/' } = {}) =>
+  render(
+    <MemoryRouter initialEntries={[route]}>
+      <AppProvider>{ui}</AppProvider>
+    </MemoryRouter>
+  );
+
+describe('Component Integration & Multi-Page Routing Tests', () => {
+  it('renders Navbar brand logo and page navigation links without Meal Estimator', () => {
+    renderWithRouter(<Navbar />);
 
     expect(screen.getAllByText(/Samruddhi/i).length).toBeGreaterThan(0);
     expect(screen.getAllByRole('link', { name: /About Us/i, hidden: true }).length).toBeGreaterThanOrEqual(1);
@@ -23,19 +27,18 @@ describe('Component Integration Tests', () => {
     expect(screen.getAllByRole('link', { name: /Our Brands/i, hidden: true }).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByRole('link', { name: /Quality & Hygiene/i, hidden: true }).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByRole('link', { name: /Contact/i, hidden: true }).length).toBeGreaterThanOrEqual(1);
+    expect(screen.queryByText(/Plan & Estimate/i)).toBeNull();
   });
 
   it('renders Hero section headline and primary action buttons', () => {
     const handleExplore = vi.fn();
     const handleRequest = vi.fn();
 
-    render(
-      <AppProvider>
-        <Hero
-          onExploreServices={handleExplore}
-          onRequestProposal={handleRequest}
-        />
-      </AppProvider>
+    renderWithRouter(
+      <Hero
+        onExploreServices={handleExplore}
+        onRequestProposal={handleRequest}
+      />
     );
 
     expect(
@@ -46,11 +49,7 @@ describe('Component Integration Tests', () => {
   });
 
   it('renders TrustStats with 20+ Years metrics', () => {
-    render(
-      <AppProvider>
-        <TrustStats />
-      </AppProvider>
-    );
+    renderWithRouter(<TrustStats />);
 
     expect(screen.getByText(/Years of Experience/i)).toBeDefined();
     expect(screen.getByText(/Happy Customers/i)).toBeDefined();
@@ -58,58 +57,57 @@ describe('Component Integration Tests', () => {
   });
 
   it('renders ServicesSection and filters services by category tab', () => {
-    render(
-      <AppProvider>
-        <ServicesSection />
-      </AppProvider>
-    );
+    renderWithRouter(<ServicesSection />);
 
     expect(screen.getByText(/End-to-End Culinary Solutions/i)).toBeDefined();
     expect(screen.getByRole('tab', { name: /All Four Services/i })).toBeDefined();
 
-    // Click tab for industrial catering
     const industrialTab = screen.getByRole('tab', { name: /Industrial Catering/i });
     fireEvent.click(industrialTab);
 
     expect(screen.getByText(/High-Volume Production/i)).toBeDefined();
   });
 
-  it('allows user to interact with the Meal & Budget Estimator', () => {
-    render(
-      <AppProvider>
-        <MealEstimator />
-      </AppProvider>
-    );
+  it('routes cleanly across separate pages (Home, About, Services, Brands, Quality, Contact)', () => {
+    const { unmount } = renderWithRouter(<AppRoutes />, { route: '/' });
+    expect(screen.getByRole('heading', { name: /Nourishing Trust/i, level: 1 })).toBeDefined();
+    expect(screen.getByText(/Privacy Policy & Terms/i)).toBeDefined();
+    unmount();
 
-    expect(screen.getByText(/Interactive Meal & Catering Budget Estimator/i)).toBeDefined();
-    expect(screen.getByText(/Estimated Total Run:/i)).toBeDefined();
+    const aboutView = renderWithRouter(<AppRoutes />, { route: '/about' });
+    expect(screen.getByText(/Experience That Nourishes Trust\./i)).toBeDefined();
+    aboutView.unmount();
 
-    // Switch vertical to Industrial
-    const industrialBtn = screen.getByRole('button', { name: /Industrial & Shift Workforce/i });
-    fireEvent.click(industrialBtn);
+    const servicesView = renderWithRouter(<AppRoutes />, { route: '/services' });
+    expect(screen.getByText(/End-to-End Culinary Solutions/i)).toBeDefined();
+    servicesView.unmount();
 
-    // Verify button exists to launch proposal
-    const transferBtn = screen.getByRole('button', { name: /Transfer Estimate into Formal RFP/i });
-    expect(transferBtn).toBeDefined();
+    const brandsView = renderWithRouter(<AppRoutes />, { route: '/brands' });
+    expect(screen.getByText(/One Group\. Distinct Experiences\./i)).toBeDefined();
+    brandsView.unmount();
+
+    const qualityView = renderWithRouter(<AppRoutes />, { route: '/quality' });
+    expect(screen.getByText(/Excellence Built Into Every Process\./i)).toBeDefined();
+    qualityView.unmount();
+
+    const contactView = renderWithRouter(<AppRoutes />, { route: '/contact' });
+    expect(screen.getByText(/Connect With Our Food Services Desk/i)).toBeDefined();
+    expect(screen.getByText(/Corporate Headquarters/i)).toBeDefined();
+    expect(screen.queryByText(/Privacy Policy & Terms/i)).toBeNull();
+    contactView.unmount();
   });
 
   it('validates form inputs and produces an official RFP dossier on submission', async () => {
-    render(
-      <AppProvider>
-        <EnquiryForm initialService="Corporate Catering" />
-      </AppProvider>
-    );
+    renderWithRouter(<EnquiryForm initialService="Corporate Catering" />);
 
     const submitBtn = screen.getByRole('button', { name: /Submit Enquiry/i });
     fireEvent.click(submitBtn);
 
-    // Errors should be visible
     expect(screen.getByText('Full name is required')).toBeDefined();
     expect(screen.getByText('Organisation / Company name is required')).toBeDefined();
     expect(screen.getByText('Work email is required')).toBeDefined();
     expect(screen.getByText('Phone number is required')).toBeDefined();
 
-    // Fill valid data
     fireEvent.change(screen.getByLabelText(/Full Name \*/i), {
       target: { name: 'fullName', value: 'Deepak Sharma' },
     });
@@ -131,7 +129,6 @@ describe('Component Integration Tests', () => {
 
     fireEvent.click(submitBtn);
 
-    // Wait for the simulated dossier generation
     await waitFor(
       () => {
         expect(
@@ -146,4 +143,3 @@ describe('Component Integration Tests', () => {
     expect(screen.getByText(/Dispatch via Corporate Email/i)).toBeDefined();
   });
 });
-

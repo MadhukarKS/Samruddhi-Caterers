@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useApp } from '../../hooks/useApp';
-import { SectionHeading } from '../common/SectionHeading';
 import { EnquiryForm } from '../modals/EnquiryForm';
 import { copyToClipboard } from '../../utils/formatters';
-import { MapPin, Phone, Mail, Clock, Building, Copy, Check, MessageSquare, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Building, Copy, Check, MessageSquare, ExternalLink, ShieldCheck } from 'lucide-react';
 
 export const ContactSection = ({ onPreselectService: propOnPreselectService }) => {
   const { openProposalModal, showToast } = useApp();
@@ -21,93 +20,125 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
   };
 
   return (
-    <section id="contact" className="section" style={{ backgroundColor: '#FAFAF8' }}>
+    <section id="contact" style={{ width: '100%' }}>
       <div className="container-wide">
-        {/* Section Header */}
-        <SectionHeading
-          badgeIcon={MapPin}
-          badgeText="Corporate Headquarters & Desks"
-          title="Connect With Our Food Services Desk"
-          description="Whether commissioning daily shift catering for 1,500 factory personnel, outfitting a corporate cafeteria, or planning an auspicious wedding feast, our culinary operations team is ready to structure your proposal."
-        />
-
-        {/* 2-Column Structured Contact Layout */}
+        {/* Compact Single-Row Title Bar */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: 'clamp(2rem, 4vw, 3.5rem)',
-            alignItems: 'start',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '0.75rem',
+            marginBottom: '1rem',
           }}
         >
-          {/* Left Column: Official Headquarters, Direct Desks & Social Presence */}
           <div>
-            {/* Headquarters Card */}
-            <div
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.2rem' }}>
+              <span className="badge-pill">
+                <MapPin size={11} color="var(--color-terracotta)" />
+                <span>Corporate Desk & Enquiries</span>
+              </span>
+            </div>
+            <h1
               style={{
-                backgroundColor: 'var(--color-pine-primary)',
-                color: '#FFFFFF',
-                borderRadius: 'var(--radius-md)',
-                padding: 'clamp(1.75rem, 3vw, 2.5rem)',
-                boxShadow: 'var(--shadow-md)',
-                marginBottom: '2rem',
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(1.45rem, 2.4vw, 1.9rem)',
+                fontWeight: 800,
+                color: 'var(--color-text-main)',
+                margin: 0,
+                lineHeight: 1.15,
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem' }}>
-                <Building size={20} color="#C85E34" />
-                <h3
+              Connect With Our Food Services Desk
+            </h1>
+          </div>
+
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              fontSize: '0.76rem',
+              fontWeight: 600,
+              color: 'var(--color-pine-primary)',
+              backgroundColor: '#FFFFFF',
+              padding: '0.4rem 0.85rem',
+              borderRadius: 'var(--radius-pill)',
+              border: '1px solid var(--color-border)',
+            }}
+          >
+            <span
+              className="pulse-dot"
+              style={{
+                width: '7px',
+                height: '7px',
+                borderRadius: '50%',
+                backgroundColor: 'var(--color-whatsapp)',
+              }}
+            />
+            <span>RFP Response within 2 Business Hours</span>
+          </div>
+        </div>
+
+        {/* Fixed 2-Column Workspace Grid */}
+        <div className="contact-fixed-grid">
+          {/* Left Column: HQ Card + Social Channels */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', justifyContent: 'space-between' }}>
+            {/* Headquarters Card */}
+            <div
+              className="card-showcase"
+              style={{
+                '--stagger': 0,
+                backgroundColor: 'var(--color-pine-primary)',
+                borderColor: 'var(--color-pine-medium)',
+                color: '#FFFFFF',
+                padding: '1.25rem 1.4rem',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
+                  <Building size={17} color="#C85E34" />
+                  <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: '#FFFFFF', margin: 0 }}>
+                    Corporate Headquarters
+                  </h2>
+                </div>
+                <button
+                  type="button"
+                  onClick={() =>
+                    handleCopy(
+                      'address',
+                      'No. 79/2, Jigani Hobli, Anekal Taluk, Bengaluru, Karnataka – 560105',
+                      'Address'
+                    )
+                  }
                   style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '1.45rem',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    border: '1px solid rgba(255, 255, 255, 0.16)',
+                    borderRadius: 'var(--radius-xs)',
                     color: '#FFFFFF',
-                    margin: 0,
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.3rem',
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    padding: '0.25rem 0.55rem',
                   }}
+                  title="Copy Address"
                 >
-                  Samruddhi Group Corporate Address
-                </h3>
+                  {copiedKey === 'address' ? <Check size={12} color="var(--color-whatsapp)" /> : <Copy size={12} />}
+                  <span>{copiedKey === 'address' ? 'Copied' : 'Copy Address'}</span>
+                </button>
               </div>
 
-              {/* Physical Address */}
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                <MapPin size={18} color="#C85E34" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-                <div style={{ flexGrow: 1 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
-                    <span style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#B8C5BE', fontWeight: 700 }}>
-                      Central Facility & Registered Office:
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        handleCopy(
-                          'address',
-                          'No. 79/2, Jigani Hobli, Anekal Taluk, Bengaluru, Karnataka – 560105',
-                          'Address'
-                        )
-                      }
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        color: '#C85E34',
-                        cursor: 'pointer',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.3rem',
-                        fontSize: '0.76rem',
-                        fontWeight: 600,
-                        padding: '0.2rem',
-                      }}
-                      title="Copy Address"
-                    >
-                      {copiedKey === 'address' ? <Check size={14} color="var(--color-whatsapp)" /> : <Copy size={14} />}
-                      <span>{copiedKey === 'address' ? 'Copied' : 'Copy'}</span>
-                    </button>
-                  </div>
-
-                  <address style={{ fontStyle: 'normal', fontSize: '0.94rem', lineHeight: 1.6, color: '#D8E2DC' }}>
-                    No. 79/2, Jigani Hobli, Anekal Taluk,<br />
-                    Bengaluru, Karnataka – 560105, India
+              {/* Address */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.9rem' }}>
+                <MapPin size={15} color="#C85E34" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+                <div>
+                  <address style={{ fontStyle: 'normal', fontSize: '0.84rem', lineHeight: 1.45, color: '#D8E2DC' }}>
+                    No. 79/2, Jigani Hobli, Anekal Taluk, Bengaluru, Karnataka – 560105
                   </address>
-
                   <a
                     href="https://maps.google.com/?q=Jigani+Industrial+Area+Bengaluru"
                     target="_blank"
@@ -115,102 +146,78 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.35rem',
-                      fontSize: '0.82rem',
+                      gap: '0.3rem',
+                      fontSize: '0.76rem',
                       color: '#FFFFFF',
-                      marginTop: '0.65rem',
+                      marginTop: '0.35rem',
                       textDecoration: 'underline',
                       fontWeight: 600,
                     }}
                   >
-                    <span>View on Google Maps</span>
-                    <ExternalLink size={12} />
+                    <span>Open Google Maps</span>
+                    <ExternalLink size={11} />
                   </a>
                 </div>
               </div>
 
-              {/* Direct Phone Lines */}
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <Phone size={18} color="#C85E34" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-                <div style={{ flexGrow: 1 }}>
-                  <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#B8C5BE', fontWeight: 700, marginBottom: '0.25rem' }}>
-                    Telephone & Instant RFP Desk:
+              {/* Phone & Email Compact Grid */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: '0.75rem',
+                  paddingTop: '0.75rem',
+                  marginBottom: '0.75rem',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                }}
+              >
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.68rem', color: '#B8C5BE', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.18rem' }}>
+                    <Phone size={11} color="#C85E34" />
+                    <span>RFP Telephone</span>
                   </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem' }}>
-                    <a
-                      href="tel:+919845012345"
-                      style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: 700, fontSize: '0.98rem' }}
-                    >
-                      +91 98450 12345
-                    </a>
-                    <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>|</span>
-                    <a
-                      href="tel:+918027830000"
-                      style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}
-                    >
-                      080-2783 0000
-                    </a>
-                  </div>
+                  <a href="tel:+919845012345" style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: 700, fontSize: '0.86rem' }}>
+                    +91 98450 12345
+                  </a>
                 </div>
-              </div>
 
-              {/* Corporate Email */}
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <Mail size={18} color="#C85E34" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-                <div style={{ flexGrow: 1 }}>
-                  <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#B8C5BE', fontWeight: 700, marginBottom: '0.25rem' }}>
-                    Corporate Inquiries:
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.68rem', color: '#B8C5BE', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.18rem' }}>
+                    <Mail size={11} color="#C85E34" />
+                    <span>Official Email</span>
                   </div>
-                  <a
-                    href="mailto:rfp@samruddhigroup.in"
-                    style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}
-                  >
+                  <a href="mailto:rfp@samruddhigroup.in" style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: 600, fontSize: '0.84rem' }}>
                     rfp@samruddhigroup.in
                   </a>
                 </div>
               </div>
 
-              {/* Operating Hours */}
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                <Clock size={18} color="#C85E34" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-                <div>
-                  <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#B8C5BE', fontWeight: 700, marginBottom: '0.25rem' }}>
-                    Operating Timing:
-                  </div>
-                  <div style={{ fontSize: '0.88rem', color: '#D8E2DC' }}>
-                    Industrial Commissary: <strong>24/7 Shift Rotations</strong><br />
-                    Corporate RFP Desk: Mon – Sat, 09:00 AM – 07:00 PM
-                  </div>
-                </div>
+              {/* Hours */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.78rem', color: '#D8E2DC' }}>
+                <Clock size={14} color="#C85E34" style={{ flexShrink: 0 }} />
+                <span>24/7 Kitchens • RFP Desk Mon–Sat, 9 AM – 7 PM</span>
               </div>
             </div>
 
-            {/* Social Presence Card (Crucial for B2B & Public Engagement) */}
+            {/* Official Social Presence Card */}
             <div
+              className="card-showcase"
               style={{
-                backgroundColor: '#FFFFFF',
-                border: '1px solid var(--color-border)',
-                borderRadius: 'var(--radius-md)',
-                padding: '1.75rem',
-                boxShadow: 'var(--shadow-sm)',
+                '--stagger': 1,
+                padding: '1.1rem 1.4rem',
               }}
             >
-              <h4
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.15rem',
-                  color: 'var(--color-text-main)',
-                  marginBottom: '0.5rem',
-                }}
-              >
-                Official Social & Communication Channels
-              </h4>
-              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-muted)', marginBottom: '1.25rem' }}>
-                Follow our commercial kitchen tours, culinary showcase, and event catering highlights across our verified
-                network:
-              </p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.7rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.98rem', color: 'var(--color-text-main)', margin: 0 }}>
+                  Official Social Channels
+                </h3>
+                <span style={{ fontSize: '0.72rem', color: 'var(--color-text-muted)', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                  <ShieldCheck size={12} color="var(--color-terracotta)" />
+                  FSSAI #11221334000542
+                </span>
+              </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.75rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.6rem' }}>
                 <a
                   href="https://wa.me/919845012345"
                   target="_blank"
@@ -219,17 +226,17 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    padding: '0.65rem 0.85rem',
+                    padding: '0.55rem 0.75rem',
                     backgroundColor: 'rgba(37, 211, 102, 0.08)',
-                    border: '1px solid rgba(37, 211, 102, 0.25)',
+                    border: '1px solid rgba(37, 211, 102, 0.28)',
                     borderRadius: 'var(--radius-sm)',
                     textDecoration: 'none',
                     color: '#128C7E',
-                    fontSize: '0.86rem',
+                    fontSize: '0.82rem',
                     fontWeight: 600,
                   }}
                 >
-                  <MessageSquare size={16} />
+                  <MessageSquare size={15} />
                   <span>WhatsApp</span>
                 </a>
 
@@ -241,18 +248,18 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    padding: '0.65rem 0.85rem',
+                    padding: '0.55rem 0.75rem',
                     backgroundColor: 'var(--color-surface-subtle)',
                     border: '1px solid var(--color-border)',
                     borderRadius: 'var(--radius-sm)',
                     textDecoration: 'none',
                     color: 'var(--color-text-main)',
-                    fontSize: '0.86rem',
+                    fontSize: '0.82rem',
                     fontWeight: 600,
                   }}
                 >
                   <span style={{ fontWeight: 800 }}>in</span>
-                  <span>LinkedIn B2B</span>
+                  <span>LinkedIn</span>
                 </a>
 
                 <a
@@ -263,13 +270,13 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    padding: '0.65rem 0.85rem',
+                    padding: '0.55rem 0.75rem',
                     backgroundColor: 'var(--color-surface-subtle)',
                     border: '1px solid var(--color-border)',
                     borderRadius: 'var(--radius-sm)',
                     textDecoration: 'none',
                     color: 'var(--color-text-main)',
-                    fontSize: '0.86rem',
+                    fontSize: '0.82rem',
                     fontWeight: 600,
                   }}
                 >
@@ -285,13 +292,13 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    padding: '0.65rem 0.85rem',
+                    padding: '0.55rem 0.75rem',
                     backgroundColor: 'var(--color-surface-subtle)',
                     border: '1px solid var(--color-border)',
                     borderRadius: 'var(--radius-sm)',
                     textDecoration: 'none',
                     color: 'var(--color-text-main)',
-                    fontSize: '0.86rem',
+                    fontSize: '0.82rem',
                     fontWeight: 600,
                   }}
                 >
@@ -302,42 +309,53 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
             </div>
           </div>
 
-          {/* Right Column: Formal Corporate RFP Enquiry Form */}
+          {/* Right Column: Compact Zero-Scroll Enquiry Form */}
           <div
+            className="card-showcase contact-form-card"
             style={{
-              backgroundColor: '#FFFFFF',
-              border: '1px solid var(--color-border)',
-              borderRadius: 'var(--radius-md)',
-              padding: 'clamp(1.75rem, 3.5vw, 2.75rem)',
-              boxShadow: 'var(--shadow-md)',
+              '--stagger': 2,
+              padding: '1.15rem 1.4rem',
             }}
           >
-            <div style={{ marginBottom: '1.5rem', borderBottom: '1px solid var(--color-border-card)', paddingBottom: '1rem' }}>
-              <div style={{ display: 'inline-flex', marginBottom: '0.5rem' }}>
-                <span className="badge-pill">
-                  <span>Direct RFP Submission Desk</span>
-                </span>
+            <div style={{ marginBottom: '0.75rem', borderBottom: '1px solid var(--color-border-card)', paddingBottom: '0.6rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div>
+                <h2
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '1.18rem',
+                    color: 'var(--color-text-main)',
+                    margin: 0,
+                  }}
+                >
+                  Request a Commercial Proposal
+                </h2>
+                <p style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', margin: 0 }}>
+                  Instant dossier generation for catering & event bids.
+                </p>
               </div>
-              <h3
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.5rem',
-                  color: 'var(--color-text-main)',
-                  margin: 0,
-                }}
-              >
-                Request a Formal Commercial Proposal
-              </h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-muted)', marginTop: '0.35rem' }}>
-                Fill in your institutional headcount and meal requirements. Our team will generate an official proposal
-                dossier within 2 business hours.
-              </p>
+              <span className="badge-pill badge-accent" style={{ fontSize: '0.65rem', padding: '0.2rem 0.6rem' }}>
+                Direct RFP
+              </span>
             </div>
 
-            <EnquiryForm initialService="Corporate Catering" />
+            <EnquiryForm initialService="Corporate Catering" compact={true} />
           </div>
         </div>
       </div>
+
+      <style>{`
+        .contact-fixed-grid {
+          display: grid;
+          grid-template-columns: minmax(300px, 0.88fr) minmax(420px, 1.32fr);
+          gap: 1.25rem;
+          align-items: stretch;
+        }
+        @media (max-width: 1023px) {
+          .contact-fixed-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 };
