@@ -37,6 +37,10 @@ export const SamruddhiLogo = ({
         <img
           src="/images/samruddhi-logo.png"
           alt="Samruddhi Group Emblem"
+          width="52"
+          height="52"
+          loading="eager"
+          decoding="async"
           style={{
             width: '100%',
             height: '100%',

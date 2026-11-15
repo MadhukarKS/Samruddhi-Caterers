@@ -35,6 +35,9 @@ export const AppRoutes = () => {
 
   return (
     <div style={{ position: 'relative', width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--color-canvas)' }}>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <ScrollProgressBar />
       <BackgroundAmbient />
       <Navbar />

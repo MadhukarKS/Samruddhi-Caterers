@@ -17,6 +17,22 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll and handle Escape key when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') setMobileMenuOpen(false);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: 'Home', to: '/' },
     { name: 'About Us', to: '/about' },
@@ -211,6 +227,9 @@ export const Navbar = () => {
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation Menu"
             style={{
               position: 'fixed',
               top: 0,

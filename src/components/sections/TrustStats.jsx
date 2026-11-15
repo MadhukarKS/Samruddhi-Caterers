@@ -268,11 +268,16 @@ export const TrustStats = () => {
         @media (max-width: 1024px) {
           .trust-stats-cards-grid {
             grid-template-columns: repeat(2, 1fr) !important;
+            gap: 1rem !important;
           }
         }
         @media (max-width: 600px) {
           .trust-stats-cards-grid {
             grid-template-columns: 1fr !important;
+            gap: 0.85rem !important;
+          }
+          .trust-stats-cards-grid .card-showcase {
+            padding: 1.15rem !important;
           }
         }
       `}</style>

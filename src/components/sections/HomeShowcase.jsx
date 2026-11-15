@@ -60,7 +60,11 @@ export const HomeShowcase = () => {
                 <div className="card-img-wrap" style={{ height: '185px', overflow: 'hidden' }}>
                   <img
                     src={service.image}
-                    alt={service.title}
+                    alt={`Samruddhi Group ${service.title} - ${service.headline}`}
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="380"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
                   <div

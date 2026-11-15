@@ -18,8 +18,8 @@ export const Hero = ({
       id="home"
       style={{
         position: 'relative',
-        paddingTop: 'clamp(7.2rem, 10vw, 8.75rem)',
-        paddingBottom: 'clamp(3.25rem, 5.5vw, 4.75rem)',
+        paddingTop: 'clamp(5.5rem, 8vw, 7.5rem)',
+        paddingBottom: 'clamp(2.25rem, 4.5vw, 4rem)',
         background: 'radial-gradient(circle at 84% 18%, rgba(240, 167, 10, 0.14) 0%, transparent 46%), radial-gradient(circle at 14% 82%, rgba(16, 185, 129, 0.09) 0%, transparent 40%), transparent',
         borderBottom: '1px solid var(--color-border)',
         overflow: 'hidden',
@@ -62,15 +62,13 @@ export const Hero = ({
 
             <p
               style={{
-                fontSize: 'clamp(0.98rem, 1.35vw, 1.08rem)',
+                fontSize: 'clamp(0.95rem, 1.25vw, 1.06rem)',
                 color: 'var(--color-text-body)',
-                lineHeight: 1.7,
-                marginBottom: '2rem',
+                lineHeight: 1.68,
+                marginBottom: '1.75rem',
               }}
             >
-              From continuous 24/7 industrial shift dining to refined tech-park cafeterias and grand signature
-              celebrations, Samruddhi Group engineers large-scale kitchen operations in Bengaluru backed by FSSAI Level 5
-              hygiene and clockwork dispatch.
+              Bengaluru’s premier industrial catering and corporate food-service partner. We engineer large-scale food production and corporate cafeteria management with seamless 24/7 operations, delivering over 50,000 daily shift meals under stringent FSSAI Level 5 and ISO 22000 hygiene and food safety standards.
             </p>
 
             {/* Primary Actions */}
@@ -201,11 +199,16 @@ export const Hero = ({
             <div className="card-showcase reveal-on-scroll reveal-delay-2 reveal-scale" style={{ '--stagger': 1 }}>
               <div
                 className="card-img-wrap"
-                style={{ height: 'clamp(300px, 38vw, 430px)', overflow: 'hidden' }}
+                style={{ height: 'clamp(240px, 32vw, 410px)', overflow: 'hidden', aspectRatio: '16 / 10' }}
               >
                 <img
                   src="/images/hero.jpg"
                   alt="Samruddhi Group Commercial Catering Kitchen & Food Operations"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
+                  width="1024"
+                  height="640"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
               </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useApp } from '../../hooks/useApp';
 import { X, CheckCircle2, ArrowRight, Building2 } from 'lucide-react';
 
@@ -19,6 +19,21 @@ export const BrandModal = ({
       openProposalModal(`Enquiry for ${name}`);
     }
   };
+
+  useEffect(() => {
+    if (brand) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') onClose();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [brand, onClose]);
 
   if (!brand) return null;
 
@@ -63,6 +78,10 @@ export const BrandModal = ({
           <img
             src={brand.image}
             alt={brand.name}
+            loading="lazy"
+            decoding="async"
+            width="780"
+            height="260"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
           <div

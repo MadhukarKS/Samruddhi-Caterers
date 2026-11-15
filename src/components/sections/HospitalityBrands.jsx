@@ -64,7 +64,11 @@ export const HospitalityBrands = ({
               <div className="card-img-wrap" style={{ height: '215px', overflow: 'hidden' }}>
                 <img
                   src={brand.image}
-                  alt={brand.name}
+                  alt={`Samruddhi Hospitality - ${brand.name} (${brand.category})`}
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="380"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
                 <div

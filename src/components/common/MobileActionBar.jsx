@@ -3,22 +3,26 @@ import { useApp } from '../../hooks/useApp';
 import { Phone, MessageSquare, ArrowRight } from 'lucide-react';
 
 export const MobileActionBar = () => {
-  const { openProposalModal } = useApp();
+  const { proposalModal, serviceModal, brandModal, privacyModal, openProposalModal } = useApp();
+
+  // If any modal is active, hide sticky bar to prevent obscuring modal content/forms
+  const isAnyModalOpen =
+    proposalModal?.isOpen ||
+    serviceModal?.isOpen ||
+    brandModal?.isOpen ||
+    privacyModal?.isOpen;
+
+  if (isAnyModalOpen) return null;
 
   return (
-    <div className="mobile-bottom-bar" aria-label="Quick Mobile Actions">
+    <nav className="mobile-bottom-bar" aria-label="Quick Mobile Navigation & Actions">
       {/* Direct Call Button */}
       <a
         href="tel:+919845012345"
-        className="btn btn-secondary btn-sm"
-        style={{
-          padding: '0.65rem 0.5rem',
-          fontSize: '0.8rem',
-          display: 'flex',
-          gap: '0.35rem',
-        }}
+        className="mobile-bar-btn mobile-bar-call"
+        aria-label="Call Samruddhi Catering Desk"
       >
-        <Phone size={14} color="var(--color-amber)" />
+        <Phone size={13} className="mobile-bar-icon" />
         <span>Call</span>
       </a>
 
@@ -27,15 +31,10 @@ export const MobileActionBar = () => {
         href="https://wa.me/919845012345?text=Hi%20Samruddhi%20Group,%20I%20would%20like%20to%20discuss%20a%20catering%20RFP."
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn-whatsapp btn-sm"
-        style={{
-          padding: '0.65rem 0.5rem',
-          fontSize: '0.8rem',
-          display: 'flex',
-          gap: '0.35rem',
-        }}
+        className="mobile-bar-btn mobile-bar-whatsapp"
+        aria-label="Chat with Corporate Desk on WhatsApp"
       >
-        <MessageSquare size={14} />
+        <MessageSquare size={13} className="mobile-bar-icon" />
         <span>WhatsApp</span>
       </a>
 
@@ -43,19 +42,12 @@ export const MobileActionBar = () => {
       <button
         type="button"
         onClick={() => openProposalModal('Corporate Catering')}
-        className="btn btn-terracotta btn-sm"
-        style={{
-          padding: '0.65rem 0.75rem',
-          fontSize: '0.82rem',
-          fontWeight: 700,
-          display: 'flex',
-          gap: '0.35rem',
-        }}
+        className="mobile-bar-btn mobile-bar-rfp"
+        aria-label="Get Instant Catering RFP Quote"
       >
         <span>Get RFP Quote</span>
         <ArrowRight size={13} />
       </button>
-    </div>
+    </nav>
   );
 };
-

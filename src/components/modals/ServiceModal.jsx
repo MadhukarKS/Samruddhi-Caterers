@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useApp } from '../../hooks/useApp';
 import { X, CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
 
@@ -19,6 +19,21 @@ export const ServiceModal = ({
       openProposalModal(title);
     }
   };
+
+  useEffect(() => {
+    if (service) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') onClose();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [service, onClose]);
 
   if (!service) return null;
 
@@ -63,6 +78,10 @@ export const ServiceModal = ({
           <img
             src={service.image}
             alt={service.title}
+            loading="lazy"
+            decoding="async"
+            width="780"
+            height="260"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
           <div
