@@ -1,49 +1,55 @@
 import React from 'react';
 
+/**
+ * Official Brand Identity for Samruddhi Group.
+ * Uses the authentic flowing emerald 'S' leaf with golden wheat & hand emblem.
+ */
 export const SamruddhiLogo = ({
   variant = 'light',
   size = 'md',
   showTagline = true,
 }) => {
-  const _variant = variant;
-  const emblemSize = size === 'sm' ? 34 : size === 'lg' ? 48 : 40;
-  const titleSize = size === 'sm' ? '1.05rem' : size === 'lg' ? '1.45rem' : '1.25rem';
-  const taglineSize = size === 'sm' ? '0.62rem' : size === 'lg' ? '0.75rem' : '0.68rem';
+  const emblemSize = size === 'sm' ? 36 : size === 'lg' ? 52 : 44;
+  const titleSize = size === 'sm' ? '1.1rem' : size === 'lg' ? '1.5rem' : '1.3rem';
+  const taglineSize = size === 'sm' ? '0.62rem' : size === 'lg' ? '0.74rem' : '0.68rem';
 
   return (
     <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-      {/* Modern Geometric Architectural Insignia */}
-      <svg
-        width={emblemSize}
-        height={emblemSize}
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ flexShrink: 0 }}
-        aria-hidden="true"
+      {/* Official Emblem */}
+      <div
+        className="brand-logo-emblem"
+        style={{
+          width: `${emblemSize}px`,
+          height: `${emblemSize}px`,
+          borderRadius: '10px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexShrink: 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.12) 0%, rgba(6, 11, 8, 0.6) 85%)',
+          border: '1px solid rgba(240, 167, 10, 0.3)',
+          boxShadow: '0 4px 14px rgba(0, 0, 0, 0.5), 0 0 12px rgba(240, 167, 10, 0.18)',
+          padding: '2px',
+          overflow: 'hidden',
+          cursor: 'pointer',
+        }}
       >
-        <rect
-          width="48"
-          height="48"
-          rx="12"
-          fill="#172336"
-          stroke="rgba(224, 145, 50, 0.48)"
-          strokeWidth="1.2"
+        <img
+          src="/images/samruddhi-logo.png"
+          alt="Samruddhi Group Emblem"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            filter: 'drop-shadow(0 2px 6px rgba(240, 167, 10, 0.3))',
+            display: 'block',
+          }}
+          onError={(e) => {
+            // Graceful fallback to JPG if PNG fails
+            e.currentTarget.src = '/images/samruddhi-logo.jpg';
+          }}
         />
-
-        <path
-          d="M16 16C16 13.7909 17.7909 12 20 12H27C30.3137 12 33 14.6863 33 18C33 21.3137 30.3137 24 27 24H21C17.6863 24 15 26.6863 15 30C15 33.3137 17.6863 36 21 36H28C30.2091 36 32 34.2091 32 32"
-          stroke="#F1F5F9"
-          strokeWidth="3.2"
-          strokeLinecap="round"
-        />
-        <circle
-          cx="33"
-          cy="15"
-          r="2.6"
-          fill="#E09132"
-        />
-      </svg>
+      </div>
 
       {/* Brand Wordmark */}
       <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
@@ -54,7 +60,7 @@ export const SamruddhiLogo = ({
               fontSize: titleSize,
               fontWeight: 800,
               letterSpacing: '-0.025em',
-              color: '#F1F5F9',
+              color: variant === 'dark' ? '#060B08' : '#F7FAF8',
               transition: 'color 0.2s ease',
             }}
           >
@@ -64,9 +70,9 @@ export const SamruddhiLogo = ({
             style={{
               fontFamily: "var(--font-heading, 'Outfit', sans-serif)",
               fontSize: titleSize,
-              fontWeight: 500,
+              fontWeight: 600,
               letterSpacing: '-0.01em',
-              color: '#E09132',
+              color: '#F0A70A',
             }}
           >
             Group
@@ -80,7 +86,7 @@ export const SamruddhiLogo = ({
               fontSize: taglineSize,
               fontWeight: 600,
               letterSpacing: '0.04em',
-              color: '#94A3B8',
+              color: variant === 'dark' ? '#4A5B52' : '#82998D',
               marginTop: '0.15rem',
             }}
           >

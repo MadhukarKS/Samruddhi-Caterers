@@ -27,7 +27,7 @@ export const ProposalModal = ({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(4, 8, 14, 0.88)',
+        backgroundColor: 'rgba(3, 6, 4, 0.9)',
         backdropFilter: 'blur(16px)',
         zIndex: 1050,
         display: 'flex',

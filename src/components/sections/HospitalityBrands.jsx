@@ -14,12 +14,12 @@ export const HospitalityBrands = ({
   const handleRequest = propOnRequestProposal || ((name) => openProposalModal(`Enquiry for ${name}`));
 
   return (
-    <section id="brands" style={{ backgroundColor: 'var(--color-canvas)' }}>
+    <section id="brands" style={{ backgroundColor: 'transparent' }}>
       {/* Header Band */}
       <div className="page-hero-band">
         <div className="container-wide" style={{ textAlign: 'center', maxWidth: '800px' }}>
           <span className="badge-pill" style={{ marginBottom: '0.85rem' }}>
-            <Building2 size={13} color="var(--color-terracotta)" />
+            <Building2 size={13} color="var(--color-gold)" />
             <span>Hospitality & Venue Portfolio</span>
           </span>
 
@@ -53,7 +53,7 @@ export const HospitalityBrands = ({
           {BRANDS_DATA.map((brand, idx) => (
             <div
               key={brand.id}
-              className="card-showcase"
+              className={`card-showcase reveal-on-scroll reveal-delay-${(idx % 3) + 1}`}
               style={{
                 '--stagger': idx,
                 display: 'flex',
@@ -71,7 +71,7 @@ export const HospitalityBrands = ({
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(180deg, rgba(7, 12, 20, 0.2) 0%, rgba(7, 12, 20, 0.75) 100%)',
+                    background: 'linear-gradient(180deg, rgba(6, 11, 8, 0.2) 0%, rgba(6, 11, 8, 0.8) 100%)',
                   }}
                 />
                 <div
@@ -79,10 +79,10 @@ export const HospitalityBrands = ({
                     position: 'absolute',
                     top: '1rem',
                     left: '1rem',
-                    backgroundColor: 'rgba(11, 17, 26, 0.88)',
+                    backgroundColor: 'rgba(13, 23, 17, 0.9)',
                     backdropFilter: 'blur(8px)',
-                    color: '#F1F5F9',
-                    border: '1px solid rgba(224, 145, 50, 0.35)',
+                    color: '#F7FAF8',
+                    border: '1px solid rgba(240, 167, 10, 0.4)',
                     fontSize: '0.72rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
@@ -105,7 +105,7 @@ export const HospitalityBrands = ({
               >
                 <h2 style={{ fontSize: '1.4rem', marginBottom: '0.25rem' }}>{brand.name}</h2>
 
-                <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-terracotta)', marginBottom: '0.7rem' }}>
+                <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-gold)', marginBottom: '0.7rem' }}>
                   {brand.tagline}
                 </div>
 
@@ -134,7 +134,7 @@ export const HospitalityBrands = ({
                         color: 'var(--color-text-body)',
                       }}
                     >
-                      <Check size={14} color="var(--color-terracotta)" style={{ flexShrink: 0, marginTop: '0.22rem' }} />
+                      <Check size={14} color="var(--color-emerald-primary)" style={{ flexShrink: 0, marginTop: '0.22rem' }} />
                       <span>{h}</span>
                     </li>
                   ))}
@@ -174,12 +174,12 @@ export const HospitalityBrands = ({
         </div>
 
         {/* Venue Consultation Banner */}
-        <div className="cta-band">
+        <div className="cta-band reveal-on-scroll">
           <div>
-            <h3 style={{ color: '#F1F5F9', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
+            <h3 style={{ color: '#F7FAF8', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
               Planning a Wedding, Corporate Gala, or Food-Court Setup?
             </h3>
-            <p style={{ color: '#94A3B8', fontSize: '0.9rem', margin: 0 }}>
+            <p style={{ color: '#82998D', fontSize: '0.9rem', margin: 0 }}>
               Book a private tasting or open-air garden walkthrough at our Bengaluru venues.
             </p>
           </div>

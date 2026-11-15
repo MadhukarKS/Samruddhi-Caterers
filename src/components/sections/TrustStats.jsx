@@ -1,13 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Award, Users, UtensilsCrossed, ShieldCheck, Check } from 'lucide-react';
 
 export const TrustStats = () => {
+  const [hasStarted, setHasStarted] = useState(() => {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      return true;
+    }
+    return false;
+  });
   const [years, setYears] = useState(0);
   const [customers, setCustomers] = useState(0);
   const [meals, setMeals] = useState(0);
   const [compliance, setCompliance] = useState(0);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
+    if (hasStarted) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setHasStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.12 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    // Safety fallback: if not scrolled to in 3 seconds, start anyway
+    const fallbackTimer = setTimeout(() => setHasStarted(true), 3000);
+
+    return () => {
+      clearTimeout(fallbackTimer);
+      observer.disconnect();
+    };
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
     const duration = 1200;
     const steps = 40;
     const intervalTime = duration / steps;
@@ -33,12 +68,12 @@ export const TrustStats = () => {
     }, intervalTime);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [hasStarted]);
 
   const stats = [
     {
-      icon: <Award size={21} color="#E09132" />,
-      iconBg: 'rgba(224, 145, 50, 0.14)',
+      icon: <Award size={21} color="#F0A70A" />,
+      iconBg: 'rgba(240, 167, 10, 0.14)',
       display: `${years}+`,
       title: 'Years of Experience',
       badge: 'EST. 2004',
@@ -46,8 +81,8 @@ export const TrustStats = () => {
       proof: 'Over 2 Decades in Bengaluru',
     },
     {
-      icon: <Users size={21} color="#60A5FA" />,
-      iconBg: 'rgba(96, 165, 250, 0.14)',
+      icon: <Users size={21} color="#10B981" />,
+      iconBg: 'rgba(16, 185, 129, 0.14)',
       display: `${customers.toLocaleString()}+`,
       title: 'Happy Customers',
       badge: 'B2B & EVENTS',
@@ -55,8 +90,8 @@ export const TrustStats = () => {
       proof: 'Corporate, Tech & Manufacturing',
     },
     {
-      icon: <UtensilsCrossed size={21} color="#E09132" />,
-      iconBg: 'rgba(224, 145, 50, 0.14)',
+      icon: <UtensilsCrossed size={21} color="#F0A70A" />,
+      iconBg: 'rgba(240, 167, 10, 0.14)',
       display: `${meals.toLocaleString()}+`,
       title: 'Large-Scale Catering Operations',
       badge: 'DAILY COMMISSARY',
@@ -64,8 +99,8 @@ export const TrustStats = () => {
       proof: '24/7 Jigani Hub Coverage',
     },
     {
-      icon: <ShieldCheck size={21} color="#4ADE80" />,
-      iconBg: 'rgba(74, 222, 128, 0.13)',
+      icon: <ShieldCheck size={21} color="#34D399" />,
+      iconBg: 'rgba(52, 211, 153, 0.14)',
       display: `${compliance}%`,
       title: 'Quality, Hygiene & Safety',
       badge: 'FSSAI LEVEL 5',
@@ -76,15 +111,16 @@ export const TrustStats = () => {
 
   return (
     <section
+      ref={sectionRef}
       style={{
-        backgroundColor: '#0F1622',
+        backgroundColor: 'rgba(9, 18, 12, 0.45)',
         borderBottom: '1px solid var(--color-border)',
         padding: 'clamp(3rem, 5vw, 4.25rem) 0',
         position: 'relative',
       }}
     >
       <div className="container-wide">
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }} className="reveal-on-scroll">
           <span
             style={{
               fontSize: '0.72rem',
@@ -114,7 +150,7 @@ export const TrustStats = () => {
           {stats.map((item, idx) => (
             <div
               key={item.title}
-              className="card-showcase"
+              className={`card-showcase reveal-on-scroll reveal-delay-${idx + 1}`}
               style={{
                 '--stagger': idx,
                 padding: 'clamp(1.4rem, 2.2vw, 1.85rem)',
@@ -167,7 +203,7 @@ export const TrustStats = () => {
                   fontFamily: 'var(--font-heading)',
                   fontSize: 'clamp(2.15rem, 3.4vw, 2.8rem)',
                   fontWeight: 800,
-                  color: '#E09132',
+                  color: '#F0A70A',
                   letterSpacing: '-0.03em',
                   lineHeight: 1.08,
                   marginBottom: '0.35rem',
@@ -213,14 +249,14 @@ export const TrustStats = () => {
                   gap: '0.4rem',
                   fontSize: '0.76rem',
                   fontWeight: 600,
-                  color: '#CBD5E1',
+                  color: '#C2D1C8',
                   backgroundColor: 'var(--color-surface-subtle)',
                   padding: '0.4rem 0.7rem',
                   borderRadius: 'var(--radius-xs)',
                   border: '1px solid var(--color-border)',
                 }}
               >
-                <Check size={13} color="#E09132" strokeWidth={2.5} />
+                <Check size={13} color="#10B981" strokeWidth={2.5} />
                 <span>{item.proof}</span>
               </div>
             </div>

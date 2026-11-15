@@ -20,6 +20,9 @@ import { PrivacyModal } from './components/modals/PrivacyModal';
 import { ToastContainer } from './components/common/ToastContainer';
 import { BackToTop } from './components/common/BackToTop';
 import { MobileActionBar } from './components/common/MobileActionBar';
+import { BackgroundAmbient } from './components/common/BackgroundAmbient';
+import { ScrollProgressBar } from './components/common/ScrollProgressBar';
+import { useScrollReveal } from './hooks/useScrollReveal';
 
 export const AppRoutes = () => {
   const location = useLocation();
@@ -28,11 +31,15 @@ export const AppRoutes = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  useScrollReveal(location.pathname);
+
   return (
-    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--color-canvas)' }}>
+      <ScrollProgressBar />
+      <BackgroundAmbient />
       <Navbar />
 
-      <main id="main-content" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <main id="main-content" style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 1 }}>
         <Routes key={location.pathname}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />

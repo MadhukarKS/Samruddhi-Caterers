@@ -20,7 +20,7 @@ export const Hero = ({
         position: 'relative',
         paddingTop: 'clamp(7.2rem, 10vw, 8.75rem)',
         paddingBottom: 'clamp(3.25rem, 5.5vw, 4.75rem)',
-        background: 'radial-gradient(circle at 84% 18%, rgba(224, 145, 50, 0.11) 0%, transparent 46%), #0B111A',
+        background: 'radial-gradient(circle at 84% 18%, rgba(240, 167, 10, 0.14) 0%, transparent 46%), radial-gradient(circle at 14% 82%, rgba(16, 185, 129, 0.09) 0%, transparent 40%), transparent',
         borderBottom: '1px solid var(--color-border)',
         overflow: 'hidden',
       }}
@@ -35,7 +35,7 @@ export const Hero = ({
           }}
         >
           {/* Left Column */}
-          <div style={{ maxWidth: '630px' }}>
+          <div style={{ maxWidth: '630px' }} className="reveal-on-scroll">
             <div style={{ display: 'inline-flex', marginBottom: '1.1rem' }}>
               <span className="badge-pill badge-accent">
                 <ShieldCheck size={14} />
@@ -55,7 +55,7 @@ export const Hero = ({
               }}
             >
               Nourishing Trust,{' '}
-              <span style={{ color: '#E09132' }}>
+              <span style={{ color: '#F0A70A' }}>
                 Delivering Culinary Excellence.
               </span>
             </h1>
@@ -198,7 +198,7 @@ export const Hero = ({
 
           {/* Right Column: Rich Editorial Visual Card */}
           <div style={{ position: 'relative' }}>
-            <div className="card-showcase" style={{ '--stagger': 1 }}>
+            <div className="card-showcase reveal-on-scroll reveal-delay-2 reveal-scale" style={{ '--stagger': 1 }}>
               <div
                 className="card-img-wrap"
                 style={{ height: 'clamp(300px, 38vw, 430px)', overflow: 'hidden' }}
@@ -237,9 +237,9 @@ export const Hero = ({
                     fontSize: '0.74rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
-                    color: '#F4B668',
-                    backgroundColor: 'rgba(224, 145, 50, 0.14)',
-                    border: '1px solid rgba(224, 145, 50, 0.3)',
+                    color: '#F0A70A',
+                    backgroundColor: 'rgba(240, 167, 10, 0.12)',
+                    border: '1px solid rgba(240, 167, 10, 0.3)',
                     padding: '0.35rem 0.8rem',
                     borderRadius: 'var(--radius-pill)',
                   }}
@@ -250,7 +250,7 @@ export const Hero = ({
                       width: '6px',
                       height: '6px',
                       borderRadius: '50%',
-                      backgroundColor: '#E09132',
+                      backgroundColor: '#F0A70A',
                     }}
                   />
                   <span>Active 24/7 Shifts</span>
@@ -263,25 +263,25 @@ export const Hero = ({
                 position: 'absolute',
                 top: '1.25rem',
                 left: '1.25rem',
-                backgroundColor: 'rgba(11, 17, 26, 0.88)',
+                backgroundColor: 'rgba(13, 23, 17, 0.92)',
                 backdropFilter: 'blur(8px)',
-                color: '#F1F5F9',
-                border: '1px solid rgba(255, 255, 255, 0.14)',
+                color: '#F7FAF8',
+                border: '1px solid rgba(16, 185, 129, 0.28)',
                 padding: '0.6rem 0.95rem',
                 borderRadius: 'var(--radius-sm)',
-                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.36)',
+                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.6rem',
                 zIndex: 6,
               }}
             >
-              <ShieldCheck size={17} color="#E09132" />
+              <ShieldCheck size={17} color="#10B981" />
               <div>
                 <div style={{ fontSize: '0.8rem', fontWeight: 700 }}>
                   FSSAI Level 5 Hygiene
                 </div>
-                <div style={{ fontSize: '0.68rem', color: '#94A3B8' }}>
+                <div style={{ fontSize: '0.68rem', color: '#9EB3A6' }}>
                   Microbiological Lab Verified
                 </div>
               </div>

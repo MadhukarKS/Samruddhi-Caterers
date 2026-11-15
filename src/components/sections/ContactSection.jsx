@@ -88,12 +88,12 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
             {/* Headquarters Card */}
             <div
-              className="card-showcase"
+              className="card-showcase reveal-on-scroll"
               style={{
                 '--stagger': 0,
-                background: 'linear-gradient(145deg, #172336 0%, #101927 100%)',
-                borderColor: '#2B3E59',
-                color: '#F1F5F9',
+                background: 'linear-gradient(145deg, #102418 0%, #0A160F 100%)',
+                borderColor: '#1E3B2A',
+                color: '#F7FAF8',
                 padding: '1.25rem 1.4rem',
                 flex: 1,
                 display: 'flex',
@@ -104,8 +104,8 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
-                    <Building size={18} color="#E09132" />
-                    <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.18rem', color: '#F1F5F9', margin: 0 }}>
+                    <Building size={18} color="#F0A70A" />
+                    <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.18rem', color: '#F7FAF8', margin: 0 }}>
                       Corporate Headquarters
                     </h2>
                   </div>
@@ -122,7 +122,7 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                       background: 'rgba(255, 255, 255, 0.07)',
                       border: '1px solid rgba(255, 255, 255, 0.16)',
                       borderRadius: 'var(--radius-xs)',
-                      color: '#F1F5F9',
+                      color: '#F7FAF8',
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -133,16 +133,16 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                     }}
                     title="Copy Address"
                   >
-                    {copiedKey === 'address' ? <Check size={12} color="#4ADE80" /> : <Copy size={12} />}
+                    {copiedKey === 'address' ? <Check size={12} color="#10B981" /> : <Copy size={12} />}
                     <span>{copiedKey === 'address' ? 'Copied' : 'Copy Address'}</span>
                   </button>
                 </div>
 
                 {/* Address */}
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', marginBottom: '1.1rem' }}>
-                  <MapPin size={16} color="#E09132" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+                  <MapPin size={16} color="#F0A70A" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
                   <div>
-                    <address style={{ fontStyle: 'normal', fontSize: '0.86rem', lineHeight: 1.5, color: '#CBD5E1' }}>
+                    <address style={{ fontStyle: 'normal', fontSize: '0.86rem', lineHeight: 1.5, color: '#C2D1C8' }}>
                       No. 79/2, Jigani Hobli, Anekal Taluk,<br />
                       Bengaluru, Karnataka – 560105, India
                     </address>
@@ -155,7 +155,7 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                         alignItems: 'center',
                         gap: '0.3rem',
                         fontSize: '0.78rem',
-                        color: '#E09132',
+                        color: '#F0A70A',
                         marginTop: '0.45rem',
                         textDecoration: 'underline',
                         fontWeight: 600,
@@ -181,21 +181,21 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                   }}
                 >
                   <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.68rem', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.2rem' }}>
-                      <Phone size={11} color="#E09132" />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.68rem', color: '#82998D', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.2rem' }}>
+                      <Phone size={11} color="#F0A70A" />
                       <span>RFP Telephone</span>
                     </div>
-                    <a href="tel:+919845012345" style={{ color: '#F1F5F9', textDecoration: 'none', fontWeight: 700, fontSize: '0.9rem' }}>
+                    <a href="tel:+919845012345" style={{ color: '#F7FAF8', textDecoration: 'none', fontWeight: 700, fontSize: '0.9rem' }}>
                       +91 98450 12345
                     </a>
                   </div>
 
                   <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.68rem', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.2rem' }}>
-                      <Mail size={11} color="#E09132" />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.68rem', color: '#82998D', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.2rem' }}>
+                      <Mail size={11} color="#F0A70A" />
                       <span>Official Email</span>
                     </div>
-                    <a href="mailto:rfp@samruddhigroup.in" style={{ color: '#F1F5F9', textDecoration: 'none', fontWeight: 600, fontSize: '0.86rem' }}>
+                    <a href="mailto:rfp@samruddhigroup.in" style={{ color: '#F7FAF8', textDecoration: 'none', fontWeight: 600, fontSize: '0.86rem' }}>
                       rfp@samruddhigroup.in
                     </a>
                   </div>
@@ -208,14 +208,14 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                     alignItems: 'center',
                     gap: '0.5rem',
                     fontSize: '0.8rem',
-                    color: '#CBD5E1',
-                    backgroundColor: '#0E1622',
+                    color: '#C2D1C8',
+                    backgroundColor: '#0D1711',
                     padding: '0.55rem 0.75rem',
                     borderRadius: 'var(--radius-sm)',
-                    border: '1px solid #24344C',
+                    border: '1px solid #1E3326',
                   }}
                 >
-                  <Clock size={14} color="#E09132" style={{ flexShrink: 0 }} />
+                  <Clock size={14} color="#F0A70A" style={{ flexShrink: 0 }} />
                   <span>24/7 Kitchens • RFP Desk Mon–Sat, 9 AM – 7 PM</span>
                 </div>
               </div>
@@ -223,7 +223,7 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
 
             {/* Official Social Presence Card */}
             <div
-              className="card-showcase"
+              className="card-showcase reveal-on-scroll reveal-delay-1"
               style={{
                 '--stagger': 1,
                 padding: '1rem 1.35rem',
@@ -234,7 +234,7 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                   Official Social Channels
                 </h3>
                 <span style={{ fontSize: '0.72rem', color: 'var(--color-text-muted)', display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: 600 }}>
-                  <ShieldCheck size={12} color="#E09132" />
+                  <ShieldCheck size={12} color="#10B981" />
                   FSSAI #11221334000542
                 </span>
               </div>
@@ -339,8 +339,8 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                       width: '22px',
                       height: '22px',
                       borderRadius: '6px',
-                      backgroundColor: '#E09132',
-                      color: '#0B111A',
+                      backgroundColor: '#F0A70A',
+                      color: '#060B08',
                       fontSize: '0.7rem',
                       fontWeight: 800,
                       display: 'inline-flex',
@@ -378,8 +378,8 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
                       width: '22px',
                       height: '22px',
                       borderRadius: '6px',
-                      backgroundColor: '#2D4363',
-                      color: '#F1F5F9',
+                      backgroundColor: 'rgba(240, 167, 10, 0.18)',
+                      color: '#F0A70A',
                       fontSize: '0.7rem',
                       fontWeight: 800,
                       display: 'inline-flex',
@@ -398,7 +398,7 @@ export const ContactSection = ({ onPreselectService: propOnPreselectService }) =
 
           {/* Right Column: Compact Symmetric 2-Column Enquiry Form */}
           <div
-            className="card-showcase contact-form-card"
+            className="card-showcase contact-form-card reveal-on-scroll reveal-delay-2"
             style={{
               '--stagger': 2,
               padding: '1.1rem 1.4rem',

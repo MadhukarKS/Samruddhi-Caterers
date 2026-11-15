@@ -36,16 +36,16 @@ export const Navbar = () => {
           right: 0,
           zIndex: 990,
           transition: 'all 0.25s ease',
-          backgroundColor: isScrolled ? 'rgba(11, 17, 26, 0.92)' : '#0B111A',
+          backgroundColor: isScrolled ? 'rgba(6, 11, 8, 0.94)' : 'rgba(6, 11, 8, 0.85)',
           backdropFilter: 'blur(12px)',
           borderBottom: '1px solid var(--color-border)',
-          boxShadow: isScrolled ? '0 8px 24px rgba(0, 0, 0, 0.4)' : 'none',
+          boxShadow: isScrolled ? '0 8px 24px rgba(0, 0, 0, 0.45)' : 'none',
         }}
       >
         {/* Top Information Strip (Desktop) */}
         <div
           style={{
-            backgroundColor: '#070C14',
+            backgroundColor: '#030604',
             color: '#CBD5E1',
             fontSize: '0.74rem',
             padding: '0.26rem 0',
@@ -63,7 +63,7 @@ export const Navbar = () => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                <ShieldCheck size={12} color="#E09132" />
+                <ShieldCheck size={12} color="#F0A70A" />
                 <span>FSSAI Lic. 11221334000542 • ISO 22000:2018 Central Kitchen</span>
               </span>
               <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>|</span>
@@ -82,7 +82,7 @@ export const Navbar = () => {
                   fontWeight: 600,
                 }}
               >
-                <Phone size={11} color="#E09132" />
+                <Phone size={11} color="#F0A70A" />
                 <span>+91 98450 12345</span>
               </a>
               <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>|</span>
@@ -144,7 +144,7 @@ export const Navbar = () => {
                 className={({ isActive }) => `nav-route-link${isActive ? ' active' : ''}`}
                 style={({ isActive }) => ({
                   fontWeight: isActive ? 700 : 500,
-                  color: isActive ? '#E09132' : '#CBD5E1',
+                  color: isActive ? '#F0A70A' : '#C6D8CF',
                 })}
               >
                 {link.name}
@@ -218,9 +218,9 @@ export const Navbar = () => {
               bottom: 0,
               width: '84%',
               maxWidth: '340px',
-              backgroundColor: '#131C2A',
+              backgroundColor: '#0D1711',
               borderLeft: '1px solid var(--color-border)',
-              boxShadow: '-12px 0 36px rgba(0, 0, 0, 0.5)',
+              boxShadow: '-12px 0 36px rgba(0, 0, 0, 0.55)',
               display: 'flex',
               flexDirection: 'column',
               padding: '1.5rem',
@@ -267,7 +267,7 @@ export const Navbar = () => {
                     textDecoration: 'none',
                     fontSize: '1rem',
                     fontWeight: isActive ? 700 : 600,
-                    color: isActive ? '#E09132' : 'var(--color-text-main)',
+                    color: isActive ? '#F0A70A' : 'var(--color-text-main)',
                     padding: '0.6rem 0',
                     borderBottom: '1px solid var(--color-border-card)',
                     display: 'flex',

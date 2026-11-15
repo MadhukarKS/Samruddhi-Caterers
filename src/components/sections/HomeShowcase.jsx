@@ -11,9 +11,10 @@ export const HomeShowcase = () => {
   return (
     <>
       {/* Band 3: Enterprise Services Preview */}
-      <section className="section" style={{ backgroundColor: '#0B111A', borderBottom: '1px solid var(--color-border)' }}>
+      <section className="section" style={{ backgroundColor: 'transparent', borderBottom: '1px solid var(--color-border)' }}>
         <div className="container-wide">
           <div
+            className="reveal-on-scroll"
             style={{
               display: 'flex',
               flexWrap: 'wrap',
@@ -49,7 +50,7 @@ export const HomeShowcase = () => {
             {SERVICES_DATA.map((service, idx) => (
               <div
                 key={service.id}
-                className="card-showcase"
+                className={`card-showcase reveal-on-scroll reveal-delay-${(idx % 4) + 1}`}
                 style={{
                   '--stagger': idx,
                   display: 'flex',
@@ -66,7 +67,7 @@ export const HomeShowcase = () => {
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      background: 'linear-gradient(180deg, transparent 40%, rgba(7, 12, 20, 0.85) 100%)',
+                      background: 'linear-gradient(180deg, transparent 40%, rgba(6, 11, 8, 0.88) 100%)',
                     }}
                   />
                   <span
@@ -74,10 +75,10 @@ export const HomeShowcase = () => {
                       position: 'absolute',
                       bottom: '0.75rem',
                       left: '0.85rem',
-                      color: '#F1F5F9',
+                      color: '#F7FAF8',
                       fontSize: '0.74rem',
                       fontWeight: 600,
-                      backgroundColor: 'rgba(11, 17, 26, 0.86)',
+                      backgroundColor: 'rgba(13, 23, 17, 0.88)',
                       border: '1px solid rgba(255, 255, 255, 0.14)',
                       padding: '0.22rem 0.6rem',
                       borderRadius: 'var(--radius-xs)',
@@ -126,7 +127,7 @@ export const HomeShowcase = () => {
       </section>
 
       {/* Band 4: Hospitality Venues & Architectural Call-to-Action */}
-      <section className="section" style={{ backgroundColor: '#0F1622' }}>
+      <section className="section" style={{ backgroundColor: 'rgba(10, 19, 13, 0.45)' }}>
         <div className="container-wide">
           <SectionHeading
             badgeIcon={Building2}
@@ -147,7 +148,7 @@ export const HomeShowcase = () => {
               <Link
                 key={brand.id}
                 to="/brands"
-                className="card-showcase"
+                className={`card-showcase reveal-on-scroll reveal-delay-${(idx % 5) + 1}`}
                 style={{
                   '--stagger': idx,
                   textDecoration: 'none',
@@ -163,7 +164,7 @@ export const HomeShowcase = () => {
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.08em',
-                    color: 'var(--color-terracotta)',
+                    color: 'var(--color-gold)',
                   }}
                 >
                   {brand.category}
@@ -180,7 +181,7 @@ export const HomeShowcase = () => {
                     paddingTop: '0.6rem',
                     fontSize: '0.78rem',
                     fontWeight: 600,
-                    color: 'var(--color-pine-primary)',
+                    color: 'var(--color-emerald-primary)',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.3rem',
@@ -194,16 +195,16 @@ export const HomeShowcase = () => {
           </div>
 
           {/* Closing Consultation CTA */}
-          <div className="cta-band">
+          <div className="cta-band reveal-on-scroll">
             <div style={{ maxWidth: '640px' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#E09132', marginBottom: '0.55rem' }}>
-                <ShieldCheck size={14} />
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.74rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F0A70A', marginBottom: '0.55rem' }}>
+                <ShieldCheck size={14} color="#10B981" />
                 <span>Jigani Central Kitchen • FSSAI Level 5 Certified</span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-heading)', color: '#F1F5F9', fontSize: 'clamp(1.5rem, 2.6vw, 2.05rem)', marginBottom: '0.45rem' }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', color: '#F7FAF8', fontSize: 'clamp(1.5rem, 2.6vw, 2.05rem)', marginBottom: '0.45rem' }}>
                 Commission Daily Catering or Plan Your Celebration
               </h2>
-              <p style={{ color: '#94A3B8', fontSize: '0.94rem', margin: 0 }}>
+              <p style={{ color: '#82998D', fontSize: '0.94rem', margin: 0 }}>
                 Connect directly with our corporate RFP & event planning desk for customized menu engineering and SLAs.
               </p>
             </div>

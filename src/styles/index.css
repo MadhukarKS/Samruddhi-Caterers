@@ -1,56 +1,62 @@
 /* ==========================================================================
-   SAMRUDDHI GROUP — MIDNIGHT SLATE & AMBER DARK DESIGN SYSTEM
-   Visual Identity: Deep Midnight Sapphire, Elevated Slate Indigo, Toasted Amber
+   SAMRUDDHI GROUP — EMERALD & HARVEST GOLD BRAND DESIGN SYSTEM
+   Visual Identity: Deep Obsidian Forest, Botanical Emerald, Luminous Harvest Gold
    Typography: Outfit (Modern Architectural Sans) & Plus Jakarta Sans (Body)
    ========================================================================== */
 
 :root {
   color-scheme: dark;
 
-  /* Midnight Slate Canvas & Elevation Ladder */
-  --color-canvas: #0B111A;
-  --color-surface: #131C2A;
-  --color-surface-subtle: #1B273A;
-  --color-surface-alt: #070C14;
-  --color-surface-hover: #182334;
+  /* Deep Obsidian Forest Canvas & Elevation Ladder */
+  --color-canvas: #060B08;
+  --color-surface: #0D1711;
+  --color-surface-subtle: #132219;
+  --color-surface-alt: #030604;
+  --color-surface-hover: #172A1F;
 
   /* Typography Colors */
-  --color-text-main: #F1F5F9;
-  --color-text-body: #CBD5E1;
-  --color-text-muted: #94A3B8;
-  --color-text-inverse: #0B111A;
-  --color-text-inverse-muted: #94A3B8;
+  --color-text-main: #F7FAF8;
+  --color-text-body: #C6D8CF;
+  --color-text-muted: #82998D;
+  --color-text-inverse: #060B08;
+  --color-text-inverse-muted: #82998D;
 
-  /* Signature Midnight Slate & Toasted Amber Tokens */
-  --color-slate-deep: #070C14;
-  --color-slate-primary: #172336;
-  --color-slate-medium: #24354F;
+  /* Signature Brand Accents (Derived directly from Logo) */
+  --color-gold: #F0A70A;
+  --color-gold-hover: #FBBF24;
+  --color-gold-light: rgba(240, 167, 10, 0.14);
+  --color-gold-subtle: rgba(240, 167, 10, 0.08);
 
-  --color-amber: #E09132;
-  --color-amber-hover: #EC9E42;
-  --color-amber-light: rgba(224, 145, 50, 0.14);
-  --color-amber-subtle: rgba(224, 145, 50, 0.1);
+  --color-emerald: #10B981;
+  --color-emerald-deep: #059669;
+  --color-emerald-light: rgba(16, 185, 129, 0.14);
+  --color-emerald-subtle: rgba(16, 185, 129, 0.08);
 
-  /* Semantic Accents (mapped cleanly for dark contrast) */
-  --color-pine-dark: #070C14;
-  --color-pine-primary: #E09132;
-  --color-pine-medium: #283A54;
-  --color-pine-light: #354C6D;
-  --color-pine-subtle: rgba(255, 255, 255, 0.055);
+  /* Semantic Mappings */
+  --color-amber: #F0A70A;
+  --color-amber-hover: #FBBF24;
+  --color-amber-light: rgba(240, 167, 10, 0.14);
 
-  --color-terracotta: #E09132;
-  --color-terracotta-hover: #EC9E42;
-  --color-terracotta-light: rgba(224, 145, 50, 0.14);
-  --color-terracotta-subtle: rgba(224, 145, 50, 0.1);
+  --color-pine-dark: #030604;
+  --color-pine-primary: #F0A70A;
+  --color-pine-medium: #192D21;
+  --color-pine-light: #254231;
+  --color-pine-subtle: rgba(16, 185, 129, 0.06);
+
+  --color-terracotta: #F0A70A;
+  --color-terracotta-hover: #FBBF24;
+  --color-terracotta-light: rgba(240, 167, 10, 0.14);
+  --color-terracotta-subtle: rgba(240, 167, 10, 0.08);
 
   --color-whatsapp: #22C55E;
   --color-whatsapp-bright: #4ADE80;
   --color-whatsapp-dark: #15803D;
 
-  /* Dark Architectural Borders */
-  --color-border: #24334A;
-  --color-border-card: #213045;
-  --color-border-strong: #374D6E;
+  /* Dark Botanical Borders */
+  --color-border: #192A20;
+  --color-border-card: #16261D;
+  --color-border-strong: #264231;
+  --color-border-glow: rgba(240, 167, 10, 0.35);
   --color-border-dark: rgba(255, 255, 255, 0.14);
 
   /* Typography System */
@@ -63,12 +69,12 @@
   --container-narrow: 940px;
   --header-height: 88px;
 
-  /* Deep Dark UI Shadows */
-  --shadow-xs: 0 2px 6px rgba(0, 0, 0, 0.28);
-  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.24);
-  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.44), 0 4px 10px rgba(0, 0, 0, 0.28);
-  --shadow-lg: 0 24px 52px rgba(0, 0, 0, 0.56), 0 6px 16px rgba(0, 0, 0, 0.35);
-  --shadow-hover: 0 22px 46px -10px rgba(0, 0, 0, 0.62), 0 0 0 1px rgba(224, 145, 50, 0.24);
+  /* Deep Botanical Shadows */
+  --shadow-xs: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 24px 54px rgba(0, 0, 0, 0.65), 0 6px 18px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 22px 48px -10px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(240, 167, 10, 0.28);
 
   /* Transitions */
   --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
@@ -119,10 +125,12 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  background-color: var(--color-canvas);
 }
 
 ::selection {
-  background-color: rgba(224, 145, 50, 0.28);
+  background-color: rgba(240, 167, 10, 0.32);
   color: #FFFFFF;
 }
 
@@ -191,6 +199,7 @@ p {
 /* Airy Section Rhythm across multi-page routes */
 .section {
   padding: clamp(3rem, 5.5vw, 4.75rem) 0;
+  position: relative;
 }
 
 .page-shell {
@@ -199,13 +208,16 @@ p {
   flex: 1;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .page-hero-band {
-  background: radial-gradient(circle at 50% 0%, rgba(224, 145, 50, 0.085) 0%, transparent 62%), #0E1622;
+  background: radial-gradient(circle at 50% 0%, rgba(240, 167, 10, 0.12) 0%, rgba(16, 185, 129, 0.06) 40%, transparent 68%), rgba(10, 20, 14, 0.65);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
   padding: clamp(2.25rem, 4vw, 3.25rem) 0 clamp(1.85rem, 3.5vw, 2.75rem) 0;
   margin-bottom: clamp(2.25rem, 4vw, 3.25rem);
+  position: relative;
 }
 
 @media (max-width: 991px) {
@@ -222,6 +234,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 @media (max-width: 1023px) {
@@ -250,15 +263,15 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-main);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(16, 185, 129, 0.08);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
 }
 
 .badge-accent {
-  color: #F4B668;
-  background: rgba(224, 145, 50, 0.14);
-  border-color: rgba(224, 145, 50, 0.34);
+  color: #FCD34D;
+  background: rgba(240, 167, 10, 0.14);
+  border-color: rgba(240, 167, 10, 0.36);
 }
 
 .badge-dark {
@@ -281,10 +294,34 @@ p {
   border-radius: var(--radius-sm);
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   border: 1px solid transparent;
   outline: none;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transform: rotate(25deg);
+  transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  left: 140%;
 }
 
 .btn:active {
@@ -292,53 +329,54 @@ p {
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--color-amber);
+  outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
 
 .btn-primary {
-  background-color: var(--color-amber);
-  color: #0B111A;
+  background-color: var(--color-gold);
+  color: #060B08;
   font-weight: 700;
-  border-color: var(--color-amber);
-  box-shadow: 0 4px 14px rgba(224, 145, 50, 0.25);
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 16px rgba(240, 167, 10, 0.28);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-amber-hover);
-  border-color: var(--color-amber-hover);
-  color: #0B111A;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(224, 145, 50, 0.36);
+  background-color: var(--color-gold-hover);
+  border-color: var(--color-gold-hover);
+  color: #060B08;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(240, 167, 10, 0.45), 0 0 16px rgba(240, 167, 10, 0.25);
 }
 
 .btn-terracotta {
-  background-color: var(--color-amber);
-  color: #0B111A;
+  background-color: var(--color-gold);
+  color: #060B08;
   font-weight: 700;
-  border-color: var(--color-amber);
-  box-shadow: 0 4px 14px rgba(224, 145, 50, 0.25);
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 16px rgba(240, 167, 10, 0.28);
 }
 
 .btn-terracotta:hover {
-  background-color: var(--color-amber-hover);
-  border-color: var(--color-amber-hover);
-  color: #0B111A;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(224, 145, 50, 0.36);
+  background-color: var(--color-gold-hover);
+  border-color: var(--color-gold-hover);
+  color: #060B08;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(240, 167, 10, 0.45), 0 0 16px rgba(240, 167, 10, 0.25);
 }
 
 .btn-secondary {
-  background-color: #182334;
+  background-color: #121F17;
   color: var(--color-text-main);
   border-color: var(--color-border-strong);
 }
 
 .btn-secondary:hover {
-  background-color: #1E2C42;
-  border-color: var(--color-amber);
+  background-color: #182A20;
+  border-color: var(--color-emerald);
   color: #FFFFFF;
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
 }
 
 .btn-whatsapp {
@@ -353,7 +391,7 @@ p {
   border-color: var(--color-whatsapp-bright);
   color: #86EFAC;
   transform: translateY(-2px);
-  box-shadow: 0 7px 20px rgba(34, 197, 94, 0.22);
+  box-shadow: 0 7px 20px rgba(34, 197, 94, 0.24);
 }
 
 .btn-sm {
@@ -367,7 +405,7 @@ p {
 }
 
 /* ==========================================================================
-   UNIQUE CARD ANIMATIONS & ARCHITECTURAL INTERACTIVE STYLES
+   CARD STYLES & INTERACTIVE SIGNATURE ACCENTS
    ========================================================================== */
 
 @keyframes pageFadeSlideUp {
@@ -411,7 +449,7 @@ p {
   animation: pulseLive 2.2s ease-in-out infinite;
 }
 
-/* Signature Interactive Showcase Card */
+/* Signature Interactive Showcase Card (Emerald Leaf to Harvest Gold Beam) */
 .card-showcase {
   position: relative;
   background: var(--color-surface);
@@ -428,7 +466,7 @@ p {
   animation-delay: calc(var(--stagger, 0) * 75ms);
 }
 
-/* Expanding Amber Beam along Top Edge */
+/* Expanding Emerald-to-Gold Beam along Top Edge */
 .card-showcase::before {
   content: '';
   position: absolute;
@@ -436,7 +474,7 @@ p {
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-amber) 0%, #F5BE74 100%);
+  background: linear-gradient(90deg, #10B981 0%, #F0A70A 100%);
   transition: width 0.38s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 5;
 }
@@ -444,7 +482,7 @@ p {
 .card-showcase:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(224, 145, 50, 0.48);
+  border-color: rgba(240, 167, 10, 0.45);
   background: var(--color-surface-hover);
 }
 
@@ -507,11 +545,11 @@ p {
   transform: translateX(4px);
 }
 
-/* Deep Slate Variant Showcase Card */
+/* Deep Botanical Variant Showcase Card */
 .card-dark-showcase {
   position: relative;
-  background: #151F30;
-  border: 1px solid #26364F;
+  background: #0F1B14;
+  border: 1px solid #1B3023;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
@@ -527,14 +565,14 @@ p {
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-amber) 0%, #F5BE74 100%);
+  background: linear-gradient(90deg, #10B981 0%, #F0A70A 100%);
   transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-dark-showcase:hover {
   transform: translateY(-5px);
-  border-color: rgba(224, 145, 50, 0.58);
-  background: #1A273B;
+  border-color: rgba(240, 167, 10, 0.5);
+  background: #14241B;
   box-shadow: var(--shadow-hover);
 }
 
@@ -542,12 +580,12 @@ p {
   width: 100%;
 }
 
-/* Architectural Slate & Amber CTA Band */
+/* Architectural Emerald & Gold CTA Band */
 .cta-band {
-  background: radial-gradient(circle at 88% 20%, rgba(224, 145, 50, 0.18) 0%, transparent 48%), linear-gradient(135deg, #162235 0%, #101927 100%);
-  border: 1px solid #293A54;
+  background: radial-gradient(circle at 88% 20%, rgba(240, 167, 10, 0.16) 0%, rgba(16, 185, 129, 0.08) 35%, transparent 55%), linear-gradient(135deg, #112017 0%, #0A140E 100%);
+  border: 1px solid #203829;
   border-radius: var(--radius-lg);
-  color: #F1F5F9;
+  color: #F7FAF8;
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem);
   display: flex;
   flex-wrap: wrap;
@@ -586,7 +624,7 @@ p {
   margin-top: 0.1rem;
 }
 
-/* Desktop Nav Animated Underline Link */
+/* Desktop Nav Animated Underline Link (Emerald to Gold) */
 .nav-route-link {
   position: relative;
   text-decoration: none;
@@ -603,7 +641,7 @@ p {
   bottom: 0;
   width: 0%;
   height: 2px;
-  background: linear-gradient(90deg, var(--color-amber), #F5BE74);
+  background: linear-gradient(90deg, #10B981, #F0A70A);
   border-radius: 2px;
   transition: width 0.26s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -624,7 +662,7 @@ p {
   font-family: var(--font-body);
   font-size: 0.89rem;
   padding: 0.65rem 0.9rem;
-  border: 1px solid #2C3E58;
+  border: 1px solid #1E3326;
   border-radius: var(--radius-sm);
   background: var(--color-surface-subtle);
   color: var(--color-text-main);
@@ -634,7 +672,7 @@ p {
 }
 
 .form-control::placeholder {
-  color: #8294AC;
+  color: #7A9184;
   opacity: 1;
 }
 
@@ -644,9 +682,9 @@ p {
 }
 
 .form-control:focus {
-  background: #202E44;
-  border-color: var(--color-amber);
-  box-shadow: 0 0 0 3px rgba(224, 145, 50, 0.18);
+  background: #182C20;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(240, 167, 10, 0.2);
 }
 
 .enquiry-fields-grid {
@@ -672,8 +710,8 @@ p {
 .social-tile:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
-  border-color: var(--color-amber) !important;
-  background-color: #213047 !important;
+  border-color: var(--color-gold) !important;
+  background-color: #192D21 !important;
 }
 
 .form-error {
@@ -698,23 +736,25 @@ p {
 }
 
 .social-pill:hover {
-  background: var(--color-amber);
-  color: #0B111A;
-  border-color: var(--color-amber);
+  background: var(--color-gold);
+  color: #060B08;
+  border-color: var(--color-gold);
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(240, 167, 10, 0.35);
 }
 
 .social-pill-dark {
   border-color: var(--color-border);
   background: var(--color-surface);
-  color: #E2E8F0;
+  color: #C6D8CF;
 }
 
 .social-pill-dark:hover {
-  background: var(--color-amber);
-  border-color: var(--color-amber);
-  color: #0B111A;
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #060B08;
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(240, 167, 10, 0.35);
 }
 
 /* Mobile Sticky Bottom Action Bar */
@@ -725,11 +765,11 @@ p {
   left: 0;
   right: 0;
   z-index: 998;
-  background: rgba(11, 17, 26, 0.95);
+  background: rgba(6, 11, 8, 0.95);
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--color-border);
   padding: 0.55rem 0.9rem;
-  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.55);
 }
 
 @media (max-width: 768px) {
@@ -744,8 +784,8 @@ p {
 .mobile-drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(4, 8, 14, 0.72);
-  backdrop-filter: blur(6px);
+  background: rgba(3, 6, 4, 0.76);
+  backdrop-filter: blur(8px);
   z-index: 995;
 }
 
@@ -758,6 +798,239 @@ p {
   animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* ==========================================================================
+   GLOBAL BACKGROUND ANIMATION KEYFRAMES
+   ========================================================================== */
+
+@keyframes orbDrift1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(70px, 55px, 0) scale(1.14);
+  }
+  100% {
+    transform: translate3d(-35px, 80px, 0) scale(0.95);
+  }
+}
+
+@keyframes orbDrift2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-80px, 60px, 0) scale(1.18);
+  }
+  100% {
+    transform: translate3d(45px, -45px, 0) scale(0.92);
+  }
+}
+
+@keyframes orbDrift3 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(60px, -70px, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-45px, 35px, 0) scale(1.04);
+  }
+}
+
+@keyframes moteDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(35px, -90px, 0);
+    opacity: 0.1;
+  }
+}
+
+.orb-emerald {
+  animation: orbDrift1 26s ease-in-out infinite alternate;
+}
+
+.orb-gold {
+  animation: orbDrift2 30s ease-in-out infinite alternate;
+}
+
+.orb-center {
+  animation: orbDrift3 28s ease-in-out infinite alternate;
+}
+
+.orb-gold-bottom {
+  animation: orbDrift1 34s ease-in-out infinite alternate-reverse;
+}
+
+/* ==========================================================================
+   FLOATING BUBBLES ANIMATION (EMERALD & HARVEST GOLD)
+   ========================================================================== */
+
+@keyframes bubbleFloatUp {
+  0% {
+    transform: translate3d(0, 106vh, 0) scale(0.7);
+    opacity: 0;
+  }
+  8% {
+    opacity: var(--bubble-opacity, 0.85);
+  }
+  50% {
+    transform: translate3d(var(--drift-x, 30px), 52vh, 0) scale(1);
+    opacity: var(--bubble-opacity, 0.85);
+  }
+  90% {
+    opacity: var(--bubble-opacity, 0.85);
+  }
+  100% {
+    transform: translate3d(var(--drift-end, -20px), -14vh, 0) scale(1.08);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleWobble {
+  0%, 100% {
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+  33% {
+    border-radius: 46% 54% 52% 48% / 54% 48% 52% 46%;
+  }
+  66% {
+    border-radius: 53% 47% 48% 52% / 47% 53% 49% 51%;
+  }
+}
+
+.floating-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation-name: bubbleFloatUp;
+  animation-timing-function: cubic-bezier(0.35, 0.15, 0.65, 0.85);
+  animation-iteration-count: infinite;
+}
+
+/* Glassy Specular Highlight Dot */
+.floating-bubble::before {
+  content: '';
+  position: absolute;
+  top: 16%;
+  left: 20%;
+  width: 28%;
+  height: 28%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 75%);
+  transform: rotate(-35deg);
+  pointer-events: none;
+}
+
+/* Harvest Gold Bubble */
+.bubble-gold {
+  background: radial-gradient(circle at 35% 35%, rgba(255, 240, 200, 0.4) 0%, rgba(240, 167, 10, 0.26) 38%, rgba(240, 167, 10, 0.09) 70%, rgba(240, 167, 10, 0.02) 100%);
+  border: 1.5px solid rgba(240, 167, 10, 0.55);
+  box-shadow: 0 0 20px rgba(240, 167, 10, 0.35), inset 0 0 12px rgba(255, 220, 120, 0.3), inset -2px -2px 6px rgba(240, 167, 10, 0.4);
+}
+
+/* Botanical Emerald Bubble */
+.bubble-emerald {
+  background: radial-gradient(circle at 35% 35%, rgba(200, 255, 235, 0.4) 0%, rgba(16, 185, 129, 0.26) 38%, rgba(16, 185, 129, 0.09) 70%, rgba(16, 185, 129, 0.02) 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.55);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35), inset 0 0 12px rgba(160, 255, 210, 0.3), inset -2px -2px 6px rgba(16, 185, 129, 0.4);
+}
+
+.bubble-hero {
+  border-width: 2px;
+  box-shadow: 0 0 32px rgba(240, 167, 10, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+/* Scroll-Driven Effervescent Bubbles (Spawns & Accelerates on Scroll, No Click Interference) */
+@keyframes scrollBubbleRise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.92;
+  }
+  75% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(var(--drift-x, 25px), -105vh, 0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.scroll-spawn-bubble {
+  position: absolute;
+  bottom: -40px;
+  animation-name: scrollBubbleRise !important;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  animation-fill-mode: forwards !important;
+  animation-iteration-count: 1 !important;
+  pointer-events: none !important;
+  will-change: transform, opacity;
+}
+
+/* Ambient scroll surge response: lights up subtly during scroll motion */
+.scrolling-active .floating-bubble {
+  filter: brightness(1.22);
+  transition: filter 0.25s ease;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER DRIVEN)
+   ========================================================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.reveal-scale {
+  transform: scale(0.94) translateY(24px);
+}
+
+.reveal-delay-1 {
+  transition-delay: 80ms;
+}
+
+.reveal-delay-2 {
+  transition-delay: 160ms;
+}
+
+.reveal-delay-3 {
+  transition-delay: 240ms;
+}
+
+.reveal-delay-4 {
+  transition-delay: 320ms;
+}
+
+/* Brand Logo Emblem Tactile Hover */
+.brand-logo-emblem {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.brand-logo-emblem:hover {
+  transform: scale(1.08) rotate(4deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(240, 167, 10, 0.45);
+}
+
 /* Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -765,5 +1038,8 @@ p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .ambient-orb, .ambient-mote, .floating-bubble {
+    animation: none !important;
   }
 }

@@ -201,7 +201,7 @@ export const EnquiryForm = ({
               <strong
                 style={{
                   fontSize: '1.05rem',
-                  color: '#E09132',
+                  color: '#F0A70A',
                   letterSpacing: '0.04em',
                 }}
               >

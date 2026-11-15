@@ -21,7 +21,7 @@ export const PrivacyModal = ({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(4, 8, 14, 0.84)',
+        backgroundColor: 'rgba(3, 6, 4, 0.88)',
         backdropFilter: 'blur(10px)',
         zIndex: 1100,
         display: 'flex',

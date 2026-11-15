@@ -20,7 +20,7 @@ export const ServicesSection = ({
       : SERVICES_DATA.filter((s) => s.id === activeTab);
 
   return (
-    <section id="services" style={{ backgroundColor: 'var(--color-canvas)' }}>
+    <section id="services" style={{ backgroundColor: 'transparent' }}>
       {/* Header Band */}
       <div className="page-hero-band">
         <div className="container-wide" style={{ textAlign: 'center', maxWidth: '800px' }}>
@@ -66,10 +66,10 @@ export const ServicesSection = ({
               padding: '0.6rem 1.3rem',
               borderRadius: 'var(--radius-pill)',
               border: activeTab === 'all'
-                ? '1px solid #E09132'
+                ? '1px solid var(--color-gold)'
                 : '1px solid var(--color-border)',
-              backgroundColor: activeTab === 'all' ? '#E09132' : 'var(--color-surface)',
-              color: activeTab === 'all' ? '#0B111A' : 'var(--color-text-body)',
+              backgroundColor: activeTab === 'all' ? 'var(--color-gold)' : 'var(--color-surface)',
+              color: activeTab === 'all' ? '#060B08' : 'var(--color-text-body)',
               fontFamily: 'var(--font-body)',
               fontSize: '0.86rem',
               fontWeight: activeTab === 'all' ? 700 : 600,
@@ -90,10 +90,10 @@ export const ServicesSection = ({
                 padding: '0.6rem 1.3rem',
                 borderRadius: 'var(--radius-pill)',
                 border: activeTab === srv.id
-                  ? '1px solid #E09132'
+                  ? '1px solid var(--color-gold)'
                   : '1px solid var(--color-border)',
-                backgroundColor: activeTab === srv.id ? '#E09132' : 'var(--color-surface)',
-                color: activeTab === srv.id ? '#0B111A' : 'var(--color-text-body)',
+                backgroundColor: activeTab === srv.id ? 'var(--color-gold)' : 'var(--color-surface)',
+                color: activeTab === srv.id ? '#060B08' : 'var(--color-text-body)',
                 fontFamily: 'var(--font-body)',
                 fontSize: '0.86rem',
                 fontWeight: activeTab === srv.id ? 700 : 600,
@@ -120,7 +120,7 @@ export const ServicesSection = ({
             return (
               <div
                 key={service.id}
-                className="card-showcase"
+                className={`card-showcase reveal-on-scroll reveal-delay-${(index % 2) + 1}`}
                 style={{
                   '--stagger': index,
                   display: 'flex',
@@ -141,7 +141,7 @@ export const ServicesSection = ({
                       position: 'absolute',
                       inset: 0,
                       background:
-                        'linear-gradient(180deg, rgba(7, 12, 20, 0.36) 0%, rgba(7, 12, 20, 0.08) 50%, rgba(7, 12, 20, 0.88) 100%)',
+                        'linear-gradient(180deg, rgba(6, 11, 8, 0.36) 0%, rgba(6, 11, 8, 0.08) 50%, rgba(6, 11, 8, 0.9) 100%)',
                     }}
                   />
 
@@ -150,16 +150,16 @@ export const ServicesSection = ({
                       position: 'absolute',
                       top: '1rem',
                       left: '1rem',
-                      backgroundColor: 'rgba(11, 17, 26, 0.88)',
+                      backgroundColor: 'rgba(13, 23, 17, 0.9)',
                       backdropFilter: 'blur(8px)',
-                      color: '#F1F5F9',
+                      color: '#F7FAF8',
                       fontSize: '0.72rem',
                       fontWeight: 700,
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
                       padding: '0.32rem 0.75rem',
                       borderRadius: 'var(--radius-pill)',
-                      border: '1px solid rgba(224, 145, 50, 0.35)',
+                      border: '1px solid rgba(240, 167, 10, 0.4)',
                     }}
                   >
                     {service.badge}
@@ -218,9 +218,9 @@ export const ServicesSection = ({
                     <span
                       style={{
                         fontSize: '0.76rem',
-                        color: '#E2E8F0',
+                        color: '#F7FAF8',
                         fontWeight: 600,
-                        backgroundColor: 'rgba(11, 17, 26, 0.85)',
+                        backgroundColor: 'rgba(13, 23, 17, 0.88)',
                         border: '1px solid rgba(255, 255, 255, 0.14)',
                         padding: '0.24rem 0.65rem',
                         borderRadius: 'var(--radius-xs)',
@@ -242,7 +242,7 @@ export const ServicesSection = ({
                 >
                   <h2 style={{ fontSize: '1.42rem', marginBottom: '0.25rem' }}>{service.title}</h2>
 
-                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--color-terracotta)', marginBottom: '0.65rem' }}>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--color-gold)', marginBottom: '0.65rem' }}>
                     {service.headline}
                   </div>
 
@@ -279,7 +279,7 @@ export const ServicesSection = ({
 
                     {service.shiftReady && (
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem' }}>
-                        <Users size={14} color="var(--color-terracotta)" style={{ flexShrink: 0 }} />
+                        <Users size={14} color="var(--color-gold)" style={{ flexShrink: 0 }} />
                         <span style={{ color: 'var(--color-text-main)' }}>{service.shiftReady}</span>
                       </div>
                     )}
@@ -308,7 +308,7 @@ export const ServicesSection = ({
                           lineHeight: 1.45,
                         }}
                       >
-                        <Check size={14} color="var(--color-terracotta)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+                        <Check size={14} color="var(--color-emerald-primary)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -363,12 +363,12 @@ export const ServicesSection = ({
         </div>
 
         {/* Bottom Consultation Strip */}
-        <div className="cta-band">
+        <div className="cta-band reveal-on-scroll">
           <div>
-            <h3 style={{ color: '#F1F5F9', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
+            <h3 style={{ color: '#F7FAF8', fontSize: '1.4rem', marginBottom: '0.35rem' }}>
               Need a Custom Shift Schedule or Tasting Session?
             </h3>
-            <p style={{ color: '#94A3B8', fontSize: '0.9rem', margin: 0 }}>
+            <p style={{ color: '#82998D', fontSize: '0.9rem', margin: 0 }}>
               Our procurement desk configures multi-shift menus, pricing models, and SLA terms in under 2 hours.
             </p>
           </div>

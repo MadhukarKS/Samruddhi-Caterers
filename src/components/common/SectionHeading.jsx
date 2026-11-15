@@ -32,7 +32,7 @@ export const SectionHeading = ({
             {BadgeIcon && (
               <BadgeIcon
                 size={12}
-                color={isDark ? '#FFFFFF' : 'var(--color-terracotta)'}
+                color={isDark ? '#F7FAF8' : 'var(--color-gold)'}
               />
             )}
             <span>{badgeText}</span>

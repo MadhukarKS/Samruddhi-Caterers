@@ -28,12 +28,15 @@ export const Footer = () => {
   return (
     <footer
       style={{
-        backgroundColor: '#070C14',
-        color: '#CBD5E1',
-        borderTop: '1px solid #1E2C42',
-        paddingTop: '2.25rem',
-        paddingBottom: '1.5rem',
+        backgroundColor: 'rgba(3, 6, 4, 0.88)',
+        backdropFilter: 'blur(12px)',
+        color: '#C2D1C8',
+        borderTop: '1px solid #16261D',
+        paddingTop: '2.5rem',
+        paddingBottom: '1.75rem',
         marginTop: 'auto',
+        position: 'relative',
+        zIndex: 1,
       }}
     >
       <div className="container-wide">
@@ -51,7 +54,7 @@ export const Footer = () => {
               <SamruddhiLogo variant="light" size="sm" showTagline={true} />
             </div>
 
-            <p style={{ fontSize: '0.84rem', lineHeight: 1.55, color: '#94A3B8', marginBottom: '1rem' }}>
+            <p style={{ fontSize: '0.84rem', lineHeight: 1.55, color: '#82998D', marginBottom: '1rem' }}>
               Large-scale commercial kitchens and catering hospitality in Bengaluru since 2004.
             </p>
 
@@ -76,21 +79,21 @@ export const Footer = () => {
                 alignItems: 'center',
                 gap: '0.4rem',
                 fontSize: '0.74rem',
-                color: '#CBD5E1',
-                padding: '0.32rem 0.65rem',
+                color: '#C2D1C8',
+                padding: '0.35rem 0.7rem',
                 borderRadius: 'var(--radius-xs)',
-                backgroundColor: '#131C2A',
-                border: '1px solid #24344C',
+                backgroundColor: '#0D1711',
+                border: '1px solid #1E3326',
               }}
             >
-              <ShieldCheck size={13} color="#E09132" />
+              <ShieldCheck size={14} color="#10B981" />
               <span>FSSAI Lic. 11221334000542</span>
             </div>
           </div>
 
           {/* Navigation Pages */}
           <div>
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F1F5F9', marginBottom: '0.85rem' }}>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F7FAF8', marginBottom: '0.85rem' }}>
               Pages
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -99,15 +102,18 @@ export const Footer = () => {
                   <Link
                     to={link.to}
                     style={{
-                      color: '#94A3B8',
+                      color: '#82998D',
                       fontSize: '0.84rem',
                       textDecoration: 'none',
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '0.35rem',
+                      transition: 'color var(--transition-fast)',
                     }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = '#F0A70A'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = '#82998D'; }}
                   >
-                    <ArrowRight size={11} color="#E09132" />
+                    <ArrowRight size={11} color="#F0A70A" />
                     <span>{link.name}</span>
                   </Link>
                 </li>
@@ -117,7 +123,7 @@ export const Footer = () => {
 
           {/* Quick RFP Services */}
           <div>
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F1F5F9', marginBottom: '0.85rem' }}>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F7FAF8', marginBottom: '0.85rem' }}>
               Catering Verticals
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -129,16 +135,19 @@ export const Footer = () => {
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: '#94A3B8',
+                      color: '#82998D',
                       fontSize: '0.84rem',
                       cursor: 'pointer',
                       padding: 0,
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '0.35rem',
+                      transition: 'color var(--transition-fast)',
                     }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = '#F0A70A'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = '#82998D'; }}
                   >
-                    <ArrowRight size={11} color="#E09132" />
+                    <ArrowRight size={11} color="#F0A70A" />
                     <span>{name}</span>
                   </button>
                 </li>
@@ -148,22 +157,32 @@ export const Footer = () => {
 
           {/* Facility & Desk */}
           <div>
-            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F1F5F9', marginBottom: '0.85rem' }}>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#F7FAF8', marginBottom: '0.85rem' }}>
               Central Commissary
             </h4>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.65rem' }}>
-              <MapPin size={15} color="#E09132" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-              <address style={{ fontStyle: 'normal', fontSize: '0.82rem', lineHeight: 1.5, color: '#94A3B8' }}>
+              <MapPin size={15} color="#F0A70A" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+              <address style={{ fontStyle: 'normal', fontSize: '0.82rem', lineHeight: 1.5, color: '#82998D' }}>
                 No. 79/2, Jigani Hobli, Anekal Taluk, Bengaluru – 560105
               </address>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontSize: '0.82rem' }}>
-              <a href="tel:+919845012345" style={{ color: '#CBD5E1', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Phone size={13} color="#E09132" />
+              <a
+                href="tel:+919845012345"
+                style={{ color: '#C2D1C8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', transition: 'color var(--transition-fast)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#F0A70A'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#C2D1C8'; }}
+              >
+                <Phone size={13} color="#F0A70A" />
                 <span>+91 98450 12345</span>
               </a>
-              <a href="mailto:rfp@samruddhigroup.in" style={{ color: '#CBD5E1', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Mail size={13} color="#E09132" />
+              <a
+                href="mailto:rfp@samruddhigroup.in"
+                style={{ color: '#C2D1C8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', transition: 'color var(--transition-fast)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#F0A70A'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#C2D1C8'; }}
+              >
+                <Mail size={13} color="#F0A70A" />
                 <span>rfp@samruddhigroup.in</span>
               </a>
             </div>
@@ -173,7 +192,7 @@ export const Footer = () => {
         {/* Bottom Copyright Bar */}
         <div
           style={{
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            borderTop: '1px solid #16261D',
             paddingTop: '1rem',
             display: 'flex',
             flexWrap: 'wrap',
@@ -181,7 +200,7 @@ export const Footer = () => {
             alignItems: 'center',
             gap: '0.75rem',
             fontSize: '0.76rem',
-            color: '#7D8DA3',
+            color: '#6C8074',
           }}
         >
           <div>© {CURRENT_YEAR} Samruddhi Group. Commercial Kitchens & Catering Services, Bengaluru.</div>
@@ -192,11 +211,14 @@ export const Footer = () => {
               style={{
                 background: 'none',
                 border: 'none',
-                color: '#7D8DA3',
+                color: '#6C8074',
                 cursor: 'pointer',
                 fontSize: '0.76rem',
                 textDecoration: 'underline',
+                transition: 'color var(--transition-fast)',
               }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = '#F0A70A'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = '#6C8074'; }}
             >
               Privacy Policy & Terms
             </button>

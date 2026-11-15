@@ -54,7 +54,7 @@ export const QualityHygiene = () => {
   ];
 
   return (
-    <section id="hygiene" style={{ backgroundColor: 'var(--color-canvas)' }}>
+    <section id="hygiene" style={{ backgroundColor: 'transparent' }}>
       {/* Band 1: Crisp Architectural Header */}
       <div className="page-hero-band" style={{ marginBottom: 0 }}>
         <div className="container-wide" style={{ textAlign: 'center', maxWidth: '800px' }}>
@@ -81,11 +81,11 @@ export const QualityHygiene = () => {
         </div>
       </div>
 
-      {/* Band 2: Elevated Midnight Navy Core Safety Pillars */}
+      {/* Band 2: Elevated Core Safety Pillars */}
       <div
         style={{
-          backgroundColor: '#0F1622',
-          color: '#F1F5F9',
+          backgroundColor: 'rgba(10, 19, 13, 0.45)',
+          color: '#F7FAF8',
           borderBottom: '1px solid var(--color-border)',
           padding: 'clamp(3rem, 5.5vw, 4.5rem) 0',
         }}
@@ -101,7 +101,7 @@ export const QualityHygiene = () => {
             {foundations.map((item, idx) => (
               <div
                 key={idx}
-                className="card-dark-showcase"
+                className={`card-dark-showcase reveal-on-scroll reveal-delay-${(idx % 3) + 1}`}
                 style={{
                   '--stagger': idx,
                   padding: '1.85rem',
@@ -116,7 +116,7 @@ export const QualityHygiene = () => {
                     width: '44px',
                     height: '44px',
                     borderRadius: 'var(--radius-sm)',
-                    backgroundColor: 'rgba(224, 145, 50, 0.14)',
+                    backgroundColor: 'rgba(240, 167, 10, 0.14)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -129,7 +129,7 @@ export const QualityHygiene = () => {
                   style={{
                     fontFamily: 'var(--font-heading)',
                     fontSize: '1.22rem',
-                    color: '#F1F5F9',
+                    color: '#F7FAF8',
                     lineHeight: 1.3,
                     margin: 0,
                   }}
@@ -137,7 +137,7 @@ export const QualityHygiene = () => {
                   {item.title}
                 </h2>
 
-                <p style={{ fontSize: '0.9rem', color: '#94A3B8', lineHeight: 1.62, margin: 0 }}>
+                <p style={{ fontSize: '0.9rem', color: '#82998D', lineHeight: 1.62, margin: 0 }}>
                   {item.desc}
                 </p>
               </div>
@@ -146,10 +146,10 @@ export const QualityHygiene = () => {
         </div>
       </div>
 
-      {/* Band 3: Midnight Canvas QA Workflow & Certification Strip */}
+      {/* Band 3: QA Workflow & Certification Strip */}
       <div
         style={{
-          backgroundColor: '#0B111A',
+          backgroundColor: 'transparent',
           padding: 'clamp(3rem, 5vw, 4.25rem) 0 0 0',
         }}
       >
@@ -174,7 +174,7 @@ export const QualityHygiene = () => {
             {workflow.map((w, idx) => (
               <div
                 key={w.step}
-                className="card-showcase"
+                className={`card-showcase reveal-on-scroll reveal-delay-${(idx % 4) + 1}`}
                 style={{
                   '--stagger': idx,
                   padding: '1.5rem',
@@ -188,7 +188,7 @@ export const QualityHygiene = () => {
                     fontFamily: 'var(--font-heading)',
                     fontSize: '1.65rem',
                     fontWeight: 800,
-                    color: 'var(--color-terracotta)',
+                    color: 'var(--color-gold)',
                     lineHeight: 1,
                   }}
                 >
@@ -204,7 +204,7 @@ export const QualityHygiene = () => {
 
           {/* Elevated Light Certification & Audit Card */}
           <div
-            className="card-showcase"
+            className="card-showcase reveal-on-scroll reveal-scale"
             style={{
               '--stagger': 4,
               padding: 'clamp(1.5rem, 3vw, 2.25rem)',
@@ -239,11 +239,11 @@ export const QualityHygiene = () => {
                 </h3>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', fontSize: '0.84rem', color: 'var(--color-text-body)', fontWeight: 500 }}>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                    <Check size={15} color="#4ADE80" />
+                    <Check size={15} color="#10B981" />
                     License #11221334000542
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                    <Check size={15} color="#4ADE80" />
+                    <Check size={15} color="#10B981" />
                     Daily Microbiological & RO Lab Reports
                   </span>
                 </div>

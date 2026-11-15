@@ -31,7 +31,7 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
   const handleRequest = propOnRequestProposal || (() => openProposalModal('Corporate Catering'));
 
   return (
-    <section id="about" style={{ backgroundColor: 'var(--color-canvas)' }}>
+    <section id="about" style={{ backgroundColor: 'transparent' }}>
       {/* Architectural Header Band */}
       <div className="page-hero-band">
         <div className="container-wide" style={{ textAlign: 'center', maxWidth: '780px' }}>
@@ -71,7 +71,7 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
         >
           {/* Left: Central Commissary Infrastructure Card */}
           <div
-            className="card-showcase"
+            className="card-showcase reveal-on-scroll"
             style={{
               '--stagger': 0,
               padding: 'clamp(1.75rem, 3vw, 2.5rem)',
@@ -136,12 +136,12 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
           {/* Right: Vision & Mission Stacked Cards */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div
-              className="card-showcase"
+              className="card-showcase reveal-on-scroll reveal-delay-1"
               style={{
                 '--stagger': 1,
-                background: 'linear-gradient(145deg, #172336 0%, #101927 100%)',
-                borderColor: '#2B3E59',
-                color: '#F1F5F9',
+                background: 'linear-gradient(145deg, #102418 0%, #0A160F 100%)',
+                borderColor: '#1E3B2A',
+                color: '#F7FAF8',
                 padding: '2rem',
                 flex: 1,
                 display: 'flex',
@@ -150,22 +150,22 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.85rem' }}>
-                <Compass size={20} color="#E09132" />
-                <span style={{ fontSize: '0.76rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#E09132' }}>
+                <Compass size={20} color="#F0A70A" />
+                <span style={{ fontSize: '0.76rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#F0A70A' }}>
                   Our Vision
                 </span>
               </div>
-              <h3 style={{ fontSize: '1.35rem', color: '#F1F5F9', marginBottom: '0.65rem' }}>
+              <h3 style={{ fontSize: '1.35rem', color: '#F7FAF8', marginBottom: '0.65rem' }}>
                 South India's Benchmark for Institutional Hospitality
               </h3>
-              <p style={{ color: '#CBD5E1', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>
+              <p style={{ color: '#C2D1C8', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>
                 Setting the gold standard across industrial catering, modern campus food courts, and celebration venues by
                 uniting precision operations with warm culinary care.
               </p>
             </div>
 
             <div
-              className="card-showcase"
+              className="card-showcase reveal-on-scroll reveal-delay-2"
               style={{
                 '--stagger': 2,
                 padding: '2rem',
@@ -196,7 +196,7 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
         <div style={{ marginBottom: '3.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <span className="badge-pill" style={{ marginBottom: '0.75rem' }}>
-              <ShieldCheck size={13} color="var(--color-terracotta)" />
+              <ShieldCheck size={13} color="var(--color-gold)" />
               <span>Core Operational Standards</span>
             </span>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.6rem, 2.8vw, 2.15rem)' }}>
@@ -216,7 +216,7 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
               return (
                 <div
                   key={pillar.title}
-                  className="card-showcase"
+                  className={`card-showcase reveal-on-scroll reveal-delay-${(idx % 3) + 1}`}
                   style={{
                     '--stagger': idx,
                     padding: '1.65rem',
@@ -260,12 +260,12 @@ export const AboutSection = ({ onRequestProposal: propOnRequestProposal }) => {
         </div>
 
         {/* Bottom Architectural CTA */}
-        <div className="cta-band">
+        <div className="cta-band reveal-on-scroll">
           <div>
-            <h3 style={{ color: '#F1F5F9', fontSize: '1.45rem', marginBottom: '0.35rem' }}>
+            <h3 style={{ color: '#F7FAF8', fontSize: '1.45rem', marginBottom: '0.35rem' }}>
               Want to Audit Our Jigani Central Kitchen?
             </h3>
-            <p style={{ color: '#94A3B8', fontSize: '0.9rem', margin: 0 }}>
+            <p style={{ color: '#82998D', fontSize: '0.9rem', margin: 0 }}>
               Review our FSSAI hygiene workflows or schedule a facility walkthrough with our QA director.
             </p>
           </div>

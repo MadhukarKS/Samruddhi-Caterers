@@ -82,7 +82,7 @@ export const ServiceModal = ({
               position: 'absolute',
               top: '1rem',
               right: '1rem',
-              backgroundColor: 'rgba(15, 19, 24, 0.75)',
+              backgroundColor: 'rgba(6, 11, 8, 0.75)',
               border: '1px solid rgba(255, 255, 255, 0.3)',
               borderRadius: '50%',
               width: '36px',
@@ -101,15 +101,15 @@ export const ServiceModal = ({
           <div style={{ position: 'absolute', bottom: '1.5rem', left: '2rem', right: '2rem' }}>
             <span
               style={{
-                backgroundColor: 'rgba(224, 145, 50, 0.22)',
-                color: '#F4B668',
+                backgroundColor: 'rgba(240, 167, 10, 0.22)',
+                color: '#F0A70A',
                 padding: '0.25rem 0.75rem',
                 borderRadius: 'var(--radius-pill)',
                 fontSize: '0.72rem',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
-                border: '1px solid rgba(224, 145, 50, 0.45)',
+                border: '1px solid rgba(240, 167, 10, 0.45)',
                 display: 'inline-block',
                 marginBottom: '0.5rem',
               }}
