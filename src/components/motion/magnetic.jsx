@@ -1,0 +1,29 @@
+import { useRef } from 'react'
+import { gsap, useGSAP } from '@/lib/gsap.js'
+
+export function Magnetic({ children, strength = 0.35 }) {
+  const ref = useRef(null)
+
+  const { contextSafe } = useGSAP({ scope: ref })
+
+  const onMove = contextSafe((e) => {
+    const el = ref.current
+    const r = el.getBoundingClientRect()
+    gsap.to(el, {
+      x: (e.clientX - (r.left + r.width / 2)) * strength,
+      y: (e.clientY - (r.top + r.height / 2)) * strength,
+      duration: 0.6,
+      ease: 'power3.out',
+    })
+  })
+
+  const onLeave = contextSafe(() => {
+    gsap.to(ref.current, { x: 0, y: 0, duration: 1, ease: 'elastic.out(1, 0.35)' })
+  })
+
+  return (
+    <div ref={ref} onMouseMove={onMove} onMouseLeave={onLeave} className="inline-block">
+      {children}
+    </div>
+  )
+}
