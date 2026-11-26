@@ -10,7 +10,7 @@ import { Magnetic } from '@/components/motion/magnetic'
 
 const LINES = [
   { text: 'Nourishing', className: '' },
-  { text: 'trust,', className: 'italic text-saffron md:pl-[12vw]' },
+  { text: 'trust,', className: 'italic text-saffron md:pl-[8vw]' },
   { text: 'at every scale.', className: '' },
 ]
 
@@ -56,7 +56,7 @@ export function Hero() {
           scrollTrigger: { trigger: ref.current, start: 'top top', end: 'bottom top', scrub: true },
         })
         gsap.to('[data-hero-title]', {
-          yPercent: -30,
+          yPercent: -18,
           autoAlpha: 0.2,
           ease: 'none',
           scrollTrigger: { trigger: ref.current, start: 'top top', end: 'bottom top', scrub: true },
@@ -73,7 +73,7 @@ export function Hero() {
   )
 
   return (
-    <section ref={ref} id="top" className="relative h-svh min-h-[640px] overflow-hidden bg-ink text-cream">
+    <section ref={ref} id="top" className="relative h-svh min-h-[680px] md:min-h-[760px] overflow-hidden bg-ink text-cream">
       <div
         data-loader
         aria-hidden
@@ -108,27 +108,29 @@ export function Hero() {
       </div>
       <div className="grain absolute inset-0" />
 
-      <div className="relative flex h-full flex-col justify-end px-5 pb-8 md:px-10 md:pb-10">
+      <div className="relative flex h-full min-h-full flex-col justify-between px-5 pb-8 pt-24 md:px-10 md:pb-10 md:pt-28">
         <div
           data-hero-fade
-          className="absolute left-5 right-5 top-24 flex justify-between text-[11px] uppercase tracking-[0.25em] text-cream/70 md:left-10 md:right-10 md:top-28"
+          className="flex items-center justify-between text-[11px] uppercase tracking-[0.25em] text-cream/70"
         >
           <span>FSSAI Level 5 · ISO 22000:2018</span>
           <span className="hidden md:inline">Jigani Central Commissary · Bengaluru</span>
         </div>
 
-        <h1 data-hero-title className="font-serif text-[15vw] leading-[0.88] tracking-[-0.02em] md:text-[11.5vw]">
-          <span className="sr-only">Nourishing trust, at every scale.</span>
-          {LINES.map((l) => (
-            <span key={l.text} aria-hidden className="block overflow-hidden pb-[0.06em]">
-              <span data-hero-line data-reveal className={`block ${l.className}`}>
-                {l.text}
+        <div className="my-auto py-4 md:py-6 lg:py-8">
+          <h1 data-hero-title className="font-serif text-[13vw] leading-[0.92] tracking-[-0.02em] sm:text-[10.5vw] md:text-[8.2vw] lg:text-[7vw] xl:text-[6.4vw]">
+            <span className="sr-only">Nourishing trust, at every scale.</span>
+            {LINES.map((l) => (
+              <span key={l.text} aria-hidden className="block overflow-hidden pb-[0.06em]">
+                <span data-hero-line data-reveal className={`block ${l.className}`}>
+                  {l.text}
+                </span>
               </span>
-            </span>
-          ))}
-        </h1>
+            ))}
+          </h1>
+        </div>
 
-        <div className="mt-8 grid items-end gap-8 border-t border-cream/20 pt-6 md:mt-10 md:grid-cols-12">
+        <div className="grid items-end gap-6 border-t border-cream/20 pt-5 md:grid-cols-12 md:gap-8 md:pt-6">
           <p data-hero-fade className="max-w-md text-pretty text-sm leading-relaxed text-cream/80 md:col-span-5 md:text-base">
             {"Bengaluru's industrial, corporate and celebration catering partner — over 50,000 meals a day from a single, audited central kitchen, running 24/7."}
           </p>

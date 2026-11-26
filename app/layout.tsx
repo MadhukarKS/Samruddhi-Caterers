@@ -16,14 +16,43 @@ export const metadata: Metadata = {
   title: 'Samruddhi Group — Nourishing Trust, Delivering Excellence',
   description:
     "Bengaluru's premier industrial, corporate, institutional and event catering group. 50,000+ meals daily from an ISO 22000 & FSSAI audited central commissary in Jigani.",
-  generator: 'v0.app',
   icons: {
     icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
     ],
-    apple: '/apple-icon.png',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+  },
+  manifest: '/site.webmanifest',
+  openGraph: {
+    title: 'Samruddhi Group — Nourishing Trust, Delivering Excellence',
+    description:
+      "Bengaluru's premier industrial, corporate, institutional and event catering group. 50,000+ meals daily from an ISO 22000 & FSSAI audited central commissary in Jigani.",
+    url: 'https://samruddhigroup.in',
+    siteName: 'Samruddhi Group',
+    images: [
+      {
+        url: '/images/samruddhi-logo.png',
+        width: 1024,
+        height: 935,
+        alt: 'Samruddhi Group Official Emblem',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Samruddhi Group — Nourishing Trust, Delivering Excellence',
+    description:
+      "Bengaluru's premier industrial, corporate, institutional and event catering group.",
+    images: ['/images/samruddhi-logo.png'],
   },
 }
 

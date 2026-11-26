@@ -17,9 +17,14 @@ export function Contact() {
       const mm = gsap.matchMedia()
       mm.add(MOTION_OK, () => {
         gsap.from('[data-wordmark]', {
-          yPercent: 60,
-          ease: 'none',
-          scrollTrigger: { trigger: '[data-wordmark]', start: 'top bottom', end: 'bottom bottom', scrub: true },
+          yPercent: 15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: ref.current,
+            start: 'bottom 120%',
+            end: 'bottom bottom',
+            scrub: 1,
+          },
         })
         gsap.to('[data-orb]', {
           x: 'random(-60, 60)',
@@ -121,17 +126,17 @@ export function Contact() {
         </div>
       </div>
 
-      <div className="relative overflow-hidden px-3">
+      <div className="relative px-3 pt-6 pb-2 md:pt-10 md:pb-4 overflow-hidden">
         <p
           data-wordmark
           aria-hidden
-          className="select-none text-center font-serif text-[23vw] leading-[0.75] tracking-[-0.04em] text-cream/95"
+          className="select-none text-center font-serif text-[19vw] leading-none tracking-[-0.03em] text-cream/95 pb-2"
         >
           Samruddhi
         </p>
       </div>
 
-      <div className="relative flex flex-col gap-2 px-5 py-6 text-xs text-cream/50 md:flex-row md:justify-between md:px-10">
+      <div className="relative flex flex-col gap-2 border-t border-cream/10 px-5 py-6 text-xs text-cream/50 md:flex-row md:justify-between md:px-10">
         <p>{`\u00A9 ${new Date().getFullYear()} Samruddhi Group. All rights reserved.`}</p>
         <p>Nourishing trust, delivering excellence — since 2004.</p>
       </div>

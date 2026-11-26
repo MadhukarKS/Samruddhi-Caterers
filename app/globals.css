@@ -78,7 +78,7 @@
     -webkit-font-smoothing: antialiased;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans overflow-x-hidden;
   }
   ::selection {
     background: var(--saffron);
@@ -113,4 +113,19 @@
 .link-sweep:focus-visible {
   background-size: 100% 1px;
   background-position: 0% 100%;
+}
+
+/* Suppress Next.js dev indicator badge and overlay */
+nextjs-portal,
+[data-nextjs-dev-indicator],
+[data-nextjs-toast],
+#next-dev-tools,
+.next-badge,
+div[data-nextjs-dev-tools-button],
+div[data-nextjs-route-type],
+aside[aria-label="Next.js Dev Tools"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
